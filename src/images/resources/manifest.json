@@ -2,13 +2,7 @@
 	"appID": "89342e918022497d8edccf8e090b15ec",
 	"shortName": "imagesResources",
 	"title": "Images: Resources",
-	"description": "Image resources",
-	"doc": "http://doc.gameclosure.com/example/images-resource/",
-	"group": "examples",
 	"icons": {},
-	"resources": {},
-	"targets": {},
-	"groups": {},
 	"studio": {
 		"name": "Your Studio Name",
 		"domain": "studio.example.com",
@@ -30,6 +24,12 @@
 		"tapjoyKey": "",
 		"flurryKey": ""
 	},
+	"description": "Image resources",
+	"doc": "http://doc.gameclosure.com/example/images-resource/",
+	"group": "examples",
+	"resources": {},
+	"targets": {},
+	"groups": {},
 	"preload": {},
 	"sdkVersion": "dev-0.1.0"
 }

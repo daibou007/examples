@@ -2,12 +2,7 @@
 	"appID": "91abb12b65cc4e5d8c7e1b8569142b4a",
 	"shortName": "viewsBasic",
 	"title": "Views: Basic",
-	"group": "examples",
-	"description": "A basic view",
-	"doc": "http://doc.gameclosure.com/example/view-basic/",
 	"icons": {},
-	"resources": {},
-	"targets": {},
 	"studio": {
 		"name": "Cool Kid Studios",
 		"domain": "cool.kids.com",
@@ -28,5 +23,11 @@
 		"tapjoyId": "",
 		"tapjoyKey": "",
 		"flurryKey": ""
-	}
+	},
+	"group": "examples",
+	"description": "A basic view",
+	"doc": "http://doc.gameclosure.com/example/view-basic/",
+	"resources": {},
+	"targets": {},
+	"sdkVersion": "dev-0.1.0"
 }

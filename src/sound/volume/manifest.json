@@ -2,12 +2,7 @@
 	"appID": "87038edc4f7140b09fdd4c581cf11f02",
 	"shortName": "soundVolume",
 	"title": "Sound: Volume",
-	"group": "examples",
-	"description": "Setting the sound volume",
 	"icons": {},
-	"resources": {},
-	"targets": {},
-	"doc": "http://doc.gameclosure.com/example/sound-volume/",
 	"studio": {
 		"name": "Your Studio Name",
 		"domain": "studio.example.com",
@@ -29,6 +24,11 @@
 		"tapjoyKey": "",
 		"flurryKey": ""
 	},
+	"group": "examples",
+	"description": "Setting the sound volume",
+	"resources": {},
+	"targets": {},
+	"doc": "http://doc.gameclosure.com/example/sound-volume/",
 	"preload": {},
 	"sdkVersion": "dev-0.1.0"
 }

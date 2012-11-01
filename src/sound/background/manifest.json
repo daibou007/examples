@@ -2,12 +2,7 @@
 	"appID": "6cb644c4ee334e2c85fc1dabb552aea8",
 	"shortName": "soundBackground",
 	"title": "Sound: Background",
-	"group": "examples",
-	"description": "Playing a background sound",
 	"icons": {},
-	"resources": {},
-	"targets": {},
-	"doc": "http://doc.gameclosure.com/example/sound-background/",
 	"studio": {
 		"name": "Your Studio Name",
 		"domain": "studio.example.com",
@@ -29,6 +24,11 @@
 		"tapjoyKey": "",
 		"flurryKey": ""
 	},
+	"group": "examples",
+	"description": "Playing a background sound",
+	"resources": {},
+	"targets": {},
+	"doc": "http://doc.gameclosure.com/example/sound-background/",
 	"preload": {},
 	"sdkVersion": "dev-0.1.0"
 }

@@ -2,13 +2,7 @@
 	"appID": "ddccbf6abf1a47b1bf9e8c22eedd6974",
 	"shortName": "viewsNested",
 	"title": "Views: Nested",
-	"group": "examples",
-	"description": "Nesting views",
-	"doc": "http://doc.gameclosure.com/example/view-nested/",
 	"icons": {},
-	"resources": {},
-	"targets": {},
-	"groups": {},
 	"studio": {
 		"name": "Cool Kid Studios",
 		"domain": "cool.kids.com",
@@ -29,5 +23,11 @@
 		"tapjoyId": "",
 		"tapjoyKey": "",
 		"flurryKey": ""
-	}
+	},
+	"group": "examples",
+	"description": "Nesting views",
+	"doc": "http://doc.gameclosure.com/example/view-nested/",
+	"resources": {},
+	"targets": {},
+	"groups": {}
 }

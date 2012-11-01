@@ -2,12 +2,7 @@
 	"appID": "66ae5e1a8e6245daac5232b5251d0198",
 	"shortName": "soundMote",
 	"title": "Sound: Mute",
-	"group": "examples",
-	"description": "Muting sounds",
 	"icons": {},
-	"resources": {},
-	"targets": {},
-	"doc": "http://doc.gameclosure.com/example/sound-mute/",
 	"studio": {
 		"name": "Your Studio Name",
 		"domain": "studio.example.com",
@@ -29,6 +24,11 @@
 		"tapjoyKey": "",
 		"flurryKey": ""
 	},
+	"group": "examples",
+	"description": "Muting sounds",
+	"resources": {},
+	"targets": {},
+	"doc": "http://doc.gameclosure.com/example/sound-mute/",
 	"preload": {},
 	"sdkVersion": "dev-0.1.0"
 }

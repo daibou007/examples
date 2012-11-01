@@ -2,13 +2,7 @@
 	"appID": "e0a86cd9a9604ac4872dfc7f7431d1da",
 	"shortName": "fontsTTF",
 	"title": "Fonts: TTF Fonts",
-	"group": "examples",
-	"description": "TTF fonts",
-	"doc": "http://doc.gameclosure.com/example/fonts-ttf/",
 	"icons": {},
-	"resources": {},
-	"targets": {},
-	"groups": {},
 	"studio": {
 		"name": "Your Studio Name",
 		"domain": "studio.example.com",
@@ -30,6 +24,12 @@
 		"tapjoyKey": "",
 		"flurryKey": ""
 	},
+	"group": "examples",
+	"description": "TTF fonts",
+	"doc": "http://doc.gameclosure.com/example/fonts-ttf/",
+	"resources": {},
+	"targets": {},
+	"groups": {},
 	"preload": {},
 	"sdkVersion": "dev-0.1.0"
 }
