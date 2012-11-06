@@ -1,3 +1,4 @@
 src/*/*/build
 src/*/*/sdk
 .DS_Store
+html/example
