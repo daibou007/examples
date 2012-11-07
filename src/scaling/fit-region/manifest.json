@@ -1,0 +1,35 @@
+{
+	"appID": "40ed7ce06c524397bbc5200694ed0215",
+	"shortName": "scalingFitRegion",
+	"title": "Scaling: Fit Region",
+	"description": "Scaling example: Fit region",
+  "doc": "http://doc.gameclosure.com/example/scaling-fit-region/",
+  "group": "examples",
+	"icons": {},
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"studio": {
+		"name": "Your Studio Name",
+		"domain": "studio.example.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"android": {
+		"versionCode": 1,
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": "",
+		"entryPoint": "runtimeNative.launchClient",
+		"tapjoyDaily": {}
+	},
+	"ios": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": ""
+	},
+	"preload": {},
+	"sdkVersion": "dev-0.1.0"
+}
