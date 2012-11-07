@@ -4,7 +4,7 @@ var path = require('path'),
 
 //directly import the basil register command, at least until a proper module is set up
 var basil = {
-	register: require(path.join(__dirname, '../../src/register/index')).register
+	register: require(path.join(__dirname, '../..', 'src/register/index')).register
 };
 
 
