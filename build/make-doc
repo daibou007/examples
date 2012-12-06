@@ -1,12 +1,18 @@
 #!/usr/bin/env bash
 
 PROJECT_ROOT=$(cd -P $(dirname "$0") && cd .. && pwd)
+TEMPLATE="$PROJECT_ROOT/build/template.html"
 SRC_ROOT="$PROJECT_ROOT/src"
 OUT_ROOT="$PROJECT_ROOT/html"
-DOCCO_TEMPLATE="$PROJECT_ROOT/build/docco-template.html"
+OUT_EXAMPLE="$OUT_ROOT/example"
 
-## check for docco dependencies
+## check for docco and dependencies
 ##
+if ! which docco > /dev/null; then
+		echo "Error: Requires docco to build code examples."
+		exit 1
+fi
+
 if ! which npm > /dev/null; then
 		echo "Error: Docco requires npm to build code examples."
 		exit 1
@@ -16,6 +22,7 @@ if ! which pygmentize > /dev/null; then
 		echo "Error: Docco requires python-pygments to build code examples."
 		exit 1
 fi
+
 
 function convert_source {
 		while read path; do
@@ -27,7 +34,7 @@ function convert_source {
 				out_path=$(echo "${out_path%-src-Application}" | tr '[:upper:]' '[:lower]')
 				
 				#generate annotated html with docco
-				if docco --template "$DOCCO_TEMPLATE" --output "$OUT_ROOT/example/$out_path" "$SRC_ROOT/$rel_path" &>/dev/null; then
+				if docco --template "$TEMPLATE" --output "$OUT_ROOT/example/$out_path" "$SRC_ROOT/$rel_path" &>/dev/null; then
 						#rename Application.html to index.html, all classes should be in single file
 						mv "$OUT_ROOT/example/$out_path/Application.html" "$OUT_ROOT/example/$out_path/index.html"
 						echo "  * $OUT_ROOT/example/$out_path"
@@ -36,11 +43,11 @@ function convert_source {
 						exit 1
 				fi
 
-				#copy over screenshots in img directory
+				#copy over the assets in a project's doc directory
 				local example_path="$SRC_ROOT/$rel_path"
 				example_path="${example_path%/src/Application.js}"
-				if [ -d "$example_path/img" ]; then
-						cp -a "$example_path/img" "$OUT_ROOT/example/$out_path/"
+				if [ -d "$example_path/doc" ]; then
+						cp -a "$example_path/doc" "$OUT_ROOT/example/$out_path/"
 				fi
 
 				#remove the css file docco copies over, only reference the one in the template
@@ -50,11 +57,15 @@ function convert_source {
 		done < <(find "$SRC_ROOT" -type f -name '*.js' | grep -v ".*/sdk/.*" | grep -v ".*/build/.*")
 }
 
-if [ -d "$OUT_ROOT/example" ]; then
-		rm -rf "$OUT_ROOT/example"
+## clean slate
+##
+if [ -d "$OUT_EXAMPLE" ]; then
+		rm -rf "$OUT_EXAMPLE"
 fi
 
-mkdir -p "$OUT_ROOT/example"
+mkdir -p "$OUT_EXAMPLE"
 
+## and away we go ...
+##
 echo "Building docs ..."
 convert_source
