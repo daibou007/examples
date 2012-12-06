@@ -7,11 +7,9 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./include/fav.png">
-		
+    <link rel="shortcut icon" href="http://doc.gameclosure.com/include/fav.png">
     <link rel="stylesheet" href="http://doc.gameclosure.com/include/bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" href="../../include/docco.css">
-		
+    <link rel="stylesheet" href="http://doc.gameclosure.com/include/docco.css">
     <!--<link rel="stylesheet" href="./include/style.css">-->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Puritan:400,700">
     <meta name="description" content="Examples using the Game Closure SDK.">
@@ -39,7 +37,7 @@
     </style>
   </head>
   <body>
-		<!--navbar-->
+    <!--navbar-->
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -118,53 +116,52 @@
     </div><!--/navbar-->
 
     <div class="container-fluid">
-			<div id="background"></div>
-			<% if (sources.length > 1) { %>
-				<div id="jump_to">
-					Jump To &hellip;
-					<div id="jump_wrapper">
-						<div id="jump_page">
-							<% for (var i=0, l=sources.length; i<l; i++) { %>
-								 <% var source = sources[i]; %>
-								 <a class="source" href="<%= path.basename(destination(source)) %>">
-									 <%= path.basename(source) %>
-								 </a>
-								 <% } %>
-						</div>
-					</div>
-				</div>
-			<% } %>
-			<table cellpadding="0" cellspacing="0">
-				<thead>
-					<tr>
-						<th class="docs">
-						</th>
-						<th class="code">
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<% for (var i=0, l=sections.length; i<l; i++) { %>
-						 <% var section = sections[i]; %>
-						 <tr id="section-<%= i + 1 %>">
-							 <td class="docs">
-								 <div class="pilwrap">
-									 <a class="pilcrow" href="#section-<%= i + 1 %>">&#182;</a>
-								 </div>
-								 <%= section.docsHtml %>
-							 </td>
-							 <td class="code">
-								 <%= section.codeHtml %>
-							 </td>
-						 </tr>
-					 <% } %>
-				</tbody>
-			</table>
-			
+      <div id="background"></div>
+      <% if (sources.length > 1) { %>
+        <div id="jump_to">
+          Jump To &hellip;
+          <div id="jump_wrapper">
+            <div id="jump_page">
+              <% for (var i=0, l=sources.length; i<l; i++) { %>
+                 <% var source = sources[i]; %>
+                 <a class="source" href="<%= path.basename(destination(source)) %>">
+                   <%= path.basename(source) %>
+                 </a>
+                 <% } %>
+            </div>
+          </div>
+        </div>
+      <% } %>
+      <table cellpadding="0" cellspacing="0">
+        <thead>
+          <tr>
+            <th class="docs">
+            </th>
+            <th class="code">
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (var i=0, l=sections.length; i<l; i++) { %>
+             <% var section = sections[i]; %>
+             <tr id="section-<%= i + 1 %>">
+               <td class="docs">
+                 <div class="pilwrap">
+                   <a class="pilcrow" href="#section-<%= i + 1 %>">&#182;</a>
+                 </div>
+                 <%= section.docsHtml %>
+               </td>
+               <td class="code">
+                 <%= section.codeHtml %>
+               </td>
+             </tr>
+           <% } %>
+        </tbody>
+      </table>
+      
     </div> <!-- /container-fluid -->
 
-
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="http://doc.gameclosure.com/include/bootstrap/js/bootstrap.js"></script>
     <script>
     var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];

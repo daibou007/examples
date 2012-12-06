@@ -1,4 +1,4 @@
 src/*/*/build
 src/*/*/sdk
+html/
 .DS_Store
-html/example
