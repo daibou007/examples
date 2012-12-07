@@ -1,84 +1,79 @@
-//# Using 9-Slice image scaling
-//This file demonstrates how to use 9-slice.
-//This example requires an image in your resources directory and renders it to the screen.
-//In this example the image is located in `resources/images/border.png`.
+//## 9-Slice Image Scaling
+//Given the following image:
+//<img src="./doc/button.png" alt="button image" class="screenshot" style="display:block;width:200px;">
 
-//Import device to get the width of the screen.
+//We can scale it to the dimensions of the device (with a slight centering for visibility) so
+//that the rounded corners maintain their integrity while the middle section is scaled out.
+//This way buttons can maintain their style despite the dimensions of the device.
+
+//Here, the image is sliced and scaled out, and a label is given to the button by assigning a
+//`TextView` as a child. The child view’s dimensions is set to the width and height of the middle
+//section of the `ImageScaleView`, and set to a very light blue so you can see it in the example
+//below. The debugging flag of the `ImageScaleView` is set to true so you can see how the slices
+//are sectioned off.
+
+
 import device;
-//Import the ImageScaleView class which allows us to apply 9-slice scaling to an image.
-import ui.ImageScaleView as ImageScaleView;
+import ui.ImageScaleView;
+import ui.TextView;
 
-//## Class: Application
-exports = Class(GC.Application, function() {
-	//Set the default settings.
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
+var offset_pos = 20,
+    offset_slice_x = 40,
+    offset_slice_y = 50;
 
-	this.initUI = function() {
-		//Initialize the ui, give the background a gray color.
-		this.view.updateOpts({backgroundColor: "#808080"});
+exports = Class(GC.Application, function () {
+  this.initUI = function () {
+    
+    var imagescaleview = new ui.ImageScaleView({
+      superview: this.view,
+      x: offset_pos / 2,
+      y: offset_pos / 2,
+      width: device.width - offset_pos,
+      height: device.height - offset_pos,
+      image: 'resources/images/button.png',
+      scaleMethod: '9slice',
+      debug: true,
+      sourceSlices: {
+        horizontal: {
+          left: offset_slice_x,
+          center: offset_slice_x,
+          right: offset_slice_x
+        },
+        vertical: {
+          top: offset_slice_y,
+          middle: offset_slice_y,
+          bottom: offset_slice_y
+        }
+      },
+      destSlices: {
+        horizontal: {
+          left: offset_slice_x,
+          right: offset_slice_x
+        },
+        vertical: {
+          top: offset_slice_y,
+          bottom: offset_slice_y
+        }
+      }
+    });
 
-		// The device width is used to center the image.
-		var imagescaleview0 = new ImageScaleView({
-			superview: this.view,
-			x: (device.width - 200) / 2,
-			y: 10,
-			width: 200,
-			height: 100,
-			image: "resources/images/border.png",
-			scaleMethod: "9slice",
-			// These are the slices from the source image...
-			//
-			// If the sum of the slices in a direction doesn't match the image size
-			// of that given direction then the slice size is scaled, for example:
-			//
-			// The image has a width of 120 pixels,
-			// the horizontal slices are 50, 60 and 70
-			// then the slices are scaled with: 120 / (50 + 60 + 70)
-			sourceSlices: {
-				horizontal: {left: 40, center: 120, right: 40},
-				vertical: {top: 40, middle: 120, bottom: 40}
-			},
-			// These are the destination slices...
-			//
-			// If the images width is larger then the sum of the horizontal
-			// slices then the rest value is filled with the center slice.
-			//
-			// If the sum of the horizontal slices exceeds the width then
-			// the slices are scaled to fit and no center is used.
-			destSlices: {
-				horizontal: {left: 15, right: 15},
-				vertical: {top: 15, bottom: 15}
-			}
-		});
-
-		// The line weight can be controlled by changing the destination slices:
-		var imagescaleview1 = new ImageScaleView({
-			superview: this.view,
-			x: (device.width - 200) / 2,
-			y: 120,
-			width: 200,
-			height: 100,
-			image: "resources/images/border.png",
-			scaleMethod: "9slice",
-			sourceSlices: {
-				horizontal: {left: 40, center: 120, right: 40},
-				vertical: {top: 40, middle: 120, bottom: 40}
-			},
-			destSlices: {
-				horizontal: {left: 30, right: 30},
-				vertical: {top: 30, bottom: 30}
-			}
-		});
-	};
-
-	this.launchUI = function () {};
+    imagescaleview.on('InputSelect', function () {
+      console.log("You clicked the big button!");
+    });
+    
+    var text = new ui.TextView({
+      superview: imagescaleview,
+      backgroundColor: 'rgba(0,0,255,0.2)', //transparent blue
+      x: offset_slice_x,
+      y: offset_slice_y,
+      width: imagescaleview.style.width - (offset_slice_x * 2),
+      height: imagescaleview.style.height - (offset_slice_y * 2),
+      text: "Click Me!",
+      fontSize: 32
+    });
+  };
 });
 
-//The output should look like this screenshot:
-//<img src="screenshot.png" alt="a book screenshot" class="screenshot">
+//Run this code as the `Application.js` file in your project, and you should see something
+//like this in the simulator:
+//<img src="./doc/screenshot1.png" alt="9-slice screenshot" class="screenshot">
