@@ -1,12 +1,12 @@
 {
-	"appID": "ddccbf6abf1a47b1bf9e8c22eedd6974",
-	"shortName": "viewsNested",
-	"title": "Views: Nested",
+	"appID": "4f133963e2ed4d73a1c460d2bb5a3d31",
+	"shortName": "style",
+	"title": "Views: Update the Style",
 	"icons": {},
 	"studio": {
-		"name": "Cool Kid Studios",
-		"domain": "cool.kids.com",
-		"stagingDomain": "staging.kids.com"
+		"name": "Your Studio Name",
+		"domain": "studio.example.com",
+		"stagingDomain": "staging.example.com"
 	},
 	"supportedOrientations": [
 		"portrait"
@@ -25,9 +25,10 @@
 		"flurryKey": ""
 	},
 	"group": "examples",
-	"description": "Nesting views",
-	"doc": "http://doc.gameclosure.com/example/views-nested/",
+  "description": "Updating the style of a View.",
+  "doc": "http://doc.gameclosure.com/example/views-style/"
 	"resources": {},
 	"targets": {},
-	"groups": {}
+	"groups": {},
+	"preload": {}
 }

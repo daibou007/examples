@@ -1,56 +1,45 @@
 //## Nesting views
-//This file demonstrates the nesting of views.
+//This file demonstrates the nesting of [views](http://doc.gameclosure.com/api/ui-view.html).
+//Create two rectangles, one red and blue. The red rectangle is displayed in front of the blue by modifying its `zIndex` property.
 
+//Import information about the device.
+import device;
 //Import ui.View class.
 import ui.View as View;
 
 //## Class: Application
-exports = Class(GC.Application, function() {
-
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
-	this.initUI = function() {
-		var nestedbox = new NestedBox({
-			superview: this.view,
-			backgroundColor: "#008800",
-			x: 20,
-			y: 20,
-			width: 140,
-			height: 140
-		});
-	};
-
-	this.launchUI = function () {};
+exports = Class(GC.Application, function () {
+  this.initUI = function () {
+    var doublebox = new DoubleBox();
+    this.view.addSubview(doublebox);
+  };
 });
 
-
-//## Class: NestedBox
-var NestedBox = Class(View, function(supr) {
-	// Called before the first render of the view
-	this.buildView = function () {
-		var redbox = new View({
-			superview: this,
-			x: 10,
-			y: 10,
-			width: 100,
-			height: 100,
-			backgroundColor: '#FF0000',
-			zIndex: 1
-		});
-
-		var bluebox = new View({
-			superview: this,
-			x: 30,
-			y: 30,
-			width: 100,
-			height: 100,
-			backgroundColor: '#0000FF'
-		});
-	};
+//## Class: DoubleBox
+var DoubleBox = Class(View, function (supr) {
+  //Called before the first render of the view.
+  this.buildView = function () {
+		//Create a View with a red background color.
+    var redbox = new View({
+      superview: this,
+      x: 0,
+      y: 0,
+      width: device.width / 2,
+      height: device.height / 2,
+      backgroundColor: '#f00',
+      zIndex: 1
+    }); 
+		//Create a View with a blue background color.
+    var bluebox = new View({
+      superview: this,
+      x: 100,
+      y: 100,
+      width: device.width / 2,
+      height: device.height / 2,
+      backgroundColor: '#00f'
+    });
+  };
 });
+
+//Load this code as the `Application.js` file in your project, run the simulator, and you should see something like this:
+//<img src="./doc/screenshot1.png" alt="nested views screenshot" class="screenshot">
