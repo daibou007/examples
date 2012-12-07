@@ -1,5 +1,8 @@
 //# A Basic List
-//This example shows how to display a list of items.
+//Displaying a list of items requires the coordinated use of three classes: `ui.widget.ListView`,
+//`ui.widget.CellView`, and `GCDataSource`. There are components that handle some of these for you,
+//but to understand how they work together, we’ll display a list of arbitrary data that we can
+//scroll and click.
 
 //Import device to get the screen size. 
 import device;
@@ -68,6 +71,13 @@ var FilmCell = Class(Cell, function (supr) {
 		});
 	};
 
+	this.buildView = function () {
+    this._textview.updateOpts({
+      width: this.style.width,
+      height: this.style.height
+    });
+  };
+	
 	// Called when a cell is put on screen.
 	// We'll use it to update our TextView child.
 	this.setData = function (data) {
@@ -104,3 +114,8 @@ var scifiFilms = [
 	{title: 'Godzilla', year: 1954},
 	{title: 'Mad Max', year: 1979}
 ];
+
+//Run this code in the simulator, and you should see something like the following screenshot.
+//You can drag the list up and down, but not right or left. When you click on a film title, it
+//will turn red and output its title in the debugging console.
+//<img src="./doc/screenshot1.png" alt="listview screenshot" class="screenshot">
