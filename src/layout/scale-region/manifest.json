@@ -1,9 +1,9 @@
 {
 	"appID": "40ed7ce06c524397bbc5200694ed0215",
-	"shortName": "scalingFitRegion",
-	"title": "Scaling: Fit Region",
-	"description": "Scaling example: Fit region",
-  "doc": "http://doc.gameclosure.com/example/scaling-fit-region/",
+	"shortName": "layoutScaleRegion",
+	"title": "Layout: Scale Region",
+	"description": "Scale to fit.",
+  "doc": "http://doc.gameclosure.com/example/layout-scale-region/",
   "group": "examples",
 	"icons": {},
 	"resources": {},
