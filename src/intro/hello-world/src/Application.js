@@ -19,9 +19,12 @@ exports = Class(GC.Application, function () {
 	this.initUI = function () {
 		//Create a new TextView
 		var textview = new TextView({
-			superview: this.view, //Once attached to the view hierarchy it is a part of the scene graph and will be rendered.
-			layout: "box", //The layout system is explained in detail in the [Designing User Interfaces Guide](http://doc.gameclosure.com/guide/designing-user-interfaces.html).
-			text: "Hello, world!", //The text to display.
+			//Once attached to the view hierarchy it is a part of the scene graph and will be rendered.
+			superview: this.view,
+			//The layout system is explained in detail in the [Designing User Interfaces Guide](http://doc.gameclosure.com/guide/designing-user-interfaces.html).
+			layout: "box",
+			//The text to display.
+			text: "Hello, world!",
 			color: "white"
 		});
 	};
