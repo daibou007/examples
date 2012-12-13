@@ -1,5 +1,4 @@
-//## Rendering to a buffer
-
+//## Rendering to a Buffer
 //This example shows how to create a buffer, rendering to that buffer
 //and displaying the buffer on the screen.
 //Note: Buffers exceeding the size of 64k pixels will not work on HTC model phones.

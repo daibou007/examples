@@ -1,7 +1,7 @@
 {
 	"appID": "7fe418db7a74431ab5b515bbf568e590",
-	"shortName": "renderingBuffers",
-	"title": "Rendering: Buffers",
+	"shortName": "advRenderingBuffers",
+	"title": "Advanced Rendering: Buffers",
 	"icons": {},
 	"studio": {
 		"name": "Your Studio Name",
@@ -28,7 +28,7 @@
 	"targets": {},
 	"group": "examples",
 	"description": "Rendering in offscreen buffers",
-	"doc": "http://doc.gameclosure.com/example/rendering-buffers/",
+	"doc": "http://doc.gameclosure.com/example/adv-rendering-buffers/",
 	"preload": {},
 	"sdkVersion": "dev-0.1.0"
 }

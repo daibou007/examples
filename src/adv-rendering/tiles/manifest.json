@@ -1,7 +1,7 @@
 {
 	"appID": "1c4b60305f694fd6a02b5c300e67c688",
-	"shortName": "renderingTiles",
-	"title": "Rendering: Tiles",
+	"shortName": "advRenderingTiles",
+	"title": "Advanced Rendering: Tiles",
 	"icons": {},
 	"studio": {
 		"name": "Your Studio Name",
@@ -28,7 +28,7 @@
 	"targets": {},
 	"group": "examples",
 	"description": "Rendering tiles",
-	"doc": "http://doc.gameclosure.com/example/rendering-tiles/",
+	"doc": "http://doc.gameclosure.com/example/adv-rendering-tiles/",
 	"preload": {},
 	"sdkVersion": "dev-0.1.0"
 }
