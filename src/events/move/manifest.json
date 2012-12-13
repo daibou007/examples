@@ -1,7 +1,7 @@
 {
 	"appID": "a7f9f61286d34ad2a60867d6e1a5a008",
-	"shortName": "inputTrail",
-	"title": "Input: Trail",
+	"shortName": "eventsInputMove",
+	"title": "Events: Move Input",
 	"icons": {},
 	"studio": {
 		"name": "Cool Kid Studios",
@@ -26,7 +26,7 @@
 	},
 	"group": "examples",
 	"description": "Capturing a move event",
-	"doc": "http://doc.gameclosure.com/example/input-trail/",
+	"doc": "http://doc.gameclosure.com/example/events-move/",
 	"resources": {},
 	"targets": {},
 	"groups": {},

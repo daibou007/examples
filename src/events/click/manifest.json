@@ -1,12 +1,12 @@
 {
-	"appID": "28700d99c2674dd281c799d1e2d19994",
-	"shortName": "eventOnce",
-	"title": "Event: Subscribe Once",
+	"appID": "6304040653a04fa6bed9974896e0a843",
+	"shortName": "eventInputClick",
+	"title": "Events: Input Click",
 	"icons": {},
 	"studio": {
-		"name": "Your Studio Name",
-		"domain": "studio.example.com",
-		"stagingDomain": "staging.example.com"
+		"name": "Cool Kid Studios",
+		"domain": "cool.kids.com",
+		"stagingDomain": "staging.kids.com"
 	},
 	"supportedOrientations": [
 		"portrait"
@@ -25,11 +25,10 @@
 		"flurryKey": ""
 	},
 	"group": "examples",
-	"description": "Capturing an event once",
-	"doc": "http://doc.gameclosure.com/example/event-once/",
+	"description": "Handling click events",
+	"doc": "http://doc.gameclosure.com/example/events-click/",
 	"resources": {},
 	"targets": {},
 	"groups": {},
-	"preload": {},
 	"sdkVersion": "dev-0.1.0"
 }

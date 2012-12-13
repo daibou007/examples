@@ -1,7 +1,7 @@
 {
 	"appID": "f5e0494af35346ada483d1b6f813fbed",
-	"shortName": "inputOut",
-	"title": "Input: Out",
+	"shortName": "eventsInputOut",
+	"title": "Events: Input Out",
 	"icons": {},
 	"studio": {
 		"name": "Cool Kid Studios",
@@ -26,7 +26,7 @@
 	},
 	"group": "examples",
 	"description": "Detect an input out event",
-	"doc": "http://doc.gameclosure.com/example/input-out/",
+	"doc": "http://doc.gameclosure.com/example/events-out/",
 	"resources": {},
 	"targets": {},
 	"groups": {},
