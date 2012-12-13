@@ -1,4 +1,5 @@
 //# Hello, World!
+//For a more detailed walk-through, take a look at the [Hello, World! Guide](http://doc.gameclosure.com/guide/hello-world.html).
 
 //Import the [TextView](http://doc.gameclosure.com/api/ui-text.html#class-ui.textview) class to use as a local variable.
 import ui.TextView as TextView;
