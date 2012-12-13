@@ -1,46 +1,50 @@
+//# Scaling to Fit
+//This example scales the viewport to fit the device screen, reguardless of the
+//aspect ratio. For a more thorough treatment, see the [Scaling the Game Guide](http://doc.gameclosure.com/guide/scaling.html).
+//Art delivered at 576x1024 has a ratio of 0.5625, a 1024 max texture size scaled
+//up to 720x1280 has the same ratio. `576x1024 * 1.25 = 720x1280`
+
+//Import the [device](http://doc.gameclosure.com/api/device.html) module and the [ImageView](http://doc.gameclosure.com/api/ui-images.html) and [SpriteView](http://doc.gameclosure.com/api/ui-spriteview.html) classes.
 import device;
 import ui.ImageView as ImageView;
 import ui.SpriteView as SpriteView;
 
-//art delivered at 576x1024 is a ratio = 0.5625 ---1024 max texture size
-//scaled up 720x1280, same ratio
-
-// 576x1024 * 1.25 = 720x1280
-
-
-//all screen coordinates are in this 576x1024 space
-//art should be delivered at this size
+//All screen coordinates are in this 576x1024 space, art should be delivered at this size.
 var bounds_width = 576,
     bounds_height = 1024,
     base_width = bounds_width,
-    base_height = device.screen.height * (bounds_width / device.screen.width), //864
+		//`base_height` is calculated as 864.
+    base_height = device.screen.height * (bounds_width / device.screen.width),
     scale = device.screen.width / base_width,
-    right_boundary = base_width, //right boundry for screen wrapping
+		//`right_boundry` is used for screen wrapping.
+    right_boundary = base_width,
     left_boundary = 0,
     vx = 0;
 
+//## Class: GC.Application
 exports = Class(GC.Application, function () {
   this._settings = {
     alwaysRepaint: true
   };
 
   this.initUI = function () {
-    
-    //scale the root view
+    //Scale the root view
     this.view.style.width = base_width;
     this.view.style.height = base_height;
     this.view.style.scale = scale;
-    
+
+		//Create the background image, its size is 576x1024.
     var background = new ImageView({
       superview: this.view,
       x: 0,
       y: 0,
       width: base_width,
       height: base_height,
-      image: "resources/images/background.jpg", //576x1024
+      image: "resources/images/background.jpg",
       zIndex: 0
     });
 
+		//Create a sprite using a directory full of images as frames.
     var sprite = new SpriteView({
       superview: background,
       x: base_width/2,
@@ -53,27 +57,27 @@ exports = Class(GC.Application, function () {
       zIndex: 1
     });
 
-    //sprite movement is determined by mouse position relative to the sprite
+    //The sprite's movement is determined by its position relative to the mouse position relative.
     this.view.on('InputSelect', function (evt, pt) {
-      //localize point to sprite, which is one-level deep
+      //Localize the mouse position to sprite; this is one-level deep.
       var x0 = sprite.style.x + sprite.style.width/2,
           y0 = sprite.style.y + sprite.style.height/2;
 
-      //if the sprite is clicked, stop movement and return to idle animation
+      //If the sprite is clicked, stop movement and return to the idle animation.
       if (sprite.containsLocalPoint({x: pt.x - sprite.style.x, y: pt.y - sprite.style.y})) {
         if (sprite.isPlaying) {
           vx = 0;
           sprite.resetAnimation();
         }
       } else if (pt.x < sprite.style.x + sprite.style.width/2) {
-        //walk left
+        //Walk left
         vx = -2;
         sprite.stopAnimation();
         if (sprite.style.flipX) { sprite.style.flipX = false; }
         sprite.startAnimation('walk', {loop: true});
         
       } else {
-        //walk right
+        //Walk right
         vx = 2;
         sprite.stopAnimation();
         if (!sprite.style.flipX) { sprite.style.flipX = true; }
@@ -81,11 +85,12 @@ exports = Class(GC.Application, function () {
       }
     });
 
+		//Called every animation frame.
     GC.app.engine.on('Tick', function () {
-      //add horizontal movement
+      //Add horizontal movement
       sprite.style.x += vx;
 
-      //screen wrapping
+      //Apply screen wrapping to the sprite.
       if (sprite.style.x > right_boundary) {
         sprite.style.x = left_boundary - sprite.style.width;
       } else if (sprite.style.x + sprite.style.width < left_boundary) {
