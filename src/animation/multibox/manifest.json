@@ -1,10 +1,14 @@
 {
-	"appID": "2c5350e4a5d94c8dbc0b429c8dac818f",
 	"shortName": "multiboxAnimation",
-	"title": "Animation: Multiple Rectangles",
-	"icons": {},
+  "title": "Animation: Multiple Rectangles",
+	"group": "examples",
+  "description": "Animating multiple views.",
+  "doc": "http://doc.gameclosure.com/example/animation-multibox/",
+	"icons": {
+		"128": "resources/images/icon.png"
+	},
 	"studio": {
-		"name": "Your Studio Name",
+		"name": "Example Studio Name",
 		"domain": "studio.example.com",
 		"stagingDomain": "staging.example.com"
 	},
@@ -24,11 +28,11 @@
 		"tapjoyKey": "",
 		"flurryKey": ""
 	},
-	"group": "examples",
-  "description": "Animating multiple views.",
-  "doc": "http://doc.gameclosure.com/example/animation-multibox/",
+	"preload": {
+		"img": "resources/images/splash.png",
+		"autoHide": true
+	},
 	"resources": {},
 	"targets": {},
-	"groups": {},
-	"preload": {}
+	"groups": {}
 }
