@@ -1,10 +1,11 @@
 {
-	"appID": "ff0427b2246c41adafdbfd3a1ce58e8b",
 	"shortName": "soundToggle",
 	"title": "Sound: Toggle Sound",
-	"icons": {},
+	"icons": {
+		"128": "resources/images/icon.png"
+	},
 	"studio": {
-		"name": "Your Studio Name",
+		"name": "Example Studio Name",
 		"domain": "studio.example.com",
 		"stagingDomain": "staging.example.com"
 	},
@@ -27,8 +28,12 @@
 	"group": "examples",
   "description": "Toggle a sound on and off.",
   "doc": "http://doc.gameclosure.com/example/sound-toggle/",
+	"preload": {
+		"img": "resources/images/splash.png",
+		"autoHide": true
+	},
 	"resources": {},
 	"targets": {},
 	"groups": {},
-	"preload": {}
+	"sdkVersion": "dev-0.1.0"
 }

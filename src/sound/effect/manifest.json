@@ -1,10 +1,11 @@
 {
-	"appID": "349c182cbb144dbf8053f779d05e1db8",
 	"shortName": "soundEffect",
 	"title": "Sound: Effects",
-	"icons": {},
+	"icons": {
+		"128": "resources/images/icon.png"
+	},
 	"studio": {
-		"name": "Your Studio Name",
+		"name": "Example Studio Name",
 		"domain": "studio.example.com",
 		"stagingDomain": "staging.example.com"
 	},
@@ -24,11 +25,15 @@
 		"tapjoyKey": "",
 		"flurryKey": ""
 	},
-	"group": "examples",
 	"description": "Playing sound effects",
+	"doc": "http://doc.gameclosure.com/example/sound-effect/",
+	"group": "examples",
+	"preload": {
+		"img": "resources/images/splash.png",
+		"autoHide": true
+	},
 	"resources": {},
 	"targets": {},
-	"doc": "http://doc.gameclosure.com/example/sound-effect/",
-	"preload": {},
+	"groups": {},
 	"sdkVersion": "dev-0.1.0"
 }
