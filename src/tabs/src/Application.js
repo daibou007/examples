@@ -9,15 +9,20 @@ var Tabs = Class(View, function (supr) {
 
 		supr(this, "init", [opts]);
 
+		this.tag = "tabs";
+
 		this._position = opts.position || "top";
 		this._buttonSize = opts.buttonSize || 30;
 
-		this._panes = {};
-		this._index = 0;
+		this._activePane = null;
+		this._panes = [];
+		this._index = 1;
 
 		var buttonsOpts = merge(opts.buttonsOpts, {superview: this, tag: "buttons"});
 		this._buttons = new ScrollView(buttonsOpts);
 		this._buttons.getContentView().updateOpts({layout: "linear", direction: "horizontal"});
+		//this._buttons = new View(buttonsOpts);
+		this._buttons.updateOpts({layout: "linear", direction: "horizontal"});
 		var contentOpts = merge(opts.contentOpts, {superview: this, flex: 1, layout: "linear", direction: "vertical", tag: "content"});
 		this._content = new View(contentOpts);
 
@@ -26,25 +31,55 @@ var Tabs = Class(View, function (supr) {
 		this.setButtonPosition(this._position);
 	};
 
-	this.addPane = function (button, child) {
-		var index = button;
+	this._createButton = function (button) {
+		var result = {};
 
 		if (typeof button === "string") {
-			this._opts.buttonOpts.text = button;
-			this._opts.buttonOpts.tag = button;
-			button = new TextView(this._opts.buttonOpts);
+			var buttonOpts = {};
+			for (var i in this._opts.buttonOpts) {
+				buttonOpts[i] = this._opts.buttonOpts[i];
+			}
+			buttonOpts.text = button;
+			result.buttonView = new TextView(buttonOpts);
+			result.title = button;
 		} else {
-			this._index++;
-			index = this._index.toString();
+			result.buttonView = button;
+			result.title = this._index++;
 		}
 
-		this._panes[index] = child;
-		this._buttons.addSubview(button);
+		return result;
+	};
 
-		child.style.visible = !this._content.getSubviews().length;
-		this._content.addSubview(child);
+	this.addPane = function (button, child) {
+		var paneInfo = this._createButton(button);
 
-		return index;
+		paneInfo.contentView = child;
+		paneInfo.paneView = new View({layout: "box", layoutWidth: "100%", layoutHeight: "100%", visible: !this._content.getSubviews().length});
+		paneInfo.paneView.tag = "pane" + (this._panes.length + 1);
+		paneInfo.paneView.addSubview(child);
+		paneInfo.buttonView.onInputSelect = bind(this, "onClickButton", paneInfo);
+
+		this._buttons.addSubview(paneInfo.buttonView);
+		this._content.addSubview(paneInfo.paneView);
+
+		this._panes.push(paneInfo);
+
+		this._activePane = this._activePane || paneInfo;
+
+		return paneInfo.title;
+	};
+
+	this.onClickButton = function (paneInfo) {
+		if (paneInfo !== this._activePane) {
+			if (this._activePane) {
+				this._activePane.paneView.updateOpts({visible: false});
+				this.publish("HidePane", this._activePane);
+			}
+			this._activePane = paneInfo;
+			this._activePane.paneView.updateOpts({visible: true});
+			this.setButtonPosition(this._position); // this forces the layout to reflow...
+			this.publish("ShowPane", paneInfo);
+		}
 	};
 
 	this.getPane = function (child) {
@@ -83,45 +118,42 @@ var Tabs = Class(View, function (supr) {
 
 		this._content.updateOpts({width: undefined, height: undefined});
 
-		console.log(this._position);
+		var dir = 0;
+		var dirs = ["horizontal", "vertical"];
 		var views = [];
+		var buttonWidth, buttonHeight; // Don't assign values, one needs to be undefined!
+
 		switch (this._position) {
 			case "top":
 				views = [this._buttons, this._content];
-				this.updateOpts({direction: "vertical"});
-				this._buttons.getContentView().updateOpts({direction: "horizontal", width: undefined, height: this._buttonSize});
-				this._buttons.updateOpts({width: undefined, height: this._buttonSize});
-				this._content.updateOpts({direction: "vertical"});
+				buttonHeight = this._buttonSize;
+				dir = 1;
 				break;
 
 			case "bottom":
 				views = [this._content, this._buttons];
-				this.updateOpts({direction: "vertical"});
-				this._buttons.getContentView().updateOpts({direction: "horizontal", width: undefined, height: this._buttonSize});
-				this._buttons.updateOpts({width: undefined, height: this._buttonSize});
-				this._content.updateOpts({direction: "vertical"});
+				buttonHeight = this._buttonSize;
+				dir = 1;
 				break;
 
 			case "left":
 				views = [this._buttons, this._content];
-				this.updateOpts({direction: "horizontal"});
-				this._buttons.getContentView().updateOpts({direction: "vertical"});
-				this._buttons.getContentView().updateOpts({width: this._buttonSize, height: undefined});
-				this._buttons.updateOpts({width: this._buttonSize, height: undefined});
-				this._content.updateOpts({direction: "horizontal"});
+				buttonWidth = this._buttonSize;
+				dir = 0;
 				break;
 
 			case "right":
 				views = [this._content, this._buttons];
-				this.updateOpts({direction: "horizontal"});
-				this._buttons.getContentView().updateOpts({direction: "vertical"});
-				this._buttons.getContentView().updateOpts({width: this._buttonSize, height: undefined});
-				this._buttons.updateOpts({width: this._buttonSize, height: undefined});
-				this._content.updateOpts({direction: "horizontal"});
+				buttonWidth = this._buttonSize;
+				dir = 0;
 				break;
 		}
 
-		console.log(this._buttons._opts);
+		this.updateOpts({direction: dirs[dir]});
+		this._buttons.updateOpts({width: buttonWidth, height: buttonHeight});
+		this._buttons.getContentView().updateOpts({direction: dirs[(dir + 1) & 1]});
+		this._content.updateOpts({direction: dirs[dir]});
+
 		this.addSubview(views[0]);
 		this.addSubview(views[1]);
 	};
@@ -139,7 +171,9 @@ exports = Class(GC.Application, function () {
 	};
 
 	this.initUI = function () {
-		var test = 0;
+		var test = 3;
+
+		this.view.tag = "root";
 
 		this._tabs = new Tabs({
 			superview: this,
@@ -152,28 +186,36 @@ exports = Class(GC.Application, function () {
 			},
 			contentOpts: {
 				backgroundColor: "#FF0000"
-			}
+			},
+			position: ["top", "bottom", "left", "right"][test],
+			backgroundColor: "#0000DD"
 		});
 
 		var pane1 = new TextView({
 			text: "Donec fringilla tempor odio quis tincidunt. Aenean ultricies dictum aliquet. Duis convallis nisl in est pretium pharetra.",
-			flex: 1,
 			wrap: true,
 			horizontalAlign: "left",
 			horizontalPadding: 20,
 			verticalAlign: "top",
 			verticalPadding: 20,
-			tag: "pane1"
+			tag: "pane1",
+			backgroundColor: "#FFDD00",
+			layout: "box",
+			layoutWidth: "100%",
+			layoutHeight: "100%"
 		});
 		var pane2 = new TextView({
 			text: "Curabitur quis velit eget lectus vestibulum sagittis. Sed et leo mauris, nec consequat urna. Praesent lorem nisi, fermentum eu posuere nec, aliquam quis risus. Donec faucibus erat ac nibh imperdiet vulputate. Sed ornare vulputate pellentesque.",
-			flex: 1,
 			wrap: true,
 			horizontalAlign: "left",
 			horizontalPadding: 20,
 			verticalAlign: "top",
 			verticalPadding: 20,
-			tag: "pane2"
+			tag: "pane2",
+			backgroundColor: "#00FFDD",
+			layout: "box",
+			layoutWidth: "100%",
+			layoutHeight: "100%"
 		});
 		this._tabs.addPane("Hello", pane1);
 		this._tabs.addPane("World", pane2);
