@@ -1,12 +1,13 @@
 {
-	"appID": "ddccbf6abf1a47b1bf9e8c22eedd6974",
 	"shortName": "viewsNested",
 	"title": "Views: Nested",
-	"icons": {},
+	"icons": {
+		"128": "resources/images/icon.png"
+	},
 	"studio": {
-		"name": "Cool Kid Studios",
-		"domain": "cool.kids.com",
-		"stagingDomain": "staging.kids.com"
+		"name": "Example Studio Name",
+		"domain": "studio.example.com",
+		"stagingDomain": "staging.example.com"
 	},
 	"supportedOrientations": [
 		"portrait"
@@ -27,7 +28,12 @@
 	"group": "examples",
 	"description": "Nesting views",
 	"doc": "http://doc.gameclosure.com/example/views-nested/",
+	"preload": {
+		"img": "resources/images/splash.png",
+		"autoHide": true
+	},
 	"resources": {},
 	"targets": {},
-	"groups": {}
+	"groups": {},
+	"sdkVersion": "dev-0.1.0"
 }
