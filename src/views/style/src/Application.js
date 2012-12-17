@@ -1,7 +1,8 @@
 //## Modify a View's Style
 //Create many views with random positions, sizes, rotations, and colors.
 
-//Import ui.View class.
+//Import the `device` module and `ui.View` class.
+import device;
 import ui.View as View;
 
 //## Class: Application
