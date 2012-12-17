@@ -1,5 +1,5 @@
 {
-	"shortName": "style",
+	"shortName": "viewStyle",
 	"title": "Views: Update the Style",
 	"icons": {
 		"128": "resources/images/icon.png"
@@ -27,7 +27,7 @@
 	},
 	"group": "examples",
   "description": "Updating the style of a View.",
-  "doc": "http://doc.gameclosure.com/example/views-style/"
+  "doc": "http://doc.gameclosure.com/example/views-style/",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true

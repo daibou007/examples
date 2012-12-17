@@ -25,7 +25,8 @@ exports = Class(GC.Application, function () {
 
 //Generate a random color string in hexadecimal format.
 function getRandomColor () {
-	return '#' + ('000000' + Math.floor(Math.random() * 0xFFFFFF).toString(16)).substr(-6);
+	var hex = Math.floor(Math.random() * 0xFFFFFF);
+	return '#' + ('000000' + hex.toString(16)).substr(-6); //pad string
 }
 
 //<img src="./doc/screenshot1.png" alt="view style screenshot" class="screenshot">
