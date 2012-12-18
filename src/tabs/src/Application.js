@@ -67,7 +67,7 @@ exports = Class(GC.Application, function () {
 	};
 
 	this.initUI = function () {
-		var test = 2;
+		var test = 0;
 
 		this.view.tag = "root";
 		this.view.style.backgroundColor = "#FFFFFF";
@@ -78,6 +78,7 @@ exports = Class(GC.Application, function () {
 			y: 10,
 			width: 300,
 			height: 300,
+			//buttonFixedWidth: 30,
 			//buttonsOpts: {
 			//	overlap: 30
 			//},

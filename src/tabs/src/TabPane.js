@@ -12,7 +12,11 @@ var TabPane = exports = Class(View, function (supr) {
 		this.tag = "tabs";
 
 		this._tabPosition = opts.tabPosition || "top";
-		this._buttonSize = opts.buttonSize || 30;
+
+		this._buttonHeight = opts.buttonHeight || 30;
+		this._buttonPadding = (opts.buttonPadding === undefined) ? 10 : opts.buttonPadding;
+		this._buttonFixedWidth = opts.buttonFixedWidth;
+		this._buttonCanScroll = false;
 
 		this._activePane = null;
 		this._panes = [];
@@ -108,7 +112,7 @@ var TabPane = exports = Class(View, function (supr) {
 		paneInfo.paneView.tag = "pane" + (this._panes.length + 1);
 		paneInfo.paneView.addSubview(child);
 		paneInfo.buttonView.onInputSelect = bind(this, "onClickButton", paneInfo);
-		paneInfo.buttonView.style[this.getSizeProperty()] = this._buttonSize;
+		paneInfo.buttonView.style[this.getSizeProperty()] = this._buttonHeight;
 
 		this._buttons.addSubview(paneInfo.buttonView);
 		this._content.addSubview(paneInfo.paneView);
@@ -129,6 +133,8 @@ var TabPane = exports = Class(View, function (supr) {
 		);
 
 		if (button instanceof TabButton) {
+			button.setPadding(this._buttonPadding);
+			button.setFixedWidth(this._buttonFixedWidth);
 			button.setActive(this._activePane === paneInfo);
 			button.setTabPane(this);
 		}
@@ -160,12 +166,40 @@ var TabPane = exports = Class(View, function (supr) {
 		}
 	};
 
+	this.reflow = function () {
+		var property = this.getSizeProperty();
+		var panes = this._panes;
+		var size = 0;
+		var i = panes.length;
+
+		while (i) {
+			size += panes[--i].buttonView.style[property];
+		}
+
+		this._buttonCanScroll = size > this.style[property];
+
+		var scrollX = false;
+		var scrollY = false;
+
+		if (this.isHorizontal()) {
+			scrollX = this._buttonCanScroll;
+		} else {
+			scrollY = this._buttonCanScroll;
+		}
+
+		this._buttons.updateOpts({scrollX: scrollX, scrollY: scrollY});
+	};
+
+	this.isHorizontal = function () {
+		return (this._tabPosition === "top") || (this._tabPosition === "bottom");
+	};
+
 	this.getOffsetProperty = function () {
-		return ((this._tabPosition === "top") || (this._tabPosition === "bottom")) ? "left" : "top";
+		return this.isHorizontal() ? "left" : "top";
 	};
 
 	this.getSizeProperty = function () {
-		return ((this._tabPosition === "top") || (this._tabPosition === "bottom")) ? "height" : "width";
+		return this.isHorizontal() ? "height" : "width";
 	};
 
 	this.getPane = function (child) {
@@ -226,30 +260,30 @@ var TabPane = exports = Class(View, function (supr) {
 		switch (this._tabPosition) {
 			case "top":
 				views = [this._buttons, this._content];
-				buttonHeight = this._buttonSize;
+				buttonHeight = this._buttonHeight;
 				dir = 1;
-				scrollX = true;
+				scrollX = this._buttonCanScroll;
 				break;
 
 			case "bottom":
 				views = [this._content, this._buttons];
-				buttonHeight = this._buttonSize;
+				buttonHeight = this._buttonHeight;
 				dir = 1;
-				scrollX = true;
+				scrollX = this._buttonCanScroll;
 				break;
 
 			case "left":
 				views = [this._buttons, this._content];
-				buttonWidth = this._buttonSize;
+				buttonWidth = this._buttonHeight;
 				dir = 0;
-				scrollY = true;
+				scrollY = this._buttonCanScroll;
 				break;
 
 			case "right":
 				views = [this._content, this._buttons];
-				buttonWidth = this._buttonSize;
+				buttonWidth = this._buttonHeight;
 				dir = 0;
-				scrollY = true;
+				scrollY = this._buttonCanScroll;
 				break;
 		}
 
