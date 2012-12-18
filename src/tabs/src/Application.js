@@ -4,7 +4,7 @@ import ui.ImageScaleView as ImageScaleView;
 
 import ui.View as View;
 
-import .TabPane;
+import .TabPaneView;
 import .TabButton;
 
 var TextPage = Class(ImageScaleView, function (supr) {
@@ -67,12 +67,12 @@ exports = Class(GC.Application, function () {
 	};
 
 	this.initUI = function () {
-		var test = 0;
+		var test = 2;
 
 		this.view.tag = "root";
 		this.view.style.backgroundColor = "#FFFFFF";
 
-		this._tabs = new TabPane({
+		this._tabs = new TabPaneView({
 			superview: this,
 			x: 10,
 			y: 10,
