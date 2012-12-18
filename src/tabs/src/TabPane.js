@@ -40,7 +40,6 @@ var TabPane = exports = Class(View, function (supr) {
 				layout: "linear",
 				direction: "vertical",
 				tag: "content",
-				//top: -2,
 				backgroundColor: "#D0D0D0"
 			}
 		);
@@ -50,6 +49,31 @@ var TabPane = exports = Class(View, function (supr) {
 		this._opts.buttonOpts = merge(this._opts.buttonOpts, {flex: 1});
 
 		this.setTabPosition(this._tabPosition);
+	};
+
+	this._paneByProperty = function (property, value, returnInfo) {
+		var panes = this._panes;
+		var i = panes.length;
+		while (i) {
+			if (panes[--i][property] === value) {
+				return returnInfo ? {index: i, pane: panes[i]} : panes[i];
+			}
+		}
+		return false;
+	};
+
+	this._updateButtons = function () {
+		var overlap = this._opts.buttonsOpts.overlap;
+		var panes = this._panes;
+		var pane = panes[0];
+		var property = this.getOffsetProperty();
+
+		pane.buttonView.style.left = 0;
+		pane.buttonView.style.top = 0;
+
+		for (i = 1, j = panes.length; i < j; i++) {
+			panes[i].buttonView.style[property] = overlap;
+		}
 	};
 
 	this._createButton = function (button) {
@@ -84,19 +108,10 @@ var TabPane = exports = Class(View, function (supr) {
 		paneInfo.paneView.tag = "pane" + (this._panes.length + 1);
 		paneInfo.paneView.addSubview(child);
 		paneInfo.buttonView.onInputSelect = bind(this, "onClickButton", paneInfo);
-
-		if ((this._tabPosition === "top") || (this._tabPosition === "bottom")) {
-			paneInfo.buttonView.style.height = this._buttonSize;
-		} else {
-			paneInfo.buttonView.style.width = this._buttonSize;
-		}
+		paneInfo.buttonView.style[this.getSizeProperty()] = this._buttonSize;
 
 		this._buttons.addSubview(paneInfo.buttonView);
 		this._content.addSubview(paneInfo.paneView);
-
-//		if (this._panes.length) {
-//			button.style.left = this._opts.buttonsOpts.overlap;
-//		}
 
 		this._panes.push(paneInfo);
 
@@ -123,20 +138,6 @@ var TabPane = exports = Class(View, function (supr) {
 		return paneInfo.title;
 	};
 
-	this._updateButtons = function () {
-		var overlap = this._opts.buttonsOpts.overlap;
-		var panes = this._panes;
-		var pane = panes[0];
-		var property = ((this._position === "top") || (this._position === "bottom")) ? "left" : "top";
-
-		pane.buttonView.style.left = 0;
-		pane.buttonView.style.top = 0;
-
-		for (i = 1, j = panes.length; i < j; i++) {
-			panes[i].buttonView.style[property] = overlap;
-		}
-	};
-
 	this.onClickButton = function (paneInfo) {
 		if (paneInfo !== this._activePane) {
 			if (this._activePane) {
@@ -159,32 +160,52 @@ var TabPane = exports = Class(View, function (supr) {
 		}
 	};
 
-	this.getPane = function (child) {
+	this.getOffsetProperty = function () {
+		return ((this._tabPosition === "top") || (this._tabPosition === "bottom")) ? "left" : "top";
+	};
 
+	this.getSizeProperty = function () {
+		return ((this._tabPosition === "top") || (this._tabPosition === "bottom")) ? "height" : "width";
+	};
+
+	this.getPane = function (child) {
+		return this._paneByProperty("paneView", child, false);
 	};
 
 	this.getPaneByTitle = function (title) {
+		return this._paneByProperty("title", title, false);
+	};
 
+	this._removeByProperty = function (property, value) {
+		paneInfo = this._paneByProperty(property, value, true);
+		if (paneInfo) {
+			paneInfo.pane.buttonView.removeFromSuperview();
+			paneInfo.pane.paneView.removeFromSuperview();
+			this._panes.splice(paneInfo.index, 1);
+		}
 	};
 
 	this.removePane = function (child) {
-
+		this._removeByProperty("paneView", child);
 	};
 
 	this.removePaneByTitle = function (title) {
-
+		this._removeByProperty("title", title);
 	};
 
 	this.selectPane = function (child) {
-
+		paneInfo = this._paneByProperty("paneView", child);
+		paneInfo && this.onClickButton(paneInfo);
 	};
 
 	this.selectPaneByTitle = function (title) {
-
+		paneInfo = this._paneByProperty("title", title);
+		paneInfo && this.onClickButton(paneInfo);
 	};
 
 	this.getButton = function (title) {
-
+		paneInfo = this._paneByProperty("title", title);
+		return paneInfo ? paneInfo.buttonView : false;
 	};
 
 	this.setTabPosition = function (tabPosition) {
