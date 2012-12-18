@@ -15,7 +15,6 @@ var TabPaneView = exports = Class(View, function (supr) {
 		this._tabPosition = opts.tabPosition || "top";
 
 		this._buttonHeight = opts.buttonHeight || 30;
-		this._buttonPadding = (opts.buttonPadding === undefined) ? 10 : opts.buttonPadding;
 		this._buttonFixedWidth = opts.buttonFixedWidth;
 		this._buttonCanScroll = false;
 
@@ -25,17 +24,11 @@ var TabPaneView = exports = Class(View, function (supr) {
 		this._zIndex = 255;
 		this._zIndexTimeout = null;
 
-		opts.buttonsOpts = merge(
-			opts.buttonsOpts,
-			{
-				superview: this,
-				tag: "buttons",
-				overlap: 1
-			}
-		);
-		this._buttons = new ScrollView(opts.buttonsOpts);
+		this._buttons = new ScrollView({superview: this});
 		this._buttons.getContentView().updateOpts({layout: "linear", direction: "horizontal"});
 		this._buttons.updateOpts({layout: "linear", direction: "horizontal"});
+		this._buttons.style.order = 0;
+		this._buttons.style.zIndex = 1;
 
 		var contentOpts = merge(
 			opts.contentOpts,
@@ -45,13 +38,15 @@ var TabPaneView = exports = Class(View, function (supr) {
 				layout: "linear",
 				direction: "vertical",
 				tag: "content",
-				backgroundColor: "#D0D0D0"
+				backgroundColor: "#D0D0D0",
+				top: -2
 			}
 		);
 		this._content = new View(contentOpts);
-		this._content.zIndex = -1;
+		this._content.style.order = 1;
+		this._content.style.zIndex = 0;
 
-		this._opts.buttonOpts = merge(this._opts.buttonOpts, {flex: 1});
+		this._opts.buttonOpts = merge(this._opts.buttonOpts, {flex: 1, padding: 10});
 
 		this.setTabPosition(this._tabPosition);
 	};
@@ -68,7 +63,7 @@ var TabPaneView = exports = Class(View, function (supr) {
 	};
 
 	this._updateButtons = function () {
-		var overlap = this._opts.buttonsOpts.overlap;
+		var overlap = this._opts.buttonOpts.overlap;
 		var panes = this._panes;
 		var property = this.getOffsetProperty();
 		var tabPane = panes[0];
@@ -107,6 +102,7 @@ var TabPaneView = exports = Class(View, function (supr) {
 		opts.tabPaneView = this;
 		opts.contentView = child;
 		opts.buttonView.style[this.getSizeProperty()] = this._buttonHeight;
+		opts.buttonView.style.order = this._panes.length + 1;
 
 		this._buttons.addSubview(opts.buttonView);
 
@@ -132,7 +128,7 @@ var TabPaneView = exports = Class(View, function (supr) {
 		);
 
 		if (button instanceof TabButton) {
-			button.setPadding(this._buttonPadding);
+			button.setPadding(this._opts.buttonOpts.padding);
 			button.setFixedWidth(this._buttonFixedWidth);
 			button.setActive(this._activePane === tabPane);
 			button.setTabPane(this);
@@ -197,44 +193,46 @@ var TabPaneView = exports = Class(View, function (supr) {
 	};
 
 	this.setTabPosition = function (tabPosition) {
-		this.removeSubview(this._buttons);
-		this.removeSubview(this._content);
-
 		this._tabPosition = tabPosition;
 
 		this._content.updateOpts({width: undefined, height: undefined});
 
 		var dir = 0;
 		var dirs = ["horizontal", "vertical"];
-		var views = [];
 		var buttonWidth, buttonHeight; // Don't assign values, one needs to be undefined!
+		var contentOrder;
+		var buttonsOrder;
 		var scrollX = false;
 		var scrollY = false;
 
 		switch (this._tabPosition) {
 			case "top":
-				views = [this._buttons, this._content];
+				buttonsOrder = 0;
+				contentOrder = 1;
 				buttonHeight = this._buttonHeight;
 				dir = 1;
 				scrollX = this._buttonCanScroll;
 				break;
 
 			case "bottom":
-				views = [this._content, this._buttons];
+				buttonsOrder = 1;
+				contentOrder = 0;
 				buttonHeight = this._buttonHeight;
 				dir = 1;
 				scrollX = this._buttonCanScroll;
 				break;
 
 			case "left":
-				views = [this._buttons, this._content];
+				buttonsOrder = 0;
+				contentOrder = 1;
 				buttonWidth = this._buttonHeight; // Rotated 90 degrees, height assigned to width...
 				dir = 0;
 				scrollY = this._buttonCanScroll;
 				break;
 
 			case "right":
-				views = [this._content, this._buttons];
+				buttonsOrder = 1;
+				contentOrder = 0;
 				buttonWidth = this._buttonHeight; // Rotated 270 degrees, height assigned to width...
 				dir = 0;
 				scrollY = this._buttonCanScroll;
@@ -244,10 +242,9 @@ var TabPaneView = exports = Class(View, function (supr) {
 		this.updateOpts({direction: dirs[dir]});
 		this._buttons.updateOpts({width: buttonWidth, height: buttonHeight, scrollX: scrollX, scrollY: scrollY});
 		this._buttons.getContentView().updateOpts({direction: dirs[(dir + 1) & 1]});
+		this._buttons.style.order = buttonsOrder;
 		this._content.updateOpts({direction: dirs[dir]});
-
-		this.addSubview(views[0]);
-		this.addSubview(views[1]);
+		this._content.style.order = contentOrder;
 	};
 
 	this.getTabPosition = function () {

@@ -8,12 +8,17 @@ var TabButton = exports = Class(ImageScaleView, function (supr) {
 			{
 				width: 1,
 				height: 1,
-				activeBackgroundColor: "#D0D0D0",
-				backgroundColor: "#E0E0E0",
 				color: "#B0B0B0",
 				activeColor: "#000000"
 			}
 		);
+		if (!opts.image && !opts.backgroundColor) {
+			opts.backgroundColor = "#E0E0E0";
+		}
+		if (!opts.activeImage && !opts.activeBackgroundColor) {
+			opts.activeBackgroundColor = "#D0D0D0";
+		}
+
 		supr(this, "init", [opts]);
 
 		this._title = new TextView({

@@ -1,11 +1,16 @@
 import ui.TextView as TextView;
 import ui.ScrollView as ScrollView;
 import ui.ImageScaleView as ImageScaleView;
-
 import ui.View as View;
+
+import device;
 
 import .TabPaneView;
 import .TabButton;
+
+var text1 = "Donec fringilla tempor odio quis tincidunt. Aenean ultricies dictum aliquet. Duis convallis nisl in est pretium pharetra.";
+var text2 = "Curabitur quis velit eget lectus vestibulum sagittis. Sed et leo mauris, nec consequat urna. Praesent lorem nisi, fermentum eu posuere nec, aliquam quis risus. Donec faucibus erat ac nibh imperdiet vulputate. Sed ornare vulputate pellentesque.";
+var text3 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nec volutpat odio. Aliquam erat volutpat. Etiam vel consectetur tortor. Morbi vel facilisis leo. Nunc et erat in risus egestas posuere quis in neque. Suspendisse potenti.";
 
 var TextPage = Class(ImageScaleView, function (supr) {
 	this.init = function (opts) {
@@ -14,11 +19,11 @@ var TextPage = Class(ImageScaleView, function (supr) {
 			{
 				layout: "box",
 				layoutWidth: "100%",
-				layoutHeight: "100%"
-				//image: "resources/images/box.png",
-				//scaleMethod: "9slice",
-				//sourceSlices: {horizontal: {left: 3, center: 24, right: 3}, vertical: {top: 3, middle: 24, bottom: 3}},
-				//destSlices: {horizontal: {left: 3, right: 3}, vertical: {top: 3, bottom: 3}}
+				layoutHeight: "100%",
+				image: "resources/images/box.png",
+				scaleMethod: "9slice",
+				sourceSlices: {horizontal: {left: 3, center: 24, right: 3}, vertical: {top: 3, middle: 24, bottom: 3}},
+				destSlices: {horizontal: {left: 3, right: 3}, vertical: {top: 3, bottom: 3}}
 			}
 		);
 		supr(this, "init", [opts]);
@@ -40,7 +45,6 @@ var TextPage = Class(ImageScaleView, function (supr) {
 });
 
 exports = Class(GC.Application, function () {
-
 	this._settings = {
 		logsEnabled: window.DEV_MODE,
 		showFPS: window.DEV_MODE,
@@ -52,54 +56,35 @@ exports = Class(GC.Application, function () {
 	this._createTabButton = function (title) {
 		return new TabButton({
 			superview: this.view,
-			//x: 10,
-			//y: 410,
-			//width: 10,
-			//height: 30,
-			//image: "resources/images/tab.png",
-			//activeImage: "resources/images/tabActive.png",
-			//color: "#404040",
-			//activeColor: "#000000",
-			//backgroundColor: "red",
-			//activeBackgroundColor: "green",
+			image: "resources/images/tab.png",
+			activeImage: "resources/images/tabActive.png",
+			scaleMethod: "9slice",
+			sourceSlices: {horizontal: {left: 20, center: 80, right: 20}, vertical: {top: 0, middle: 100, bottom: 0}},
+			destSlices: {horizontal: {left: 20, right: 20}, vertical: {top: 0, bottom: 0}},
+			color: "#505050",
+			activeColor: "#000000",
 			title: title
 		});
 	};
 
 	this.initUI = function () {
-		var test = 2;
-
-		this.view.tag = "root";
 		this.view.style.backgroundColor = "#FFFFFF";
 
-		this._tabs = new TabPaneView({
+		var tabs = new TabPaneView({
 			superview: this,
 			x: 10,
 			y: 10,
-			width: 300,
+			width: device.width - 20,
 			height: 300,
-			//buttonFixedWidth: 30,
-			//buttonsOpts: {
-			//	overlap: 30
-			//},
-			//contentOpts: {
-			//	backgroundColor: "red"
-			//},
-			tabPosition: ["top", "bottom", "left", "right"][test]
+			buttonOpts: {
+				overlap: -30,
+				padding: 50
+			},
+			tabPosition: "top"
 		});
-
-		var pane1 = new TextPage({
-			text: "Donec fringilla tempor odio quis tincidunt. Aenean ultricies dictum aliquet. Duis convallis nisl in est pretium pharetra."
-		});
-		var pane2 = new TextPage({
-			text: "Curabitur quis velit eget lectus vestibulum sagittis. Sed et leo mauris, nec consequat urna. Praesent lorem nisi, fermentum eu posuere nec, aliquam quis risus. Donec faucibus erat ac nibh imperdiet vulputate. Sed ornare vulputate pellentesque."
-		});
-		var pane3 = new TextPage({
-			text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nec volutpat odio. Aliquam erat volutpat. Etiam vel consectetur tortor. Morbi vel facilisis leo. Nunc et erat in risus egestas posuere quis in neque. Suspendisse potenti."
-		});
-		this._tabs.addPane(this._createTabButton("Hello"), pane1);
-		this._tabs.addPane(this._createTabButton("World"), pane2);
-		this._tabs.addPane(this._createTabButton("Game"), pane3);
+		tabs.addPane(this._createTabButton("Game"), new TextPage({text: text1}));
+		tabs.addPane(this._createTabButton("Closure"), new TextPage({text: text2}));
+		tabs.addPane(this._createTabButton("Tabs"), new TextPage({text: text3}));
 	};
 
 	this.launchUI = function () {};
