@@ -1,0 +1,17 @@
+{
+	"appID": "147e17e30fb24b72827b80959901ff34",
+	"shortName": "basic",
+	"title": "Empty Project",
+	"icons": {
+		"renderGloss": true
+	},
+	"studio": {
+		"name": "Your Studio Name",
+		"domain": "studio.example.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait",
+		"landscape"
+	]
+}
