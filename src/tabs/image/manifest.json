@@ -1,12 +1,12 @@
 {
 	"appID": "bb1269565242482d92421e45da04cc39",
-	"shortName": "image",
-	"title": "Empty Project",
+	"shortName": "Image tabs",
+	"title": "Image tabs",
 	"icons": {
 		"renderGloss": true
 	},
 	"studio": {
-		"name": "Your Studio Name",
+		"name": "GameClosure",
 		"domain": "studio.example.com",
 		"stagingDomain": "staging.example.com"
 	},
