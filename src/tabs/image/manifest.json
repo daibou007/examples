@@ -1,6 +1,6 @@
 {
 	"appID": "bb1269565242482d92421e45da04cc39",
-	"shortName": "Image tabs",
+	"shortName": "imageTabs",
 	"title": "Image tabs",
 	"icons": {
 		"renderGloss": true
@@ -13,5 +13,18 @@
 	"supportedOrientations": [
 		"portrait",
 		"landscape"
-	]
+	],
+	"android": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": "",
+		"entryPoint": "runtimeNative.launchClient",
+		"tapjoyDaily": {}
+	},
+	"ios": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": ""
+	},
+	"sdkVersion": "dev-0.1.0"
 }

@@ -30,5 +30,6 @@
 	"resources": {},
 	"targets": {},
 	"groups": {},
-	"preload": {}
+	"preload": {},
+	"sdkVersion": "dev-0.1.0"
 }

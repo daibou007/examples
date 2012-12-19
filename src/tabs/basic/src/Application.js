@@ -91,10 +91,16 @@ exports = Class(GC.Application, function () {
 		this._tabPanes.pop().remove();
 	};
 
+	this.selectNext = function () {
+		this._index = (this._index + 1) % this._tabPanes.length;
+		this._tabPanes[this._index].select();
+	};
+
 	this.initUI = function () {
 		this.view.style.backgroundColor = "#FFFFFF";
 
 		this._tabPanes = [];
+		this._index = 0;
 
 		this._tabs = new TabPaneView({ superview: this, x: device.width / 2 - 140, y: 10, width: 280, height: 200, tabPosition: "top"});
 		this._tabPanes.push(this._tabs.addPane(new TabPaneButton({title: "Game"}), new TextPage({text: text1})));
@@ -110,6 +116,15 @@ exports = Class(GC.Application, function () {
 			y: 220,
 			property: "TabPosition",
 			options: ["top", "right", "bottom", "left"]
+		});
+
+		new TabPaneSetting({
+			superview: this.view,
+			target: this._tabs,
+			x: left,
+			y: 220+35,
+			property: "select next",
+			options: [bind(this, "selectNext")]
 		});
 
 		left = device.width / 2 + 5;

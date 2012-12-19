@@ -14,5 +14,17 @@
 		"portrait",
 		"landscape"
 	],
+	"android": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": "",
+		"entryPoint": "runtimeNative.launchClient",
+		"tapjoyDaily": {}
+	},
+	"ios": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": ""
+	},
 	"sdkVersion": "dev-0.1.0"
 }

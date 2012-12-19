@@ -78,7 +78,10 @@ exports = Class(GC.Application, function () {
 			height: 300,
 			buttonOpts: {
 				overlap: -30,
-				padding: 50
+				padding: 30
+			},
+			contentOpts: {
+				top: -2
 			},
 			tabPosition: "top"
 		});
