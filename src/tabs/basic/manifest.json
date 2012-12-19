@@ -13,5 +13,6 @@
 	"supportedOrientations": [
 		"portrait",
 		"landscape"
-	]
+	],
+	"sdkVersion": "dev-0.1.0"
 }
