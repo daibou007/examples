@@ -56,6 +56,8 @@ exports = Class(GC.Application, function () {
 	};
 
 	this.initUI = function () {
+		this.view.style.backgroundColor = "#FFFFFF";
+
 		this._textViewOpts = {
 			superview: this.view,
 			layout: "box",
@@ -77,7 +79,6 @@ exports = Class(GC.Application, function () {
 		};
 		var textView = new TextView(this._textViewOpts);
 		var left = device.width / 2 - 140;
-
 		new TextViewSetting({
 			superview: this.view,
 			target: textView,
@@ -87,6 +88,7 @@ exports = Class(GC.Application, function () {
 			property: "text",
 			options: ["Aenean ipsum nisi, facilisis id lacinia ut, viverra vel justo.", "Ipsum."]
 		});
+
 		new TextViewSetting({
 			superview: this.view,
 			target: textView,
@@ -181,6 +183,6 @@ exports = Class(GC.Application, function () {
 			options: [0, 25, [10, 30]]
 		});
 	};
-	
+
 	this.launchUI = function () {};
 });
