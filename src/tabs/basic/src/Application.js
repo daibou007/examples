@@ -82,8 +82,8 @@ exports = Class(GC.Application, function () {
 	};
 
 	this.addTabs = function () {
-		this._tabPanes.push(this._tabs.addPane(new TabPaneButton({title: "Another"}), new TextPage({text: "This is another tab"})));
-		this._tabPanes.push(this._tabs.addPane(new TabPaneButton({title: "Tab"}), new TextPage({text: "And this is one more tab"})));
+		this._tabPanes.push(this._tabs.addPane("Another", new TextPage({text: "This is another tab"})));
+		this._tabPanes.push(this._tabs.addPane("Tab", new TextPage({text: "And this is one more tab"})));
 	};
 
 	this.removeTabs = function () {
@@ -96,16 +96,40 @@ exports = Class(GC.Application, function () {
 		this._tabPanes[this._index].select();
 	};
 
+	this.setTabSizeAuto = function () {
+		this._tabs.updateButtonOpts({tabSize: TabPaneView.tabSize.AUTO});
+	};
+
+	this.setTabSizeFixed = function () {
+		this._tabs.updateButtonOpts({tabSize: TabPaneView.tabSize.FIXED});
+	};
+
+	this.setTabSizeFlex = function () {
+		this._tabs.updateButtonOpts({tabSize: TabPaneView.tabSize.FLEX});
+	};
+
 	this.initUI = function () {
 		this.view.style.backgroundColor = "#FFFFFF";
 
 		this._tabPanes = [];
 		this._index = 0;
 
-		this._tabs = new TabPaneView({ superview: this, x: device.width / 2 - 140, y: 10, width: 280, height: 200, tabPosition: "top"});
-		this._tabPanes.push(this._tabs.addPane(new TabPaneButton({title: "Game"}), new TextPage({text: text1})));
-		this._tabPanes.push(this._tabs.addPane(new TabPaneButton({title: "Closure"}), new TextPage({text: text2})));
-		this._tabPanes.push(this._tabs.addPane(new TabPaneButton({title: "Tabs"}), new TextPage({text: text3})));
+		this._tabs = new TabPaneView({
+			superview: this,
+			x: device.width / 2 - 140,
+			y: 10,
+			width: 280,
+			height: 200,
+			tabPosition: "top",
+			buttonOpts: {
+				tabSize: TabPaneView.tabSize.AUTO,
+				padding: 10,
+				fixedWidth: 70
+			}
+		});
+		this._tabPanes.push(this._tabs.addPane("Game", new TextPage({text: text1})));
+		this._tabPanes.push(this._tabs.addPane("Closure", new TextPage({text: text2})));
+		this._tabPanes.push(this._tabs.addPane("Tabs", new TextPage({text: text3})));
 
 		var left = device.width / 2 - 140;
 
@@ -117,14 +141,13 @@ exports = Class(GC.Application, function () {
 			property: "TabPosition",
 			options: ["top", "right", "bottom", "left"]
 		});
-
 		new TabPaneSetting({
 			superview: this.view,
 			target: this._tabs,
 			x: left,
-			y: 220+35,
-			property: "select next",
-			options: [bind(this, "selectNext")]
+			y: 255,
+			property: "TabSize",
+			options: [bind(this, "setTabSizeAuto"), bind(this, "setTabSizeFixed"), bind(this, "setTabSizeFlex")]
 		});
 
 		left = device.width / 2 + 5;
@@ -136,6 +159,14 @@ exports = Class(GC.Application, function () {
 			y: 220,
 			property: "add/remove",
 			options: [bind(this, "removeTabs"), bind(this, "addTabs")]
+		});
+		new TabPaneSetting({
+			superview: this.view,
+			target: this._tabs,
+			x: left,
+			y: 255,
+			property: "select next",
+			options: [bind(this, "selectNext")]
 		});
 	};
 
