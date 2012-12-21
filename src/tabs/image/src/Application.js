@@ -77,13 +77,13 @@ exports = Class(GC.Application, function () {
 			width: device.width - 20,
 			height: 300,
 			buttonOpts: {
-				overlap: -30,
+				buttonMargin: -30,
 				padding: 30
 			},
 			contentOpts: {
 				top: -2
 			},
-			tabPosition: "top"
+			tabPosition: TabPaneView.tabPosition.TOP
 		});
 		tabs.addPane(this._createTabButton("Game"), new TextPage({text: text1}));
 		tabs.addPane(this._createTabButton("Closure"), new TextPage({text: text2}));
