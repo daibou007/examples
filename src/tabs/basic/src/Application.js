@@ -3,8 +3,8 @@ import ui.TextView as TextView;
 
 import device;
 
+import ui.resource.Image as Image;
 import ui.widget.TabPaneView as TabPaneView;
-import ui.widget.TabPaneButton as TabPaneButton;
 
 var text1 = "Donec fringilla tempor odio quis tincidunt. Aenean ultricies dictum aliquet. Duis convallis nisl in est pretium pharetra.";
 var text2 = "Curabitur quis velit eget lectus vestibulum sagittis. Sed et leo mauris, nec consequat urna. Praesent lorem nisi, fermentum eu posuere nec, aliquam quis risus. Donec faucibus erat ac nibh imperdiet vulputate. Sed ornare vulputate pellentesque.";
@@ -132,6 +132,14 @@ exports = Class(GC.Application, function () {
 		this._tabs.updateButtonOpts({verticalAlign: "bottom"});
 	};
 
+	this.addImage = function () {
+		this._tabs.updateButtonOpts({image: "resources/images/tab.png"});
+	};
+
+	this.removeImage = function () {
+		this._tabs.updateButtonOpts({image: new Image()});
+	};
+
 	this.initUI = function () {
 		this.view.style.backgroundColor = "#FFFFFF";
 
@@ -187,6 +195,14 @@ exports = Class(GC.Application, function () {
 			y: 325,
 			property: "VerticalAlign",
 			options: [bind(this, "setAlignTop"), bind(this, "setAlignMiddle"), bind(this, "setAlignBottom")]
+		});
+		new TabPaneSetting({
+			superview: this.view,
+			target: this._tabs,
+			x: left,
+			y: 360,
+			property: "Image",
+			options: [bind(this, "removeImage"), bind(this, "addImage")]
 		});
 
 		left = device.width / 2 + 5;

@@ -55,7 +55,7 @@ exports = Class(GC.Application, function () {
 
 	this._createTabButton = function (title) {
 		return new TabPaneButton({
-			superview: this.view,
+			//superview: this.view,
 			image: "resources/images/tab.png",
 			activeImage: "resources/images/tabActive.png",
 			scaleMethod: "9slice",
