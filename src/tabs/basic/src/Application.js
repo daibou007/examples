@@ -108,6 +108,30 @@ exports = Class(GC.Application, function () {
 		this._tabs.updateButtonOpts({tabSize: TabPaneView.tabSize.FLEX});
 	};
 
+	this.setAlignLeft = function () {
+		this._tabs.updateButtonOpts({horizontalAlign: "left"});
+	};
+
+	this.setAlignCenter = function () {
+		this._tabs.updateButtonOpts({horizontalAlign: "center"});
+	};
+
+	this.setAlignRight = function () {
+		this._tabs.updateButtonOpts({horizontalAlign: "right"});
+	};
+
+	this.setAlignTop = function () {
+		this._tabs.updateButtonOpts({verticalAlign: "top"});
+	};
+
+	this.setAlignMiddle = function () {
+		this._tabs.updateButtonOpts({verticalAlign: "middle"});
+	};
+
+	this.setAlignBottom = function () {
+		this._tabs.updateButtonOpts({verticalAlign: "bottom"});
+	};
+
 	this.initUI = function () {
 		this.view.style.backgroundColor = "#FFFFFF";
 
@@ -120,7 +144,6 @@ exports = Class(GC.Application, function () {
 			y: 10,
 			width: 280,
 			height: 200,
-			tabPosition: "top",
 			buttonOpts: {
 				tabSize: TabPaneView.tabSize.AUTO,
 				padding: 10,
@@ -139,7 +162,7 @@ exports = Class(GC.Application, function () {
 			x: left,
 			y: 220,
 			property: "TabPosition",
-			options: ["top", "right", "bottom", "left"]
+			options: [TabPaneView.tabPosition.TOP, TabPaneView.tabPosition.RIGHT, TabPaneView.tabPosition.BOTTOM, TabPaneView.tabPosition.LEFT]
 		});
 		new TabPaneSetting({
 			superview: this.view,
@@ -148,6 +171,22 @@ exports = Class(GC.Application, function () {
 			y: 255,
 			property: "TabSize",
 			options: [bind(this, "setTabSizeAuto"), bind(this, "setTabSizeFixed"), bind(this, "setTabSizeFlex")]
+		});
+		new TabPaneSetting({
+			superview: this.view,
+			target: this._tabs,
+			x: left,
+			y: 290,
+			property: "HorizontalAlign",
+			options: [bind(this, "setAlignLeft"), bind(this, "setAlignCenter"), bind(this, "setAlignRight")]
+		});
+		new TabPaneSetting({
+			superview: this.view,
+			target: this._tabs,
+			x: left,
+			y: 325,
+			property: "VerticalAlign",
+			options: [bind(this, "setAlignTop"), bind(this, "setAlignMiddle"), bind(this, "setAlignBottom")]
 		});
 
 		left = device.width / 2 + 5;
