@@ -10,15 +10,15 @@ import ui.ImageView as ImageView;
 import ui.SpriteView as SpriteView;
 
 //All screen coordinates are in this 576x1024 space, art should be delivered at this size.
-var bounds_width = 576,
-    bounds_height = 1024,
-    base_width = bounds_width,
-		//`base_height` is calculated as 864.
-    base_height = device.screen.height * (bounds_width / device.screen.width),
-    scale = device.screen.width / base_width,
+var boundsWidth = 576,
+    boundsHeight = 1024,
+    baseWidth = boundsWidth,
+		//`baseHeight` is calculated as 864.
+    baseHeight = device.screen.height * (boundsWidth / device.screen.width),
+    scale = device.screen.width / baseWidth,
 		//`right_boundry` is used for screen wrapping.
-    right_boundary = base_width,
-    left_boundary = 0,
+    rightBoundary = baseWidth,
+    leftBoundary = 0,
     vx = 0;
 
 //## Class: GC.Application
@@ -29,8 +29,6 @@ exports = Class(GC.Application, function () {
 
   this.initUI = function () {
     //Scale the root view
-    this.view.style.width = base_width;
-    this.view.style.height = base_height;
     this.view.style.scale = scale;
 
 		//Create the background image, its size is 576x1024.
@@ -38,8 +36,8 @@ exports = Class(GC.Application, function () {
       superview: this.view,
       x: 0,
       y: 0,
-      width: base_width,
-      height: base_height,
+      width: baseWidth,
+      height: baseHeight,
       image: "resources/images/background.jpg",
       zIndex: 0
     });
@@ -47,8 +45,8 @@ exports = Class(GC.Application, function () {
 		//Create a sprite using a directory full of images as frames.
     var sprite = new SpriteView({
       superview: background,
-      x: base_width/2,
-      y: base_height - 400,
+      x: baseWidth/2,
+      y: baseHeight - 400,
       width: 300,
       height: 300,
       url: "resources/images/sdkBot/sdkBot",
@@ -91,10 +89,10 @@ exports = Class(GC.Application, function () {
       sprite.style.x += vx;
 
       //Apply screen wrapping to the sprite.
-      if (sprite.style.x > right_boundary) {
-        sprite.style.x = left_boundary - sprite.style.width;
-      } else if (sprite.style.x + sprite.style.width < left_boundary) {
-        sprite.style.x = right_boundary;
+      if (sprite.style.x > rightBoundary) {
+        sprite.style.x = leftBoundary - sprite.style.width;
+      } else if (sprite.style.x + sprite.style.width < leftBoundary) {
+        sprite.style.x = rightBoundary;
       }
     });
   };
