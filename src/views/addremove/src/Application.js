@@ -87,4 +87,5 @@ var JumpingBox = Class(View, function (supr) {
 	};
 });
 
-//![Screenshot 1](./img/screenshot1.png)
+//<img src="./doc/screenshot1.png" alt="trail screenshot" class="screenshot">
+//<img src="./doc/screenshot2.png" alt="trail screenshot" class="screenshot">
