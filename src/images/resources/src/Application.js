@@ -107,7 +107,7 @@ exports = Class(GC.Application, function () {
 
 //The output should look like this screenshot:
 
-//<img src="./img/screenshot.png" alt="a book screenshot" class="screenshot">
+//<img src="./doc/screenshot.png" alt="nine tiles with different resource options" class="screenshot">
 
 //The first row of images uses the original quality, the second scales the image down
 //to 10% and the third row scales the images 50% and uses png8 compression.
