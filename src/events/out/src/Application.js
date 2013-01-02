@@ -34,7 +34,7 @@ exports = Class(GC.Application, function () {
 			clickbox.updateOpts({backgroundColor: "#FF0000"});
 		}));
 	};
-	
+
 	this.launchUI = function () {};
 });
 
@@ -43,7 +43,7 @@ exports = Class(GC.Application, function () {
 var ClickBox = Class(View, function (supr) {
 	this.init = function (opts) {
 		supr(this, 'init', [opts]);
-		
+
 		this.on('InputStart', function () {
 			// Change the color when the view is clicked.
 			this.style.backgroundColor = '#0000ff';
@@ -57,4 +57,4 @@ var ClickBox = Class(View, function (supr) {
 });
 
 //The output should look like this screenshot:
-//<img src="./img/screenshot.png" alt="a book screenshot" class="screenshot">
+//<img src="./doc/screenshot.png" alt="a book screenshot" class="screenshot">
