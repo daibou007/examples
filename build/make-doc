@@ -7,16 +7,18 @@ OUT_ROOT="$PROJECT_ROOT/html"
 
 ## check for docco and dependencies
 ##
-if ! which docco > /dev/null; then
-		echo "Error: Requires docco to build code examples."
-		exit 1
-fi
 if ! which npm > /dev/null; then
 		echo "Error: Docco requires npm to build code examples."
 		exit 1
 fi
+if ! which docco > /dev/null; then
+		echo "Error: Requires docco to build code examples."
+		echo "Try: sudo npm install -g docco"
+		exit 1
+fi
 if ! which pygmentize > /dev/null; then
 		echo "Error: Docco requires python-pygments to build code examples."
+		echo "Try: sudo easy_install Pygments"
 		exit 1
 fi
 
