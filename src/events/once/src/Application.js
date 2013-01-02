@@ -102,7 +102,7 @@ var EmitterView = Class(TextView, function (supr) {
 });
 
 //## Class: SubscribeView1
-//Create a view with a function which can be called when the view is clicked, the takes one parameter.
+//Create a view with a function which can be called when the view is clicked, the function takes one parameter.
 var SubscribeView1 = Class(TextView, function (supr) {
 	this.onClick = function (someValue) {
 		this.setText("Red was clicked, someValue: " + someValue);
@@ -110,7 +110,7 @@ var SubscribeView1 = Class(TextView, function (supr) {
 });
 
 //## Class: SubscribeView2
-//Create a view with a function which can be called when the view is clicked, the takes two parameters.
+//Create a view with a function which can be called when the view is clicked, the function takes two parameters.
 var SubscribeView2 = Class(TextView, function (supr) {
 	this.onClick = function (text, someValue) {
 		this.setText(text + someValue);
