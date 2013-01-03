@@ -23,7 +23,7 @@ exports = Class(GC.Application, function () {
 			var trailbox = new TrailBox(merge(pt, {superview: GC.app.view}))
 		});
 	};
-	
+
 	this.launchUI = function () {};
 });
 
@@ -52,6 +52,6 @@ var TrailBox = Class(View, function(supr) {
 			width: 30,
 			height: 30,
 			r: Math.PI * 4
-		}, 500).then(this.removeFromSuperview.bind(this));
+		}, 1500).then(this.removeFromSuperview.bind(this));
 	};
 });

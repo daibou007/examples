@@ -1,4 +1,5 @@
 {
+	"appID": "imagesNineslice",
 	"shortName": "imagesNineslice",
 	"title": "Images: 9 Slice",
 	"icons": {
@@ -26,13 +27,14 @@
 		"flurryKey": ""
 	},
 	"group": "examples",
-  "description": "Using 9-Slice image scaling",
-  "doc": "http://doc.gameclosure.com/example/images-nineslice/",
+	"description": "Using 9-Slice image scaling",
+	"doc": "http://doc.gameclosure.com/example/images-nineslice/",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true
 	},
 	"resources": {},
 	"targets": {},
-	"groups": {}
+	"groups": {},
+	"sdkVersion": "dev-0.1.0"
 }

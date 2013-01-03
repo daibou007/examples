@@ -49,7 +49,7 @@ var AnimationView = Class(View, function (supr) {
 			}
 		}));
 	};
-	
+
 	this.continuousAnimate = function () {
 		//Clear the animation queue
 		this.anim.clear()
@@ -65,3 +65,4 @@ var AnimationView = Class(View, function (supr) {
 			.then(this.continuousAnimate.bind(this));
 	};
 });
+//<img src="./doc/screenshot.png" alt="trail screenshot" class="screenshot">

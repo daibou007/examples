@@ -1,4 +1,5 @@
 {
+	"appID": "334ee31978af4026baca6fa9a3a88c4d",
 	"shortName": "viewStyle",
 	"title": "Views: Update the Style",
 	"icons": {
@@ -26,8 +27,8 @@
 		"flurryKey": ""
 	},
 	"group": "examples",
-  "description": "Updating the style of a View.",
-  "doc": "http://doc.gameclosure.com/example/views-style/",
+	"description": "Updating the style of a View.",
+	"doc": "http://doc.gameclosure.com/example/views-style/",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true

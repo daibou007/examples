@@ -27,7 +27,7 @@ exports = Class(GC.Application, function () {
 		//This function is called when the user drags. The second parameter contains the drag coordinates.
 		this.view.on('InputMove', function (evt, pt) {
 			var opts = {superview: GC.app.view, x: pt.x - 3, y: pt.y - 3};
-			
+
 			if (GC.app._trail.length < 64) {
 				//Add a new view to the circular buffer.
 				GC.app._trail.push(new TrailBox(opts));
@@ -46,7 +46,7 @@ exports = Class(GC.Application, function () {
 //Create a view which fades out over a time of 500 ms.
 var TrailBox = Class(View, function (supr) {
 	this.init = function (opts) {
-		supr(this, "init", [merge(opts, {width: 6, height: 6, backgroundColor: "#FF0000"})]);
+		supr(this, "init", [merge(opts, {width: 6, height: 6, backgroundColor: "#00FF00"})]);
 		// Set the start time.
 		this._dt = 0;
 	};
@@ -73,4 +73,4 @@ var TrailBox = Class(View, function (supr) {
 });
 
 //When you click (or touch) and drag the screen should look like this:
-//<img src="./img/screenshot.png" alt="trail screenshot" class="screenshot">
+//<img src="./doc/screenshot.png" alt="trail screenshot" class="screenshot">

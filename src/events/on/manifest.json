@@ -1,4 +1,5 @@
 {
+	"appID": "7eed571825bd4aa0a3cf12a189938f5c",
 	"shortName": "eventsOn",
 	"title": "Events: Subscribe to an Event",
 	"icons": {
@@ -26,13 +27,14 @@
 		"flurryKey": ""
 	},
 	"group": "examples",
-  "description": "Capturing an event with 'on'",
-  "doc": "http://doc.gameclosure.com/example/events-on/",
+	"description": "Capturing an event with 'on'",
+	"doc": "http://doc.gameclosure.com/example/events-on/",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true
 	},
 	"resources": {},
 	"targets": {},
-	"groups": {}
+	"groups": {},
+	"sdkVersion": "dev-0.1.0"
 }

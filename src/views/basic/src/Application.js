@@ -31,4 +31,4 @@ exports = Class(GC.Application, function() {
 });
 
 //The output should look like this screenshot:
-//<img src="./doc/screenshot1.png" alt="a view screenshot" class="screenshot">
+//<img src="./doc/screenshot.png" alt="a view screenshot" class="screenshot">

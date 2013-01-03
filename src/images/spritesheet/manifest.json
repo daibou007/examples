@@ -1,6 +1,7 @@
 {
+	"appID": "imagesSpriteSheet",
 	"shortName": "imagesSpriteSheet",
-  "title": "Images: Sprite Sheet",
+	"title": "Images: Sprite Sheet",
 	"icons": {
 		"128": "resources/images/icon.png"
 	},
@@ -26,13 +27,14 @@
 		"flurryKey": ""
 	},
 	"group": "examples",
-  "description": "Using a sprite sheet",
-  "doc": "http://doc.gameclosure.com/example/images-spritesheet/",
+	"description": "Using a sprite sheet",
+	"doc": "http://doc.gameclosure.com/example/images-spritesheet/",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true
 	},
 	"resources": {},
 	"targets": {},
-	"groups": {}
+	"groups": {},
+	"sdkVersion": "dev-0.1.0"
 }

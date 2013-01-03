@@ -1,9 +1,10 @@
 {
+	"appID": "animPause",
 	"shortName": "animPause",
-  "title": "Animation: Pause",
+	"title": "Animation: Pause",
 	"group": "examples",
-  "description": "Pausing and resuming an animation",
-  "doc": "http://doc.gameclosure.com/example/animation-pause/",
+	"description": "Pausing and resuming an animation",
+	"doc": "http://doc.gameclosure.com/example/animation-pause/",
 	"icons": {
 		"128": "resources/images/icon.png"
 	},
@@ -34,5 +35,6 @@
 	},
 	"resources": {},
 	"targets": {},
-	"groups": {}
+	"groups": {},
+	"sdkVersion": "dev-0.1.0"
 }

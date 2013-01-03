@@ -77,3 +77,7 @@ var SheetView = Class(ImageView, function(supr) {
 		}
 	};
 });
+
+//A screenshot of one of the sprites on screen:
+
+//<img src="./doc/screenshot.png" alt="a sprite" class="screenshot">

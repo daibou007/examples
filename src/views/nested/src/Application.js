@@ -9,37 +9,37 @@ import ui.View as View;
 
 //## Class: Application
 exports = Class(GC.Application, function () {
-  this.initUI = function () {
-    var doublebox = new DoubleBox();
-    this.view.addSubview(doublebox);
-  };
+	this.initUI = function () {
+		var doublebox = new DoubleBox({width: device.width, height: device.height});
+		this.view.addSubview(doublebox);
+	};
 });
 
 //## Class: DoubleBox
 var DoubleBox = Class(View, function (supr) {
-  //Called before the first render of the view.
-  this.buildView = function () {
+	//Called before the first render of the view.
+	this.buildView = function () {
 		//Create a View with a red background color.
-    var redbox = new View({
-      superview: this,
-      x: 0,
-      y: 0,
-      width: device.width / 2,
-      height: device.height / 2,
-      backgroundColor: '#f00',
-      zIndex: 1
-    }); 
+		var redbox = new View({
+			superview: this,
+			x: 0,
+			y: 0,
+			width: device.width / 2,
+			height: device.height / 2,
+			backgroundColor: '#FF0000',
+			zIndex: 1
+		});
 		//Create a View with a blue background color.
-    var bluebox = new View({
-      superview: this,
-      x: 100,
-      y: 100,
-      width: device.width / 2,
-      height: device.height / 2,
-      backgroundColor: '#00f'
-    });
-  };
+		var bluebox = new View({
+			superview: this,
+			x: 100,
+			y: 100,
+			width: device.width / 2,
+			height: device.height / 2,
+			backgroundColor: '#0000FF'
+		});
+	};
 });
 
 //Load this code as the `Application.js` file in your project, run the simulator, and you should see something like this:
-//<img src="./doc/screenshot1.png" alt="nested views screenshot" class="screenshot">
+//<img src="./doc/screenshot.png" alt="nested views screenshot" class="screenshot">

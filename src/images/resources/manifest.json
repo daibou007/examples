@@ -1,6 +1,7 @@
 {
+	"appID": "imagesResources",
 	"shortName": "imagesResources",
-  "title": "Images: Resources",
+	"title": "Images: Resources",
 	"icons": {
 		"128": "resources/images/icon.png"
 	},
@@ -26,13 +27,14 @@
 		"flurryKey": ""
 	},
 	"description": "Image resources",
-  "doc": "http://doc.gameclosure.com/example/images-resource/",
-  "group": "examples",
+	"doc": "http://doc.gameclosure.com/example/images-resource/",
+	"group": "examples",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true
 	},
 	"resources": {},
 	"targets": {},
-	"groups": {}
+	"groups": {},
+	"sdkVersion": "dev-0.1.0"
 }

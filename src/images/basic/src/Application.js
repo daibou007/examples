@@ -16,10 +16,10 @@ exports = Class(GC.Application, function() {
 			y: 0,
 			scale: 0.75,
 			layout: 'box',
-			image: "resources/images/book.png"
+			image: "resources/images/icon.png"
 		});
 	};
 });
 
 //The output should look like this screenshot:
-//<img src="./doc/screenshot1.png" alt="a book screenshot" class="screenshot">
+//<img src="./doc/screenshot.png" alt="a book screenshot" class="screenshot">

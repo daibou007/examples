@@ -23,7 +23,7 @@ var offset_pos = 20,
 
 exports = Class(GC.Application, function () {
   this.initUI = function () {
-    
+
     var imagescaleview = new ui.ImageScaleView({
       superview: this.view,
       x: offset_pos / 2,
@@ -60,7 +60,7 @@ exports = Class(GC.Application, function () {
     imagescaleview.on('InputSelect', function () {
       console.log("You clicked the big button!");
     });
-    
+
     var text = new ui.TextView({
       superview: imagescaleview,
       backgroundColor: 'rgba(0,0,255,0.2)', //transparent blue
@@ -76,4 +76,4 @@ exports = Class(GC.Application, function () {
 
 //Run this code as the `Application.js` file in your project, and you should see something
 //like this in the simulator:
-//<img src="./doc/screenshot1.png" alt="9-slice screenshot" class="screenshot">
+//<img src="./doc/screenshot.png" alt="9-slice screenshot" class="screenshot">

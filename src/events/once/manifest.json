@@ -1,4 +1,5 @@
 {
+	"appID": "01a979c4179e4a08972edc371c5a9ad8",
 	"shortName": "eventOnce",
 	"title": "Events: Subscribe to an Event Once",
 	"icons": {
@@ -26,13 +27,14 @@
 		"flurryKey": ""
 	},
 	"group": "examples",
-  "description": "Capturing an event once",
-  "doc": "http://doc.gameclosure.com/example/events-once/",
+	"description": "Capturing an event once",
+	"doc": "http://doc.gameclosure.com/example/events-once/",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true
 	},
 	"resources": {},
 	"targets": {},
-	"groups": {}
+	"groups": {},
+	"sdkVersion": "dev-0.1.0"
 }

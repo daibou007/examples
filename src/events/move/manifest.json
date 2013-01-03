@@ -1,4 +1,5 @@
 {
+	"appID": "781d7f8d7a464530b8faad204c7127be",
 	"shortName": "eventsMove",
 	"title": "Events: Move Input",
 	"icons": {
@@ -26,13 +27,14 @@
 		"flurryKey": ""
 	},
 	"group": "examples",
-  "description": "Capturing a move event",
-  "doc": "http://doc.gameclosure.com/example/events-move/",
+	"description": "Capturing a move event",
+	"doc": "http://doc.gameclosure.com/example/events-move/",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true
 	},
 	"resources": {},
 	"targets": {},
-	"groups": {}
+	"groups": {},
+	"sdkVersion": "dev-0.1.0"
 }

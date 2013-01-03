@@ -37,3 +37,4 @@ exports = Class(GC.Application, function() {
 
 	this.launchUI = function () {};
 });
+//<img src="./doc/screenshot.png" alt="trail screenshot" class="screenshot">

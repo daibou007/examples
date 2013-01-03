@@ -1,13 +1,37 @@
-//# Create a trail
-//This demo shows how to create a trail behind the mouse when clicking and dragging.
-//Click on the view and then drag.
+//# Events, on
+//This demo shows how to use publish and subscribe.
 
-//Import the `ui.View` class.
-import ui.View as View;
+import device;
+import ui.TextView as TextView;
 
-//Class: Application
-//Create an application, set the default settings.
-exports = Class(GC.Application, function () {
+//Create a view which publishes an event and a value,
+//each time the view is clicked the value will be increased...
+
+var PublishView = Class(TextView, function(supr) {
+	this.onInputSelect = function() {
+		this._value = this._value || 0;
+		this._value++;
+		this.publish("Clicked", this._value);
+	};
+});
+
+//Create a view with a function which can be called when the view is clicked, the takes one parameter:
+
+var SubscribeView1 = Class(TextView, function(supr) {
+	this.onClick = function(someValue) {
+		this.setText("Red was clicked, someValue: " + someValue);
+	};
+});
+
+//Create a view with a function which can be called when the view is clicked, the takes two parameters:
+var SubscribeView2 = Class(TextView, function(supr) {
+	this.onClick = function(text, someValue) {
+		this.setText(text + someValue);
+	};
+});
+
+//Create the application with default settings:
+exports = Class(GC.Application, function() {
 
 	this._settings = {
 		logsEnabled: window.DEV_MODE,
@@ -17,60 +41,75 @@ exports = Class(GC.Application, function () {
 		preload: []
 	};
 
-	//Create a circular buffer and the index in the buffer.
-	this.initUI = function () {
-		// A circular buffer
-		this._trail = [];
-		// The index in the buffer
-		this._index = 0;
-
-		//This function is called when the user drags. The second parameter contains the drag coordinates.
-		this.view.on('InputMove', function (evt, pt) {
-			var opts = {superview: GC.app.view, x: pt.x - 3, y: pt.y - 3};
-
-			if (GC.app._trail.length < 64) {
-				//Add a new view to the circular buffer.
-				GC.app._trail.push(new TrailBox(opts));
-			} else {
-				GC.app._trail[GC.app._index].reset(opts);
-				//Next value of the circular buffer.
-				GC.app._index = (GC.app._index + 1) & 63;
-			}
+	this.initUI = function() {
+		this._subscribeView1 = new TextView({
+			superview: this.view,
+			text: "Waiting for click",
+			color: "#000000",
+			backgroundColor: "#00FF00",
+			width: device.width - 20,
+			height: 50,
+			x: 10,
+			y: 70
 		});
+		this._subscribeView2 = new SubscribeView1({
+			superview: this.view,
+			text: "Waiting for click",
+			color: "#000000",
+			backgroundColor: "#FFDD00",
+			width: device.width - 20,
+			height: 50,
+			x: 10,
+			y: 130
+		});
+		this._subscribeView3 = new SubscribeView2({
+			superview: this.view,
+			text: "Waiting for click",
+			color: "#000000",
+			backgroundColor: "#00DDFF",
+			width: device.width - 20,
+			height: 50,
+			x: 10,
+			y: 190
+		});
+
+		new PublishView({
+			superview: this.view,
+			text: "Click me",
+			color: "#FFFFFF",
+			backgroundColor: "#FF0000",
+			width: device.width - 20,
+			height: 50,
+			x: 10,
+			y: 10
+		})
+
+//When "Clicked" is published then the setText method is
+//invoked with the parameter value "Red was clicked".
+//After publishing the event the subscriber is un-subscribed
+			.on("Clicked", bind(this._subscribeView1, "setText", "Red was clicked"))
+
+//When "Clicked" is published then the onClick method is
+//invoked, this method will also use the parameter value 12 which
+//is passed from the publish call.
+//After publishing the event the subscriber is un-subscribed
+
+			.on("Clicked", bind(this._subscribeView2, "onClick"))
+//When "Clicked" is published then the onClick method is
+//invoked, the onClick method will receive two parameters: the
+//string "Red was clicked, someValue: " and the number 12 which
+//is passed from the publish call.
+//After publishing the event the subscriber is un-subscribed
+
+			.on("Clicked", bind(this._subscribeView3, "onClick", "Red was clicked, someValue: "));
 	};
 
 	this.launchUI = function () {};
 });
 
-//## Class: TrailBox
-//Create a view which fades out over a time of 500 ms.
-var TrailBox = Class(View, function (supr) {
-	this.init = function (opts) {
-		supr(this, "init", [merge(opts, {width: 6, height: 6, backgroundColor: "#FF0000"})]);
-		// Set the start time.
-		this._dt = 0;
-	};
-
-	// Reset the view.
-	this.reset = function (opts) {
-		// Set the start time
-		this._dt = 0;
-		// Because opts contains a superview this view is added to the superview!
-		this.updateOpts(opts);
-	};
-
-	// This function is called 500ms and then removed from its superview
-	this.tick = function (dt) {
-		this._dt += dt;
-		if (this._dt > 500) {
-			//Remove this view from the superview
-			this.removeFromSuperview();
-		} else {
-			// Fade out...
-			this.updateOpts({opacity: 1 - this._dt / 500});
-		}
-	};
-});
-
-//When you click (or touch) and drag the screen should look like this:
-//<img src="./doc/screenshot.png" alt="trail screenshot" class="screenshot">
+//The output should look like this screenshot:
+//<img src="./doc/screenshot1.png" alt="a book screenshot" class="screenshot">
+//After clicking the red button once the output should look like this:
+//<img src="./doc/screenshot2.png" alt="a book screenshot" class="screenshot">
+//After clicking the red button twice the output should look like this:
+//<img src="./doc/screenshot3.png" alt="a book screenshot" class="screenshot">

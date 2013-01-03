@@ -1,6 +1,7 @@
 {
+	"appID": "47f96q1e96354381a93e3bf487316361",
 	"shortName": "imagesNineSliceAnimation",
-  "title": "Images: 9 Slice Animation",
+	"title": "Images: 9 Slice Animation",
 	"icons": {
 		"128": "resources/images/icon.png"
 	},
@@ -26,13 +27,14 @@
 		"flurryKey": ""
 	},
 	"group": "examples",
-  "description": "Using 9-Slice image scaling in an animation",
-  "doc": "http://doc.gameclosure.com/example/images-ninesliceanimation/",
+	"description": "Using 9-Slice image scaling in an animation",
+	"doc": "http://doc.gameclosure.com/example/images-ninesliceanimation/",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true
 	},
 	"resources": {},
 	"targets": {},
-	"groups": {}
+	"groups": {},
+	"sdkVersion": "dev-0.1.0"
 }

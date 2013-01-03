@@ -16,7 +16,7 @@ exports = Class(GC.Application, function() {
 	};
 
 	this.initUI = function () {
-		
+
 		this._subscribeView1 = new TextView({
 			superview: this.view,
 			text: "Waiting for click",
@@ -27,7 +27,7 @@ exports = Class(GC.Application, function() {
 			x: 10,
 			y: 70
 		});
-		
+
 		this._subscribeView2 = new SubscribeView1({
 			superview: this.view,
 			text: "Waiting for click",
@@ -38,7 +38,7 @@ exports = Class(GC.Application, function() {
 			x: 10,
 			y: 130
 		});
-		
+
 		this._subscribeView3 = new SubscribeView2({
 			superview: this.view,
 			text: "Waiting for click",
@@ -60,7 +60,7 @@ exports = Class(GC.Application, function() {
 			x: 10,
 			y: 10
 		});
-		
+
 		// When "Clicked" is published then the setText method is
 		// invoked with the parameter value "Red was clicked".
 		emitterview.once('Clicked', bind(this, function (val) {
@@ -117,10 +117,7 @@ var SubscribeView2 = Class(TextView, function (supr) {
 	};
 });
 
-
 //The output should look like this screenshot:
-//<img src="./img/screenshot1.png" alt="a book screenshot" class="screenshot">
+//<img src="./doc/screenshot1.png" alt="a book screenshot" class="screenshot">
 //After clicking the red button once the output should look like this:
-//<img src="./img/screenshot2.png" alt="a book screenshot" class="screenshot">
-//After clicking the red button twice the output should look like this:
-//<img src="./img/screenshot3.png" alt="a book screenshot" class="screenshot">
+//<img src="./doc/screenshot2.png" alt="a book screenshot" class="screenshot">

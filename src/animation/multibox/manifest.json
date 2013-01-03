@@ -1,9 +1,10 @@
 {
+	"appID": "multiboxAnimation",
 	"shortName": "multiboxAnimation",
-  "title": "Animation: Multiple Rectangles",
+	"title": "Animation: Multi Box",
 	"group": "examples",
-  "description": "Animating multiple views.",
-  "doc": "http://doc.gameclosure.com/example/animation-multibox/",
+	"description": "Animating multiple views.",
+	"doc": "http://doc.gameclosure.com/example/animation-multibox/",
 	"icons": {
 		"128": "resources/images/icon.png"
 	},
@@ -34,5 +35,6 @@
 	},
 	"resources": {},
 	"targets": {},
-	"groups": {}
+	"groups": {},
+	"sdkVersion": "dev-0.1.0"
 }

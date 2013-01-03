@@ -89,3 +89,4 @@ exports = Class(GC.Application, function() {
 
 	this.launchUI = function () {};
 });
+//<img src="./doc/screenshot.png" alt="9-slice screenshot" class="screenshot">

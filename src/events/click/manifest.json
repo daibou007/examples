@@ -1,9 +1,7 @@
 {
+	"appID": "5550e5d7312b4c7aa7ee057424896b2e",
 	"shortName": "eventsInputClick",
-  "title": "Events: Input Click",
-	"group": "examples",
-  "description": "Handling click events",
-  "doc": "http://doc.gameclosure.com/example/events-click/",
+	"title": "Events: Input Click",
 	"icons": {
 		"128": "resources/images/icon.png"
 	},
@@ -15,6 +13,9 @@
 	"supportedOrientations": [
 		"portrait"
 	],
+	"group": "examples",
+	"description": "Handling click events",
+	"doc": "http://doc.gameclosure.com/example/events-click/",
 	"android": {
 		"versionCode": 1,
 		"tapjoyId": "",
@@ -34,5 +35,6 @@
 	},
 	"resources": {},
 	"targets": {},
-	"groups": {}
+	"groups": {},
+	"sdkVersion": "dev-0.1.0"
 }

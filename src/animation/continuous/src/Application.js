@@ -47,3 +47,4 @@ function continuous_animate () {
 		// Start animating again
 		.then(continuous_animate.bind(this));
 }
+//<img src="./doc/screenshot.png" alt="trail screenshot" class="screenshot">

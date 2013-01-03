@@ -1,4 +1,5 @@
 {
+	"appID": "imagesBasic",
 	"shortName": "imagesBasic",
 	"title": "Images: Basic",
 	"icons": {
@@ -26,13 +27,14 @@
 		"flurryKey": ""
 	},
 	"group": "examples",
-  "description": "Displaying an image",
-  "doc": "http://doc.gameclosure.com/example/images-basic/",
+	"description": "Displaying an image",
+	"doc": "http://doc.gameclosure.com/example/images-basic/",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true
 	},
 	"resources": {},
 	"targets": {},
-	"groups": {}
+	"groups": {},
+	"sdkVersion": "dev-0.1.0"
 }

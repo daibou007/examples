@@ -1,6 +1,7 @@
 {
+	"appID": "animContinuous",
 	"shortName": "animContinuous",
-  "title": "Animation: Looping",
+	"title": "Animation: Continuous",
 	"description": "A continuously looping animation",
 	"icons": {
 		"128": "resources/images/icon.png"
@@ -27,12 +28,13 @@
 		"flurryKey": ""
 	},
 	"group": "examples",
-  "doc": "http://doc.gameclosure.com/example/animation-continuous/",
+	"doc": "http://doc.gameclosure.com/example/animation-continuous/",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true
 	},
 	"resources": {},
 	"targets": {},
-	"groups": {}
+	"groups": {},
+	"sdkVersion": "dev-0.1.0"
 }

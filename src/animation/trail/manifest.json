@@ -1,9 +1,10 @@
 {
+	"appID": "animTrail",
 	"shortName": "animTrail",
-  "title": "Animation: Trail",
+	"title": "Animation: Trail",
 	"group": "examples",
-  "description": "Using an animation to create a fading trail",
-  "doc": "http://doc.gameclosure.com/example/animation-trail/",
+	"description": "Using an animation to create a fading trail",
+	"doc": "http://doc.gameclosure.com/example/animation-trail/",
 	"icons": {
 		"128": "resources/images/icon.png"
 	},
@@ -34,5 +35,6 @@
 	},
 	"resources": {},
 	"targets": {},
-	"groups": {}
+	"groups": {},
+	"sdkVersion": "dev-0.1.0"
 }
