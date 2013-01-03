@@ -1,7 +1,5 @@
 import ui.TextView as TextView;
-import ui.ScrollView as ScrollView;
 import ui.ImageScaleView as ImageScaleView;
-import ui.View as View;
 
 import device;
 
@@ -55,7 +53,6 @@ exports = Class(GC.Application, function () {
 
 	this._createTabButton = function (title) {
 		return new TabPaneButtonView({
-			//superview: this.view,
 			image: "resources/images/tab.png",
 			activeImage: "resources/images/tabActive.png",
 			scaleMethod: "9slice",

@@ -15,7 +15,7 @@
 	],
 	"description": "Rendering tiles",
 	"group": "examples",
-	"doc": "http://doc.gameclosure.com/example/adv-rendering-tiles/",
+	"doc": "http://doc.gameclosure.com/example/advrendering-tiles/",
 	"android": {
 		"versionCode": 1,
 		"tapjoyId": "",

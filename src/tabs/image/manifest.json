@@ -1,7 +1,9 @@
 {
 	"appID": "bb1269565242482d92421e45da04cc39",
 	"shortName": "imageTabs",
-	"title": "Image tabs",
+	"title": "Tabs: Image tabs",
+	"description": "Tabs styled with images",
+	"doc": "http://doc.gameclosure.com/example/tabs-image/",
 	"icons": {
 		"renderGloss": true
 	},
@@ -11,9 +13,9 @@
 		"stagingDomain": "staging.example.com"
 	},
 	"supportedOrientations": [
-		"portrait",
-		"landscape"
+		"portrait"
 	],
+	"group": "examples",
 	"android": {
 		"tapjoyId": "",
 		"tapjoyKey": "",

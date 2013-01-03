@@ -15,7 +15,7 @@
 	],
 	"group": "examples",
 	"description": "Handling click events",
-	"doc": "http://doc.gameclosure.com/example/events-click/",
+	"doc": "http://doc.gameclosure.com/example/eventsclick/",
 	"android": {
 		"versionCode": 1,
 		"tapjoyId": "",

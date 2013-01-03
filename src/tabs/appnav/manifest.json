@@ -1,7 +1,9 @@
 {
 	"appID": "3cc4fdce5db04d6ba0552a948e1b25bc",
-	"shortName": "appNavTabs",
-	"title": "App nav tab demo",
+	"shortName": "appNavDemo",
+	"title": "Tabs: App navigation",
+	"description": "A navigation bar on the bottom of the screen",
+	"doc": "http://doc.gameclosure.com/example/tabs-appnav/",
 	"icons": {
 		"128": "resources/images/icon.png"
 	},
@@ -13,9 +15,7 @@
 	"supportedOrientations": [
 		"portrait"
 	],
-	"description": "",
-	"group": "",
-	"doc": "",
+	"group": "examples",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true

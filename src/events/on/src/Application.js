@@ -6,7 +6,6 @@ import ui.TextView as TextView;
 
 //Create a view which publishes an event and a value,
 //each time the view is clicked the value will be increased...
-
 var PublishView = Class(TextView, function(supr) {
 	this.onInputSelect = function() {
 		this._value = this._value || 0;
@@ -16,7 +15,6 @@ var PublishView = Class(TextView, function(supr) {
 });
 
 //Create a view with a function which can be called when the view is clicked, the takes one parameter:
-
 var SubscribeView1 = Class(TextView, function(supr) {
 	this.onClick = function(someValue) {
 		this.setText("Red was clicked, someValue: " + someValue);

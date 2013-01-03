@@ -15,7 +15,7 @@
 	],
 	"group": "examples",
 	"description": "Rendering in offscreen buffers",
-	"doc": "http://doc.gameclosure.com/example/adv-rendering-buffers/",
+	"doc": "http://doc.gameclosure.com/example/advrendering-buffers/",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true
