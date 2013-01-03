@@ -1,0 +1,40 @@
+{
+	"appID": "698c4c258b294837bd718bea4d426e30",
+	"shortName": "spriteBasic",
+	"title": "Sprites: Basic",
+	"icons": {
+		"128": "resources/images/icon.png"
+	},
+	"studio": {
+		"name": "Example Studio Name",
+		"domain": "studio.example.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"android": {
+		"versionCode": 1,
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": "",
+		"entryPoint": "runtimeNative.launchClient",
+		"tapjoyDaily": {}
+	},
+	"ios": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": ""
+	},
+	"group": "examples",
+	"description": "A basic SpriteView",
+	"doc": "http://doc.gameclosure.com/example/sprites-basic/",
+	"preload": {
+		"img": "resources/images/splash.png",
+		"autoHide": true
+	},
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"sdkVersion": "dev-0.1.0"
+}

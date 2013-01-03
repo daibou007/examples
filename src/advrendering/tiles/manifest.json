@@ -1,0 +1,39 @@
+{
+	"appID": "441c231fdc0249f3b43813a03a17a3a5",
+	"shortName": "advRenderingTiles",
+	"title": "Advanced Rendering: Tiles",
+	"icons": {
+		"128": "resources/images/icon.png"
+	},
+	"studio": {
+		"name": "Example Studio Name",
+		"domain": "studio.example.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"description": "Rendering tiles",
+	"group": "examples",
+	"doc": "http://doc.gameclosure.com/example/adv-rendering-tiles/",
+	"android": {
+		"versionCode": 1,
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": "",
+		"entryPoint": "runtimeNative.launchClient",
+		"tapjoyDaily": {}
+	},
+	"ios": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": ""
+	},
+	"preload": {
+		"img": "resources/images/splash.png",
+		"autoHide": true
+	},
+	"resources": {},
+	"targets": {},
+	"groups": {}
+}
