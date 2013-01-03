@@ -264,3 +264,5 @@ var TabPaneSetting = Class(View, function (supr) {
 		}
 	};
 });
+//The output should look like this screenshot:
+//<img src="./doc/screenshot.png" alt="a book screenshot" class="screenshot">

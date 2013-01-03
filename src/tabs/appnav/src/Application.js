@@ -94,3 +94,5 @@ exports = Class(GC.Application, function () {
 
 	this.launchUI = function () {};
 });
+//The output should look like this screenshot:
+//<img src="./doc/screenshot.png" alt="a book screenshot" class="screenshot">

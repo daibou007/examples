@@ -1,3 +1,5 @@
+//# Tabs, image
+//This demo demonstrates tabs styles with images
 import ui.TextView as TextView;
 import ui.ImageScaleView as ImageScaleView;
 
@@ -6,10 +8,12 @@ import device;
 import ui.widget.TabPaneView as TabPaneView;
 import ui.widget.TabPaneButtonView as TabPaneButtonView;
 
+//A number of dummy texts which will be displayed in the tab panes
 var text1 = "Donec fringilla tempor odio quis tincidunt. Aenean ultricies dictum aliquet. Duis convallis nisl in est pretium pharetra.";
 var text2 = "Curabitur quis velit eget lectus vestibulum sagittis. Sed et leo mauris, nec consequat urna. Praesent lorem nisi, fermentum eu posuere nec, aliquam quis risus. Donec faucibus erat ac nibh imperdiet vulputate. Sed ornare vulputate pellentesque.";
 var text3 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nec volutpat odio. Aliquam erat volutpat. Etiam vel consectetur tortor. Morbi vel facilisis leo. Nunc et erat in risus egestas posuere quis in neque. Suspendisse potenti.";
 
+//Create a tab page with a nine slice image border
 var TextPage = Class(ImageScaleView, function (supr) {
 	this.init = function (opts) {
 		opts = merge(
@@ -26,6 +30,7 @@ var TextPage = Class(ImageScaleView, function (supr) {
 		);
 		supr(this, "init", [opts]);
 
+		//The content for this pane
 		new TextView({
 			superview: this,
 			text: opts.text,
@@ -51,6 +56,7 @@ exports = Class(GC.Application, function () {
 		preload: []
 	};
 
+	//Create a button with a three slice image for the borders
 	this._createTabButton = function (title) {
 		return new TabPaneButtonView({
 			image: "resources/images/tab.png",
@@ -74,14 +80,17 @@ exports = Class(GC.Application, function () {
 			width: device.width - 20,
 			height: 300,
 			buttonOpts: {
+				//The buttons overlap
 				buttonMargin: -30,
 				padding: 30
 			},
+			//Move the content up two pixels to align the border
 			contentOpts: {
 				top: -2
 			},
 			tabPosition: TabPaneView.tabPosition.TOP
 		});
+		//Add three panes
 		tabs.addPane(this._createTabButton("Game"), new TextPage({text: text1}));
 		tabs.addPane(this._createTabButton("Closure"), new TextPage({text: text2}));
 		tabs.addPane(this._createTabButton("Tabs"), new TextPage({text: text3}));
@@ -89,3 +98,5 @@ exports = Class(GC.Application, function () {
 
 	this.launchUI = function () {};
 });
+//The output should look like this screenshot:
+//<img src="./doc/screenshot.png" alt="a book screenshot" class="screenshot">
