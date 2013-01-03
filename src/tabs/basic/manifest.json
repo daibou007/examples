@@ -1,0 +1,30 @@
+{
+	"appID": "147e17e30fb24b72827b80959901ff34",
+	"shortName": "basicTabs",
+	"title": "Basic Tabs",
+	"icons": {
+		"renderGloss": true
+	},
+	"studio": {
+		"name": "GameClosure",
+		"domain": "studio.example.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait",
+		"landscape"
+	],
+	"android": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": "",
+		"entryPoint": "runtimeNative.launchClient",
+		"tapjoyDaily": {}
+	},
+	"ios": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": ""
+	},
+	"sdkVersion": "dev-0.1.0"
+}

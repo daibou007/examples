@@ -1,0 +1,35 @@
+{
+	"appID": "78a951e1711d4d399d4f6a10f9c069b6",
+	"shortName": "textviews",
+	"title": "TextView: Text wrapping and alignment",
+	"icons": {},
+	"studio": {
+		"name": "Your Studio Name",
+		"domain": "studio.example.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"android": {
+		"versionCode": 1,
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": "",
+		"entryPoint": "runtimeNative.launchClient",
+		"tapjoyDaily": {}
+	},
+	"ios": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": ""
+	},
+	"group": "examples",
+	"description": "Demonstrate different text position options.",
+	"doc": "http://doc.gameclosure.com/example/textviews/",
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"preload": {},
+	"sdkVersion": "dev-0.1.0"
+}
