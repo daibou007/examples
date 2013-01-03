@@ -6,7 +6,7 @@ import ui.View as View;
 import device;
 
 import ui.widget.TabPaneView as TabPaneView;
-import ui.widget.TabPaneButton as TabPaneButton;
+import ui.widget.TabPaneButtonView as TabPaneButtonView;
 
 var text1 = "Donec fringilla tempor odio quis tincidunt. Aenean ultricies dictum aliquet. Duis convallis nisl in est pretium pharetra.";
 var text2 = "Curabitur quis velit eget lectus vestibulum sagittis. Sed et leo mauris, nec consequat urna. Praesent lorem nisi, fermentum eu posuere nec, aliquam quis risus. Donec faucibus erat ac nibh imperdiet vulputate. Sed ornare vulputate pellentesque.";
@@ -54,7 +54,7 @@ exports = Class(GC.Application, function () {
 	};
 
 	this._createTabButton = function (title) {
-		return new TabPaneButton({
+		return new TabPaneButtonView({
 			//superview: this.view,
 			image: "resources/images/tab.png",
 			activeImage: "resources/images/tabActive.png",
