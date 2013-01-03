@@ -1,5 +1,6 @@
 {
-	"shortname": "random-textviews",
+	"appID": "e3131171a5ca4594ad0b2bec1ef15cc6",
+	"shortName": "randomtextviews",
 	"title": "TextView: Many, Random Views",
 	"icons": {
 		"128": "resources/images/icon.png"
@@ -12,6 +13,7 @@
 	"supportedOrientations": [
 		"portrait"
 	],
+	"shortname": "random-textviews",
 	"android": {
 		"versionCode": 1,
 		"tapjoyId": "",
@@ -26,8 +28,8 @@
 		"flurryKey": ""
 	},
 	"group": "examples",
-  "description": "Create a bunch of TextViews with random style properties.",
-  "doc": "http://doc.gameclosure.com/example/text-random-textviews/",
+	"description": "Create a bunch of TextViews with random style properties.",
+	"doc": "http://doc.gameclosure.com/example/text-random-textviews/",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true

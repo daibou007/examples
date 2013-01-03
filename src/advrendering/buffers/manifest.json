@@ -35,5 +35,6 @@
 		"tapjoyId": "",
 		"tapjoyKey": "",
 		"flurryKey": ""
-	}
+	},
+	"sdkVersion": "dev-0.1.0"
 }
