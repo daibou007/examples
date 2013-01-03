@@ -23,7 +23,6 @@ exports = Class(GC.Application, function () {
 	//* inputMove: to change the end point of the list
 	//* inputSelect: place the line on the screen
 	this.initUI = function () {
-		this.view.render = bind(this, 'render');
 		//this.view.onInputStart = bind(this, "onInputStart");
 		//this.view.onInputMove = bind(this, "onInputMove");
 		//this.view.onInputSelect = bind(this, "onInputSelect");
@@ -36,6 +35,7 @@ exports = Class(GC.Application, function () {
 		this._buffer = new Canvas({width: device.width, height: device.height});
 		this._ctx = this._buffer.getContext("2d");
 		this._ctx.fillStyle = "#FFFFFF";
+
 		this._ctx.fillRect(0, 0, device.width, device.height);
 		this._ctx.fillStyle = "#888888";
 
