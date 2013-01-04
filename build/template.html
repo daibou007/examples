@@ -125,7 +125,7 @@
         </div>
       </div>
     </div><!--/navbar-->
-
+    
     <div class="container-fluid">
       <div id="background"></div>
       <% if (sources.length > 1) { %>
@@ -153,7 +153,7 @@
           </tr>
         </thead>
         <tbody>
-          <% for (var i=0, l=sections.length; i<l; i++) { %>
+          <% for (var i=0, len=sections.length; i<len; i++) { %>
              <% var section = sections[i]; %>
              <tr id="section-<%= i + 1 %>">
                <td class="docs">
@@ -166,11 +166,41 @@
                  <%= section.codeHtml %>
                </td>
              </tr>
-           <% } %>
+          <% } %>
         </tbody>
       </table>
-      
     </div> <!-- /container-fluid -->
+
+    <div id="help-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="help-modal-label" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="help-modal-label">Keyboard Shortcuts</h3>
+      </div>
+      <div class="modal-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Shortcut</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>?</td>
+              <td>Display Help</td>
+            </tr>
+            <tr>
+              <td>/</td>
+              <td>Keyword Search</td>
+            </tr>
+            <tr>
+              <td>E</td>
+              <td>Go to Examples</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="../../include/bootstrap.min.js"></script>
