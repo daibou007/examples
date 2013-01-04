@@ -1,6 +1,6 @@
 {
-	"appID": "ce0161a5ad8b4b1da0251e87de1b8fc0",
-	"shortName": "layoutScaleRegion",
+	"appID": "basicsScaleScreen",
+	"shortName": "basicsScaleScreen",
 	"title": "Layout: Scale Region",
 	"icons": {
 		"128": "resources/images/icon.png"
@@ -27,7 +27,7 @@
 		"flurryKey": ""
 	},
 	"description": "Scale to fit.",
-	"doc": "http://doc.gameclosure.com/example/layout-scale-region/",
+	"doc": "http://doc.gameclosure.com/example/basics-scalescreen/",
 	"group": "examples",
 	"preload": {
 		"img": "resources/images/splash.png",

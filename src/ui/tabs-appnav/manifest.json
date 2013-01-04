@@ -1,9 +1,9 @@
 {
-	"appID": "3cc4fdce5db04d6ba0552a948e1b25bc",
-	"shortName": "appNavDemo",
+	"appID": "uiTabsAppnav",
+	"shortName": "uiTabsAppnav",
 	"title": "Tabs: App navigation",
 	"description": "A navigation bar on the bottom of the screen",
-	"doc": "http://doc.gameclosure.com/example/tabs-appnav/",
+	"doc": "http://doc.gameclosure.com/example/ui-tabs-appnav/",
 	"icons": {
 		"128": "resources/images/icon.png"
 	},

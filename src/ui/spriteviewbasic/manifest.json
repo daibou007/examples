@@ -1,6 +1,6 @@
 {
-	"appID": "698c4c258b294837bd718bea4d426e30",
-	"shortName": "spriteBasic",
+	"appID": "uiSpriteViewBasic",
+	"shortName": "uiSpriteViewBasic",
 	"title": "Sprites: Basic",
 	"icons": {
 		"128": "resources/images/icon.png"
@@ -28,7 +28,7 @@
 	},
 	"group": "examples",
 	"description": "A basic SpriteView",
-	"doc": "http://doc.gameclosure.com/example/sprites-basic/",
+	"doc": "http://doc.gameclosure.com/example/ui-spriteviewbasic/",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true

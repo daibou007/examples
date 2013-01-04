@@ -1,6 +1,6 @@
 {
-	"appID": "c60d491d50374920b1304ef90cf8ad2a",
-	"shortName": "stackviewBasic",
+	"appID": "uiStackViewBasic",
+	"shortName": "uiStackViewBasic",
 	"title": "StackView: Basic",
 	"icons": {
 		"128": "resources/images/icon.png"
@@ -28,7 +28,7 @@
 	},
 	"group": "examples",
 	"description": "A basic StackView example.",
-	"doc": "http://doc.gameclosure.com/example/stackview-basic/",
+	"doc": "http://doc.gameclosure.com/example/ui-stackviewbasic/",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true

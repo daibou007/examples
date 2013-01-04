@@ -1,6 +1,6 @@
 {
-	"appID": "viewsAddRemove",
-	"shortName": "viewsAddRemove",
+	"appID": "viewsAddremove",
+	"shortName": "viewsAddremove",
 	"title": "Views: Add and Remove",
 	"icons": {
 		"128": "resources/images/icon.png"

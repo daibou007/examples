@@ -1,5 +1,5 @@
 {
-	"appID": "7b6e3b78295c4d0baf23d9fb0adca2ce",
+	"appID": "textFontsTTF",
 	"shortName": "textFontsTTF",
 	"title": "Fonts: TTF Fonts",
 	"icons": {
@@ -28,7 +28,7 @@
 	},
 	"group": "examples",
 	"description": "TTF fonts",
-	"doc": "http://doc.gameclosure.com/example/fonts-ttf/",
+	"doc": "http://doc.gameclosure.com/example/text-fontsttf/",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true

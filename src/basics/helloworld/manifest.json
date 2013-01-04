@@ -1,5 +1,5 @@
 {
-	"appID": "47f96d1e96354381a93e3bf48731636e",
+	"appID": "helloWorld",
 	"shortName": "helloWorld",
 	"title": "Hello, World!",
 	"icons": {
@@ -28,7 +28,7 @@
 	},
 	"description": "The default application.",
 	"group": "examples",
-	"doc": "http://doc.gameclosure.com/example/intro-hello-world/",
+	"doc": "http://doc.gameclosure.com/example/basics-helloworld/",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true

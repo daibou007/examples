@@ -1,6 +1,6 @@
 {
-	"appID": "781d7f8d7a464530b8faad204c7127be",
-	"shortName": "eventsMove",
+	"appID": "eventsInputMove",
+	"shortName": "eventsInputMove",
 	"title": "Events: Move Input",
 	"icons": {
 		"128": "resources/images/icon.png"
@@ -28,7 +28,7 @@
 	},
 	"group": "examples",
 	"description": "Capturing a move event",
-	"doc": "http://doc.gameclosure.com/example/events-move/",
+	"doc": "http://doc.gameclosure.com/example/events-input-move/",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true

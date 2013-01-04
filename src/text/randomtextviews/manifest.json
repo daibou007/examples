@@ -1,6 +1,6 @@
 {
-	"appID": "e3131171a5ca4594ad0b2bec1ef15cc6",
-	"shortName": "randomtextviews",
+	"appID": "textRandomTextViews",
+	"shortName": "textRandomTextViews",
 	"title": "TextView: Many, Random Views",
 	"icons": {
 		"128": "resources/images/icon.png"
@@ -29,7 +29,7 @@
 	},
 	"group": "examples",
 	"description": "Create a bunch of TextViews with random style properties.",
-	"doc": "http://doc.gameclosure.com/example/text-random-textviews/",
+	"doc": "http://doc.gameclosure.com/example/text-randomtextviews/",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true

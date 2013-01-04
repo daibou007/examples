@@ -1,6 +1,6 @@
 {
-	"appID": "a97ed1bd63ea4d1cafb2e2e4c842d4f5",
-	"shortName": "scrollviewBasic",
+	"appID": "uiScrollViewBasic",
+	"shortName": "uiScrollViewBasic",
 	"title": "Using a ScrollView",
 	"icons": {
 		"128": "resources/images/icon.png"
@@ -28,7 +28,7 @@
 	},
 	"group": "examples",
 	"description": "Using a ScrollView.",
-	"doc": "http://doc.gameclosure.com/example/ui-scrollview-basic/",
+	"doc": "http://doc.gameclosure.com/example/ui-scrollviewbasic/",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true

@@ -1,9 +1,9 @@
 {
-	"appID": "147e17e30fb24b72827b80959901ff34",
-	"shortName": "basicTabs",
+	"appID": "uiTabsBasic",
+	"shortName": "uiTabsBasic",
 	"title": "Tabs: Basic",
 	"description": "Shows different options for the tab pane",
-	"doc": "http://doc.gameclosure.com/example/tabs-basic/",
+	"doc": "http://doc.gameclosure.com/example/ui-tabs-basic/",
 	"icons": {
 		"renderGloss": true
 	},

@@ -1,5 +1,5 @@
 {
-	"appID": "d31cf33792cf4b7180b5612b80ee978e",
+	"appID": "eventsInputOut",
 	"shortName": "eventsInputOut",
 	"title": "Events: Input Out",
 	"icons": {
@@ -28,7 +28,7 @@
 	},
 	"group": "examples",
 	"description": "Detect an input out event",
-	"doc": "http://doc.gameclosure.com/example/events-out/",
+	"doc": "http://doc.gameclosure.com/example/events-input-out/",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true

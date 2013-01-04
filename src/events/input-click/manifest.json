@@ -1,5 +1,5 @@
 {
-	"appID": "5550e5d7312b4c7aa7ee057424896b2e",
+	"appID": "eventsInputClick",
 	"shortName": "eventsInputClick",
 	"title": "Events: Input Click",
 	"icons": {
@@ -15,7 +15,7 @@
 	],
 	"group": "examples",
 	"description": "Handling click events",
-	"doc": "http://doc.gameclosure.com/example/eventsclick/",
+	"doc": "http://doc.gameclosure.com/example/events-input-click/",
 	"android": {
 		"versionCode": 1,
 		"tapjoyId": "",

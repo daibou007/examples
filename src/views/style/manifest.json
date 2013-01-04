@@ -1,6 +1,6 @@
 {
-	"appID": "334ee31978af4026baca6fa9a3a88c4d",
-	"shortName": "viewStyle",
+	"appID": "viewsStyle",
+	"shortName": "viewsStyle",
 	"title": "Views: Update the Style",
 	"icons": {
 		"128": "resources/images/icon.png"

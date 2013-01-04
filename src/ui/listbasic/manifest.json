@@ -1,6 +1,6 @@
 {
-	"appID": "6f27f0fa82984192b150c7e564538514",
-	"shortName": "listBasic",
+	"appID": "uiListBasic",
+	"shortName": "uiListBasic",
 	"title": "List: Basic",
 	"icons": {
 		"128": "resources/images/icon.png"
@@ -28,7 +28,7 @@
 	},
 	"group": "examples",
 	"description": "A basic list",
-	"doc": "http://doc.gameclosure.com/example/listbasic/",
+	"doc": "http://doc.gameclosure.com/example/ui-listbasic/",
 	"preload": {
 		"img": "resources/images/splash.png",
 		"autoHide": true
