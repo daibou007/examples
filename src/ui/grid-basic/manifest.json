@@ -1,6 +1,6 @@
 {
-	"appID": "2148af0d84264fc5b3dff60546e8b38d",
-	"shortName": "gridBasic",
+	"appID": "uiGridBasic",
+	"shortName": "uiGridBasic",
 	"title": "Grid: Basic",
 	"icons": {
 		"28": "preload/icons/icon36.png",
@@ -15,15 +15,14 @@
 	},
 	"studio": {
 		"name": "Example Studio Name",
-		"domain": "studio.example.com",
-		"stagingDomain": "staging.example.com"
+		"domain": "studio.example.com"
 	},
 	"supportedOrientations": [
 		"portrait"
 	],
-	"description": "",
-	"group": "",
-	"doc": "",
+	"description": "Basic GridView example.",
+	"group": "examples",
+	"doc": "http://doc.gameclosure.com/example/ui-grid-basic/",
 	"preload": {
 		"autoHide": true,
 		"img": "preload/splash.png",

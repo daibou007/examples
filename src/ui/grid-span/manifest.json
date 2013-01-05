@@ -1,6 +1,6 @@
 {
-	"appID": "6b48abe878ab4c2d94e55fa484ac16d7",
-	"shortName": "gridSpan",
+	"appID": "uiGridSpan",
+	"shortName": "uiGridSpan",
 	"title": "Grid: col span, row span",
 	"icons": {
 		"28": "preload/icons/icon36.png",
@@ -21,9 +21,9 @@
 	"supportedOrientations": [
 		"portrait"
 	],
-	"description": "",
-	"group": "",
-	"doc": "",
+	"description": "A GridView span.",
+	"group": "examples",
+	"doc": "http://doc.gameclosure.com/example/ui-grid-span/",
 	"preload": {
 		"autoHide": true,
 		"img": "preload/splash.png",

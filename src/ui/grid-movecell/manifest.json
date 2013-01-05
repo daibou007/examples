@@ -1,6 +1,6 @@
 {
-	"appID": "ea37112ea2ce49e6a7a93e10def61fb0",
-	"shortName": "gridMoveCell",
+	"appID": "uiGridMoveCell",
+	"shortName": "uiGridMoveCell",
 	"title": "Grid: move cells",
 	"icons": {
 		"28": "preload/icons/icon36.png",
@@ -21,9 +21,9 @@
 	"supportedOrientations": [
 		"portrait"
 	],
-	"description": "",
-	"group": "",
-	"doc": "",
+	"description": "Move a GridView cell.",
+	"group": "examples",
+	"doc": "http://doc.gameclosure.com/example/ui-grid-movecell/",
 	"preload": {
 		"autoHide": true,
 		"img": "preload/splash.png",
