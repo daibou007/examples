@@ -1,10 +1,7 @@
 {
-	"appID": "animPause",
+	"appID": "00000000000000000000000000000000",
 	"shortName": "animPause",
 	"title": "Animation: Pause",
-	"group": "examples",
-	"description": "Pausing and resuming an animation",
-	"doc": "http://doc.gameclosure.com/example/animation-pause/",
 	"icons": {
 		"128": "resources/images/icon.png"
 	},
@@ -16,6 +13,9 @@
 	"supportedOrientations": [
 		"portrait"
 	],
+	"group": "examples",
+	"description": "Pausing and resuming an animation",
+	"doc": "http://doc.gameclosure.com/example/animation-pause/",
 	"android": {
 		"versionCode": 1,
 		"tapjoyId": "",

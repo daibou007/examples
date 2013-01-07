@@ -1,10 +1,7 @@
 {
-	"appID": "multiboxAnimation",
+	"appID": "00000000000000000000000000000000",
 	"shortName": "multiboxAnimation",
 	"title": "Animation: Multi Box",
-	"group": "examples",
-	"description": "Animating multiple views.",
-	"doc": "http://doc.gameclosure.com/example/animation-multibox/",
 	"icons": {
 		"128": "resources/images/icon.png"
 	},
@@ -16,6 +13,9 @@
 	"supportedOrientations": [
 		"portrait"
 	],
+	"group": "examples",
+	"description": "Animating multiple views.",
+	"doc": "http://doc.gameclosure.com/example/animation-multibox/",
 	"android": {
 		"versionCode": 1,
 		"tapjoyId": "",

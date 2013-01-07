@@ -1,9 +1,7 @@
 {
-	"appID": "uiTabsImage",
+	"appID": "00000000000000000000000000000000",
 	"shortName": "uiTabsImage",
 	"title": "Tabs: Image tabs",
-	"description": "Tabs styled with images",
-	"doc": "http://doc.gameclosure.com/example/ui-tabs-image/",
 	"icons": {
 		"renderGloss": true
 	},
@@ -15,6 +13,8 @@
 	"supportedOrientations": [
 		"portrait"
 	],
+	"description": "Tabs styled with images",
+	"doc": "http://doc.gameclosure.com/example/ui-tabs-image/",
 	"group": "examples",
 	"android": {
 		"tapjoyId": "",
