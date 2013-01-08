@@ -1,3 +1,5 @@
+//# Advanced Rendering: Tiles <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/advrendering/titles/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+
 import device as device;
 import ui.View as View;
 

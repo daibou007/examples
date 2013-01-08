@@ -1,4 +1,4 @@
-//# Scaling to Fit
+//# Scaling to Fit <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/basics/scalescreen/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This example scales the viewport to fit the device screen, reguardless of the
 //aspect ratio. For a more thorough treatment, see the [Scaling the Game Guide](http://doc.gameclosure.com/guide/scaling.html).
 //Art delivered at 576x1024 has a ratio of 0.5625, a 1024 max texture size scaled

@@ -1,10 +1,8 @@
-//# Tabs, app navigation
+//# Tabs, App Navigation <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/ui/tabs-appnav/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This demo shows how to use the tabs for a navigation bar on the bottom of the screen
+import device;
 import ui.TextView as TextView;
 import ui.ImageView as ImageView;
-
-import device;
-
 import ui.widget.TabPaneView as TabPaneView;
 
 //A number of dummy texts which will be displayed in the tab panes
@@ -12,27 +10,26 @@ var text1 = "Donec fringilla tempor odio quis tincidunt. Aenean ultricies dictum
 var text2 = "Curabitur quis velit eget lectus vestibulum sagittis. Sed et leo mauris, nec consequat urna. Praesent lorem nisi, fermentum eu posuere nec, aliquam quis risus. Donec faucibus erat ac nibh imperdiet vulputate. Sed ornare vulputate pellentesque.";
 var text3 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nec volutpat odio. Aliquam erat volutpat. Etiam vel consectetur tortor. Morbi vel facilisis leo. Nunc et erat in risus egestas posuere quis in neque. Suspendisse potenti.";
 
+//##Class: TextPage
 //The TextPage holds the content shown in the tabs
 var TextPage = Class(TextView, function (supr) {
 	this.init = function (opts) {
-		opts = merge(
-			opts,
-			{
-				wrap: true,
-				horizontalAlign: "left",
-				horizontalPadding: 20,
-				verticalAlign: "top",
-				verticalPadding: 20,
-				layout: "box",
-				layoutWidth: "100%",
-				layoutHeight: "100%",
-				color: "#000000"
-			}
-		);
+		opts = merge(opts, {
+			wrap: true,
+			horizontalAlign: "left",
+			horizontalPadding: 20,
+			verticalAlign: "top",
+			verticalPadding: 20,
+			layout: "box",
+			layoutWidth: "100%",
+			layoutHeight: "100%",
+			color: "#000000"
+		});
 		supr(this, "init", [opts]);
 	};
 });
 
+//##Class: Application
 exports = Class(GC.Application, function () {
 	this._settings = {
 		logsEnabled: window.DEV_MODE,

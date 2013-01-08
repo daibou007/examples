@@ -1,4 +1,4 @@
-//# Playing a background sound
+//# Playing a background sound <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/sound/background/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This example shows how to add a background sound, pausing and resuming it.
 
 //Import the Sound class and the TextView class.

@@ -1,4 +1,4 @@
-//## Nesting views
+//# Nesting view <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/views/nested/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This file demonstrates the nesting of [views](http://doc.gameclosure.com/api/ui-view.html).
 //Create two rectangles, one red and blue. The red rectangle is displayed in front of the blue by modifying its `zIndex` property.
 

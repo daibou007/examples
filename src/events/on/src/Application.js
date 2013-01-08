@@ -1,4 +1,4 @@
-//# Events, on
+//# Subscribe to an event <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/events/on/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This demo shows how to use publish and subscribe.
 
 import device;

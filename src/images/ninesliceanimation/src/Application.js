@@ -1,4 +1,4 @@
-//# Using 9-Slice image scaling in an animation
+//# Using 9-Slice image scaling in an animation <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/images/ninesliceanimation/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This file demonstrates how to use 9-slice in an animating scroll.
 //This example requires two images located in the resources directory:
 //`resources/images/scrollBottom.png` and `resources/images/scrollTop.png`.

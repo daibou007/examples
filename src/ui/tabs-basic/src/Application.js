@@ -1,10 +1,8 @@
-//# Tabs, basic
+//# Tabs, Basic <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/ui/tabs-basic/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This demo demonstrates the different options for a tab pane
+import device;
 import ui.View as View;
 import ui.TextView as TextView;
-
-import device;
-
 import ui.resource.Image as Image;
 import ui.widget.TabPaneView as TabPaneView;
 
@@ -16,20 +14,17 @@ var text3 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesq
 //The TextPage holds the content shown in the tabs
 var TextPage = Class(TextView, function (supr) {
 	this.init = function (opts) {
-		opts = merge(
-			opts,
-			{
-				wrap: true,
-				horizontalAlign: "left",
-				horizontalPadding: 20,
-				verticalAlign: "top",
-				verticalPadding: 20,
-				layout: "box",
-				layoutWidth: "100%",
-				layoutHeight: "100%",
-				color: "#000000"
-			}
-		);
+		opts = merge(opts, {
+			wrap: true,
+			horizontalAlign: "left",
+			horizontalPadding: 20,
+			verticalAlign: "top",
+			verticalPadding: 20,
+			layout: "box",
+			layoutWidth: "100%",
+			layoutHeight: "100%",
+			color: "#000000"
+		});
 		supr(this, "init", [opts]);
 	};
 });
