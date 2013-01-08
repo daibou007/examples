@@ -1,9 +1,8 @@
 //# Basic Animation
 //Making a view move.
 
-//Import the animation module.
+//Import the animation module and the `ui.View` class.
 import animate;
-//Import the `ui.View` class.
 import ui.View as View;
 
 //## Class: Application

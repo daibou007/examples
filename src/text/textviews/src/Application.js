@@ -1,9 +1,10 @@
-//# TextView: Text wrapping and alignment
+//# TextView: Text wrapping and alignment <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/text/textviews/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This demo demonstrates different setting for the TextView class
 import ui.View as View;
 import ui.TextView as TextView;
 import device;
 
+//## Class: Application
 exports = Class(GC.Application, function () {
 
 	this._settings = {

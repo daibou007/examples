@@ -1,4 +1,4 @@
-//## Packing images in sprite sheets
+//# Packing images in sprite sheets <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/images/resources/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This file shows different scaling and compression options.
 //The metadata.json files in the resources/images subdirectories set the
 //properties which are applied to the images by the spriter.

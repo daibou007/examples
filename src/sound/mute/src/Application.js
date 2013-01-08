@@ -1,4 +1,4 @@
-//# Muting sounds
+//# Muting sounds <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/sound/mute/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This file shows how mute sounds and effects
 
 //Import device to get the width of the screen, import the Sound class to play music and effects.

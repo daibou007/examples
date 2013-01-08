@@ -1,5 +1,5 @@
-//## Nesting views
-//This file demonstrates the nesting of [views](http://doc.gameclosure.com/api/ui-view.html).
+//# Nesting view <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/views/nested/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//This file demonstrates the nesting of [views](../../api/ui-view.html).
 //Create two rectangles, one red and blue. The red rectangle is displayed in front of the blue by modifying its `zIndex` property.
 
 //Import information about the device.
@@ -16,6 +16,7 @@ exports = Class(GC.Application, function () {
 });
 
 //## Class: DoubleBox
+//This class inherits from `ui.View` and contains two child views
 var DoubleBox = Class(View, function (supr) {
 	//Called before the first render of the view.
 	this.buildView = function () {

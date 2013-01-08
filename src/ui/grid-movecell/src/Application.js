@@ -1,28 +1,11 @@
+//# Grid, Move Cell <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/ui/grid-movecell/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+
+import device;
 import ui.TextView as TextView;
 import ui.View as View;
 import ui.widget.GridView as GridView;
 
-import device;
-
-var DemoCellView = Class(View, function (supr) {
-	this.move = function () {
-		var opts = this._opts;
-		var col = opts.col;
-		var row = opts.row;
-
-		col++;
-		if (col >= this._superview.getCols()) {
-			col = 0;
-			row++;
-			if (row >= this._superview.getRows()) {
-				row = 0;
-			}
-		}
-		opts.col = col;
-		opts.row = row;
-	};
-});
-
+//## Class: Application
 exports = Class(GC.Application, function () {
 
 	this._settings = {
@@ -194,6 +177,28 @@ function optionValue (s) {
 	return (s.length > 10) ? (s.substr(0, 10) + "...") : s;
 }
 
+
+//## Class: DemoCellView
+var DemoCellView = Class(View, function (supr) {
+	this.move = function () {
+		var opts = this._opts;
+		var col = opts.col;
+		var row = opts.row;
+
+		col++;
+		if (col >= this._superview.getCols()) {
+			col = 0;
+			row++;
+			if (row >= this._superview.getRows()) {
+				row = 0;
+			}
+		}
+		opts.col = col;
+		opts.row = row;
+	};
+});
+
+//## Class: TextViewSetting
 //A button to modify settings of a View
 var TextViewSetting = Class(View, function (supr) {
 	this.init = function (opts) {

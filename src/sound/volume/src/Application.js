@@ -1,4 +1,4 @@
-//# Setting the sound volume
+//# Setting the sound volume <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/sound/volume/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This example shows how to set the volume of a sound effect.
 //How to use: Click on one of the views to play an effect
 

@@ -1,4 +1,4 @@
-//## Create a SpriteView
+//# Create a SpriteView <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/ui/spriteviewbasic/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //Given the following project layout for resources:
 //<pre>
 //project
@@ -22,6 +22,7 @@
 
 import ui.SpriteView as SpriteView;
 
+//## Class: Application
 exports = Class(GC.Application, function () {
 
 	this._settings = {

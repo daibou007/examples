@@ -1,4 +1,4 @@
-//# Displaying an Image
+//# Displaying an Image <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/images/basic/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This example requires an image in your resources directory and renders it to the screen.
 //This following demo application shows how to display an image.
 

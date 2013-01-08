@@ -1,4 +1,4 @@
-//# Rendering composite bitmap fonts
+//# Rendering composite bitmap fonts <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/text/fontsbitmapcomposite/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //The SDK provides a tool to generate bitmap fonts,
 //With composite fonts both the text and the outline can be rendered.
 //The color can be set with the fillStyle and strokeStyle properties of the context.

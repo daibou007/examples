@@ -1,10 +1,8 @@
-//# Tabs, image
+//# Tabs, Image <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/ui/tabs-image/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This demo demonstrates tabs styles with images
+import device;
 import ui.TextView as TextView;
 import ui.ImageScaleView as ImageScaleView;
-
-import device;
-
 import ui.widget.TabPaneView as TabPaneView;
 import ui.widget.TabPaneButtonView as TabPaneButtonView;
 
@@ -16,18 +14,15 @@ var text3 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesq
 //Create a tab page with a nine slice image border
 var TextPage = Class(ImageScaleView, function (supr) {
 	this.init = function (opts) {
-		opts = merge(
-			opts,
-			{
-				layout: "box",
-				layoutWidth: "100%",
-				layoutHeight: "100%",
-				image: "resources/images/box.png",
-				scaleMethod: "9slice",
-				sourceSlices: {horizontal: {left: 3, center: 24, right: 3}, vertical: {top: 3, middle: 24, bottom: 3}},
-				destSlices: {horizontal: {left: 3, right: 3}, vertical: {top: 3, bottom: 3}}
-			}
-		);
+		opts = merge(opts, {
+			layout: "box",
+			layoutWidth: "100%",
+			layoutHeight: "100%",
+			image: "resources/images/box.png",
+			scaleMethod: "9slice",
+			sourceSlices: {horizontal: {left: 3, center: 24, right: 3}, vertical: {top: 3, middle: 24, bottom: 3}},
+			destSlices: {horizontal: {left: 3, right: 3}, vertical: {top: 3, bottom: 3}}
+		});
 		supr(this, "init", [opts]);
 
 		//The content for this pane

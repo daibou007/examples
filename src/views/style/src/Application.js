@@ -1,4 +1,4 @@
-//## Modify a View's Style
+//# Modify a View's Style <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/views/style/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //Create many views with random positions, sizes, rotations, and colors.
 
 //Import the `device` module and `ui.View` class.

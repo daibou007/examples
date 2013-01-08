@@ -1,7 +1,11 @@
+//# Advanced Rendering: Tiles <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/advrendering/titles/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+
+//Import the `device` module and `ui.View` class
 import device as device;
 import ui.View as View;
 
-exports = Class(GC.Application, function() {
+//## Class: Application
+exports = Class(GC.Application, function () {
 
 	this._settings = {
 		logsEnabled: window.DEV_MODE,
@@ -35,6 +39,7 @@ exports = Class(GC.Application, function() {
 			}
 		}
 
+		//Create a `TileView` instance
 		this._tileView = new TileView({
 			superview: this.view,
 			width: device.width,

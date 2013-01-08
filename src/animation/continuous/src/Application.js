@@ -1,9 +1,8 @@
 //# Continuous Animation
 //Continuously move a view.
 
-//Import the `animate` module.
+//Import the `animate` module and the `ui.View` class.
 import animate;
-//Import the `ui.View` class.
 import ui.View as View;
 
 // ## Class: Application
