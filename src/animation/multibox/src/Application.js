@@ -5,6 +5,7 @@ import animate;
 import device;
 import ui.View as View;
 
+//## Class: Application
 exports = Class(GC.Application, function () {
 	this._settings = {
 		alwaysRepaint: true

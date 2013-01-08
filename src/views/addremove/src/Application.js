@@ -4,8 +4,7 @@
 //Import the ui.View class.
 import ui.View as View;
 
-//### Class: Application.js
-//Create an application.
+//## Class: Application.js
 exports = Class(GC.Application, function() {
 	//Set the default settings of the application.
 	this._settings = {
@@ -51,7 +50,7 @@ exports = Class(GC.Application, function() {
 	this.launchUI = function () {};
 });
 
-//### Class: JumpingBox
+//## Class: JumpingBox
 //This is a box which will jump from the red box to the blue box and back.
 var JumpingBox = Class(View, function (supr) {
 	this.init = function (opts) {

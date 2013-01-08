@@ -1,11 +1,11 @@
 //# Grid, Span <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/ui/grid-span/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 
+import device;
 import ui.TextView as TextView;
 import ui.View as View;
 import ui.widget.GridView as GridView;
 
-import device;
-
+//## Class: Application
 exports = Class(GC.Application, function () {
 
 	this._settings = {
@@ -140,6 +140,7 @@ function optionValue (s) {
 	return (s.length > 10) ? (s.substr(0, 10) + "...") : s;
 }
 
+//## Class: GridViewSetting
 //A button to modify settings of a View
 var GridViewSetting = Class(View, function (supr) {
 	this.init = function (opts) {
@@ -179,5 +180,6 @@ var GridViewSetting = Class(View, function (supr) {
 		this._setter(this._options[this._optionIndex]);
 	};
 });
+
 //The output should look like this screenshot:
 //<img src="./doc/screenshot.png" alt="a book screenshot" class="screenshot">

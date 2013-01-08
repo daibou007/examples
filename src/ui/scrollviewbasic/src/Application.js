@@ -9,6 +9,7 @@ import ui.resource.Image as Image;
 
 var bgimage = new Image({url: 'resources/images/europemap.png'});
 
+//## Class: Application
 exports = Class(GC.Application, function () {
 
 	this.launchUI = function () {

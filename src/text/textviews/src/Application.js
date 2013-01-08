@@ -4,6 +4,7 @@ import ui.View as View;
 import ui.TextView as TextView;
 import device;
 
+//## Class: Application
 exports = Class(GC.Application, function () {
 
 	this._settings = {

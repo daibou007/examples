@@ -7,7 +7,6 @@
 import device;
 
 //## Class: Application
-//Create an application, set the default settings.
 exports = Class(GC.Application, function () {
 
 	this._settings = {
@@ -23,10 +22,6 @@ exports = Class(GC.Application, function () {
 	//* inputMove: to change the end point of the list
 	//* inputSelect: place the line on the screen
 	this.initUI = function () {
-		//this.view.onInputStart = bind(this, "onInputStart");
-		//this.view.onInputMove = bind(this, "onInputMove");
-		//this.view.onInputSelect = bind(this, "onInputSelect");
-
 		this._pixelShift = 3;
 		this._pixelSize = 1 << this._pixelShift;
 
@@ -58,7 +53,7 @@ exports = Class(GC.Application, function () {
 		}));
 	};
 
-	// Bresenham's line algorithm: http://en.wikipedia.org/wiki/Bresenham's_line_algorithm
+	//[Bresenham's line algorithm](http://en.wikipedia.org/wiki/Bresenham's_line_algorithm)
 	this._renderLine = function (ctx) {
 		// Translate coordinates
 		var x1 = this._startX;

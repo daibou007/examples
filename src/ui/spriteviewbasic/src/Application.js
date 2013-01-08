@@ -22,6 +22,7 @@
 
 import ui.SpriteView as SpriteView;
 
+//## Class: Application
 exports = Class(GC.Application, function () {
 
 	this._settings = {
