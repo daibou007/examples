@@ -4,7 +4,7 @@
 //but to understand how they work together, we’ll display a list of arbitrary data that we can
 //scroll and click.
 
-//Import device to get the screen size. 
+//Import device to get the screen size.
 import device;
 //Import `GCDataSource` to store the items.
 import GCDataSource;
@@ -26,17 +26,19 @@ exports = Class(GC.Application, function () {
 	};
 
 	this.initUI = function () {
-		// Set up the datasource.
+		this.style.backgroundColor = '#FFFFFF';
+
+		//Set up the datasource.
 		var filmData = new GCDataSource({
-			// Entries require a key, which defaults to 'id'.
+			//Entries require a key, which defaults to 'id'.
 			key: 'title',
 			//Sort by oldest first
 			sorter: function (data) { return data.year; }
 		});
-		// And load our data.
+		//And load our data.
 		filmData.add(scifiFilms);
 
-		// Create the List, which inherits from `ScrollView`.
+		//Create the List, which inherits from `ScrollView`.
 		var filmList = new List({
 			superview: this.view,
 			x: 0,
@@ -57,32 +59,35 @@ exports = Class(GC.Application, function () {
 //Subclass a Cell which is a view, it can have child views, and accepts data from a List.
 var FilmCell = Class(Cell, function (supr) {
 	this.init = function (opts) {
-		supr(this, 'init', arguments);
+		opts.width = device.width;
+		opts.height = 32;
+
+		supr(this, 'init', [opts]);
 
 		this._data = null;
 		this._textview = new TextView({superview: this});
 
 		this.on('InputSelect', function () {
-			// Attach this property to the data object,
-			// it'll stick because objects are passed by reference, but be careful!
-			this._data.color = '#f00';
+			//Attach this property to the data object,
+			//it'll stick because objects are passed by reference, but be careful!
+			this._data.color = '#FF0000';
 			this._textview.updateOpts({color: this._data.color});
-			console.log("Selected: " + this._data.title);
+			console.log('Selected: ' + this._data.title);
 		});
 	};
 
 	this.buildView = function () {
-    this._textview.updateOpts({
-      width: this.style.width,
-      height: this.style.height
-    });
-  };
-	
+		this._textview.updateOpts({
+			width: this.style.width,
+			height: this.style.height
+		});
+	};
+
 	// Called when a cell is put on screen.
 	// We'll use it to update our TextView child.
 	this.setData = function (data) {
-		var filmListing = data.title + " (" + data.year + ")",
-			textColor = (data.color || '#fff');
+		var filmListing = data.title + ' (' + data.year + ')';
+		var textColor = (data.color || '#000000');
 
 		this._textview.updateOpts({color: textColor});
 		this._textview.setText(filmListing);
@@ -118,4 +123,4 @@ var scifiFilms = [
 //Run this code in the simulator, and you should see something like the following screenshot.
 //You can drag the list up and down, but not right or left. When you click on a film title, it
 //will turn red and output its title in the debugging console.
-//<img src="./doc/screenshot1.png" alt="listview screenshot" class="screenshot">
+//<img src="./doc/screenshot.png" alt="listview screenshot" class="screenshot">

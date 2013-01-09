@@ -54,5 +54,6 @@
 	"doc": "http://doc.gameclosure.com/example/events-input-out/",
 	"resources": {},
 	"targets": {},
-	"groups": {}
+	"groups": {},
+	"sdkVersion": "dev-0.1.0"
 }
