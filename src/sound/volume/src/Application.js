@@ -2,9 +2,9 @@
 //This example shows how to set the volume of a sound effect.
 //How to use: Click on one of the views to play an effect
 
-//Import device the get the screen size, the Sound class for playing sounds and effects and the View class to display views:
+//Import device the get the screen size, the AudioManager class for playing sounds and effects and the View class to display views:
 import device;
-import Sound;
+import AudioManager;
 import ui.View as View;
 
 //## Class: Application
@@ -20,7 +20,7 @@ exports = Class(GC.Application, function () {
 	};
 
 	this.initUI = function () {
-		this._sound = new Sound({
+		this._sound = new AudioManager({
 			path: 'resources/audio/',
 			// Load one sound effects:
 			//    "resources/audio/bubble_hit_01.mp3"

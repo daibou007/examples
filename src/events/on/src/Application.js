@@ -1,5 +1,5 @@
 //# Subscribe to an event <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/events/on/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
-//This demo shows how to use publish and subscribe.
+//This demo shows how to use emit and subscribe.
 
 import device;
 import ui.TextView as TextView;
@@ -10,7 +10,7 @@ var PublishView = Class(TextView, function(supr) {
 	this.onInputSelect = function() {
 		this._value = this._value || 0;
 		this._value++;
-		this.publish("Clicked", this._value);
+		this.emit("Clicked", this._value);
 	};
 });
 
