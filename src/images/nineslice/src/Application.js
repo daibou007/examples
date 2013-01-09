@@ -12,66 +12,35 @@
 //below. The debugging flag of the `ImageScaleView` is set to true so you can see how the slices
 //are sectioned off.
 
-
 import device;
 import ui.ImageScaleView;
-import ui.TextView;
-
-var offset_pos = 20,
-    offset_slice_x = 40,
-    offset_slice_y = 50;
 
 exports = Class(GC.Application, function () {
-  this.initUI = function () {
+	this.initUI = function () {
+		this.style.backgroundColor = "#FFFFFF";
 
-    var imagescaleview = new ui.ImageScaleView({
-      superview: this.view,
-      x: offset_pos / 2,
-      y: offset_pos / 2,
-      width: device.width - offset_pos,
-      height: device.height - offset_pos,
-      image: 'resources/images/button.png',
-      scaleMethod: '9slice',
-      debug: true,
-      sourceSlices: {
-        horizontal: {
-          left: offset_slice_x,
-          center: offset_slice_x,
-          right: offset_slice_x
-        },
-        vertical: {
-          top: offset_slice_y,
-          middle: offset_slice_y,
-          bottom: offset_slice_y
-        }
-      },
-      destSlices: {
-        horizontal: {
-          left: offset_slice_x,
-          right: offset_slice_x
-        },
-        vertical: {
-          top: offset_slice_y,
-          bottom: offset_slice_y
-        }
-      }
-    });
-
-    imagescaleview.on('InputSelect', function () {
-      console.log("You clicked the big button!");
-    });
-
-    var text = new ui.TextView({
-      superview: imagescaleview,
-      backgroundColor: 'rgba(0,0,255,0.2)', //transparent blue
-      x: offset_slice_x,
-      y: offset_slice_y,
-      width: imagescaleview.style.width - (offset_slice_x * 2),
-      height: imagescaleview.style.height - (offset_slice_y * 2),
-      text: "Click Me!",
-      fontSize: 32
-    });
-  };
+		var y = device.height / 2 - 165;
+		for (var i = 0; i < 3; i++) {
+			new ui.ImageScaleView({
+				superview: this.view,
+				x: device.width / 2 - 50,
+				y: y + i * 110 + 10,
+				width: 100,
+				height: 100,
+				image: 'resources/images/window.png',
+				scaleMethod: '9slice',
+				debug: true,
+				sourceSlices: {
+					horizontal: {left: 50, center: 100, right: 50},
+					vertical: {top: 50, middle: 100, bottom: 50}
+				},
+				destSlices: {
+					horizontal: {left: 10 + i * 20, right: 10 + i * 20},
+					vertical: {top: 10 + i * 20, bottom: 10 + i * 20}
+				}
+			});
+		}
+	};
 });
 
 //Run this code as the `Application.js` file in your project, and you should see something

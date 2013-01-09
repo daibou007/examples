@@ -1,13 +1,36 @@
 {
-	"appID": "animBasic",
+	"appID": "00000000000000000000000000000000",
 	"shortName": "animBasic",
 	"title": "Animation: Basic",
+	"preload": {
+		"autoHide": true,
+		"img": "preload/splash.png",
+		"iphone": {
+			"launch": "preload/iphone/Default.png",
+			"launchRetina": "preload/iphone/Default@2x.png",
+			"launchRetina4": "preload/iphone/Default-568h@2x.png"
+		},
+		"ipad": {
+			"portrait": "preload/ipad/Default-Portrait~ipad.png",
+			"portraitRetina": "preload/ipad/Default-Portrait@2x~ipad.png",
+			"landscape": "preload/ipad/Default-Landscape~ipad.png",
+			"landscapeRetina": "preload/ipad/Default-Landscape@2x~ipad.png"
+		}
+	},
 	"icons": {
-		"128": "resources/images/icon.png"
+		"28": "preload/icons/icon36.png",
+		"38": "preload/icons/icon48.png",
+		"48": "preload/icons/icon48.png",
+		"56": "preload/icons/icon72.png",
+		"57": "preload/icons/icon57.png",
+		"72": "preload/icons/icon72.png",
+		"114": "preload/icons/icon114.png",
+		"144": "preload/icons/icon144.png",
+		"512": "preload/icons/icon512.png"
 	},
 	"studio": {
-		"name": "Example Studio Name",
-		"domain": "studio.example.com",
+		"name": "GameClosure demo",
+		"domain": "gameclosure.com",
 		"stagingDomain": "staging.example.com"
 	},
 	"supportedOrientations": [
@@ -29,10 +52,6 @@
 	"description": "A basic animation",
 	"doc": "http://doc.gameclosure.com/example/animation-basic/",
 	"group": "examples",
-	"preload": {
-		"img": "resources/images/splash.png",
-		"autoHide": true
-	},
 	"resources": {},
 	"targets": {},
 	"groups": {},
