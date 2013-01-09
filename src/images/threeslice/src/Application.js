@@ -1,4 +1,11 @@
-//# 3-Slice Image Scaling <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/images/nineslice/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//# 3-Slice Image Scaling <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/images/threeslice/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//Given the following image:
+//<img src="./doc/window.png" alt="button image" class="screenshot" style="display:block;width:200px;">
+
+//This demos shows how to display images with 3-slice scaling. The three images have different ratios between
+//the source and destination slices.
+
+//The debugging flag of the `ImageScaleView` is set to true so you can see how the slices are sectioned off.
 
 import device;
 import ui.ImageScaleView;
