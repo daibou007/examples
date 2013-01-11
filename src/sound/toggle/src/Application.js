@@ -19,12 +19,12 @@
 
 import device;
 import ui.View as View;
-import Sound;
+import AudioManager;
 
 exports = Class(GC.Application, function () {
 
   this.initUI = function () {
-    this.sound = new Sound({
+    this.sound = new AudioManager({
       path: 'resources/sounds',
       files: {
         levelmusic: {
@@ -33,10 +33,8 @@ exports = Class(GC.Application, function () {
         }
       }
     });
-  };
 
-  this.buildView = function () {
-    var play = new View({
+		var play = new View({
       superview: this,
       x: device.width/2 - 125,
       y: 100,

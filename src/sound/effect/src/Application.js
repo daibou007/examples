@@ -3,7 +3,7 @@
 //You can click on one of the views to play an effect
 
 import device;
-import Sound;
+import AudioManager;
 import ui.View as View;
 
 //## Class: Application
@@ -19,7 +19,7 @@ exports = Class(GC.Application, function () {
 	};
 
 	this.initUI = function () {
-		this._sound = new Sound({
+		this._sound = new AudioManager({
 			path: 'resources/audio/',
 			// Load three sound effects:
 			//    "resources/audio/sound1.mp3"

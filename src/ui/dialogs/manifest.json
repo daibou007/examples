@@ -1,7 +1,7 @@
 {
-	"appID": "00000000000000000000000000000000",
-	"shortName": "basicsScaleScreen",
-	"title": "Layout: Scale Region",
+	"appID": "7288e386826e4792acaeee0faeb76a51",
+	"shortName": "dialogs",
+	"title": "Dialogs",
 	"icons": {
 		"128": "resources/images/icon.png"
 	},
@@ -13,6 +13,16 @@
 	"supportedOrientations": [
 		"portrait"
 	],
+	"description": "",
+	"group": "",
+	"doc": "",
+	"preload": {
+		"img": "resources/images/splash.png",
+		"autoHide": true
+	},
+	"resources": {},
+	"targets": {},
+	"groups": {},
 	"android": {
 		"versionCode": 1,
 		"tapjoyId": "",
@@ -26,15 +36,5 @@
 		"tapjoyKey": "",
 		"flurryKey": ""
 	},
-	"description": "Scale to fit.",
-	"doc": "http://doc.gameclosure.com/example/basics-scalescreen/",
-	"group": "examples",
-	"preload": {
-		"img": "resources/images/splash.png",
-		"autoHide": true
-	},
-	"resources": {},
-	"targets": {},
-	"groups": {},
 	"sdkVersion": "dev-0.1.0"
 }

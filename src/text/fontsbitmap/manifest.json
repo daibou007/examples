@@ -55,5 +55,6 @@
 	"resources": {},
 	"targets": {},
 	"groups": {},
-	"sdkVersion": "dev-0.1.0"
+	"sdkVersion": "dev-0.1.0",
+	"fonts": "resources/fonts/fonts.json"
 }
