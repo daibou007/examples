@@ -116,25 +116,25 @@ exports = Class(GC.Application, function () {
 
 		left = device.width / 2 + 5;
 
-		//A button the change the horizontal text alignment of the text within the TextView
-		new TextViewSetting({
-			superview: this.view,
-			target: textView,
-			textViewOpts: this._textViewOpts,
-			x: left,
-			y: 220,
-			property: "horizontalAlign",
-			options: ["left", "center", "right", "justify"]
-		});
 		//A button to change the horizontal padding of the TextView
 		new TextViewSetting({
 			superview: this.view,
 			target: textView,
 			textViewOpts: this._textViewOpts,
 			x: left,
+			y: 220,
+			property: "padding",
+			options: [0, 25, "10,30"]
+		});
+		//A button the change the horizontal text alignment of the text within the TextView
+		new TextViewSetting({
+			superview: this.view,
+			target: textView,
+			textViewOpts: this._textViewOpts,
+			x: left,
 			y: 255,
-			property: "horizontalPadding",
-			options: [0, 25, [10, 30]]
+			property: "horizontalAlign",
+			options: ["left", "center", "right", "justify"]
 		});
 		//A button to change the vertical alignment of the text within the TextView
 		new TextViewSetting({
@@ -145,16 +145,6 @@ exports = Class(GC.Application, function () {
 			y: 290,
 			property: "verticalAlign",
 			options: ["top", "middle", "bottom"]
-		});
-		//A button to change the vertical padding of TextView
-		new TextViewSetting({
-			superview: this.view,
-			target: textView,
-			textViewOpts: this._textViewOpts,
-			x: left,
-			y: 325,
-			property: "verticalPadding",
-			options: [0, 25, [10, 30]]
 		});
 	};
 

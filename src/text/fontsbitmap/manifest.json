@@ -1,5 +1,5 @@
 {
-	"appID": "textFontsBitmap",
+	"appID": "00000000000000000000000000000000",
 	"shortName": "textFontsBitmap",
 	"title": "Fonts: Bitmap Fonts",
 	"icons": {
@@ -36,5 +36,6 @@
 	"resources": {},
 	"targets": {},
 	"groups": {},
-	"sdkVersion": "dev-0.1.0"
+	"sdkVersion": "dev-0.1.0",
+	"fonts": "resources/fonts/fonts.json"
 }
