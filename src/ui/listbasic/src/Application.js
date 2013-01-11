@@ -135,12 +135,12 @@ var FilmCell = Class(Cell, function (supr) {
 	};
 
 	//Called when the cell is selected...
-	this._onSelect = function (data) {
+	this._onSelect = function () {
 		this._title.updateOpts({color: '#FF0000'});
 	};
 
 	//Called when the cell is deselected...
-	this._onDeselect = function (data) {
+	this._onDeselect = function () {
 		this._title.updateOpts({color: '#000000'});
 	};
 
