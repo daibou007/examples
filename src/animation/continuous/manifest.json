@@ -1,8 +1,7 @@
 {
-	"appID": "animContinuous",
+	"appID": "00000000000000000000000000000000",
 	"shortName": "animContinuous",
 	"title": "Animation: Continuous",
-	"description": "A continuously looping animation",
 	"icons": {
 		"128": "resources/images/icon.png"
 	},
@@ -14,6 +13,7 @@
 	"supportedOrientations": [
 		"portrait"
 	],
+	"description": "A continuously looping animation",
 	"android": {
 		"versionCode": 1,
 		"tapjoyId": "",

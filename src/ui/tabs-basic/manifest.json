@@ -1,9 +1,7 @@
 {
-	"appID": "uiTabsBasic",
+	"appID": "00000000000000000000000000000000",
 	"shortName": "uiTabsBasic",
 	"title": "Tabs: Basic",
-	"description": "Shows different options for the tab pane",
-	"doc": "http://doc.gameclosure.com/example/ui-tabs-basic/",
 	"icons": {
 		"renderGloss": true
 	},
@@ -15,6 +13,8 @@
 	"supportedOrientations": [
 		"portrait"
 	],
+	"description": "Shows different options for the tab pane",
+	"doc": "http://doc.gameclosure.com/example/ui-tabs-basic/",
 	"android": {
 		"tapjoyId": "",
 		"tapjoyKey": "",

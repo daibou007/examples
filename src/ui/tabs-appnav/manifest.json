@@ -1,9 +1,7 @@
 {
-	"appID": "uiTabsAppnav",
+	"appID": "00000000000000000000000000000000",
 	"shortName": "uiTabsAppnav",
 	"title": "Tabs: App navigation",
-	"description": "A navigation bar on the bottom of the screen",
-	"doc": "http://doc.gameclosure.com/example/ui-tabs-appnav/",
 	"icons": {
 		"128": "resources/images/icon.png"
 	},
@@ -15,6 +13,8 @@
 	"supportedOrientations": [
 		"portrait"
 	],
+	"description": "A navigation bar on the bottom of the screen",
+	"doc": "http://doc.gameclosure.com/example/ui-tabs-appnav/",
 	"group": "examples",
 	"preload": {
 		"img": "resources/images/splash.png",
