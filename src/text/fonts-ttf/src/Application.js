@@ -1,4 +1,4 @@
-//# Rendering TTF fonts <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/text/fontsttf/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//# Rendering TTF fonts <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/text/fonts-ttf/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //The SDK supports TTF fonts to render texts with the fillText method.
 //This example shows how to render basic text
 

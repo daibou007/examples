@@ -1,4 +1,4 @@
-//# 3-Slice Image Scaling <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/images/threeslice/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//# 3-Slice Image Scaling <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/images/three-slice/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //Given the following image:
 //<img src="./doc/window.png" alt="button image" class="screenshot" style="display:block;width:200px;">
 

@@ -51,7 +51,7 @@
 	},
 	"group": "examples",
 	"description": "Use bitmap fonts.",
-	"doc": "http://doc.gameclosure.com/example/text-fontsbitmap/",
+	"doc": "http://doc.gameclosure.com/example/text-fonts-bitmap/",
 	"resources": {},
 	"targets": {},
 	"groups": {},

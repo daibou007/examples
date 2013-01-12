@@ -51,7 +51,7 @@
 	},
 	"group": "examples",
 	"description": "Using a ScrollView.",
-	"doc": "http://doc.gameclosure.com/example/ui-scrollviewbasic/",
+	"doc": "http://doc.gameclosure.com/example/ui-scrollview-basic/",
 	"resources": {},
 	"targets": {},
 	"groups": {},

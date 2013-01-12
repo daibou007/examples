@@ -51,7 +51,7 @@
 	},
 	"group": "examples",
 	"description": "A basic StackView example.",
-	"doc": "http://doc.gameclosure.com/example/ui-stackviewbasic/",
+	"doc": "http://doc.gameclosure.com/example/ui-stackview-basic/",
 	"resources": {},
 	"targets": {},
 	"groups": {},

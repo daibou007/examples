@@ -62,6 +62,6 @@
 		"version": "1.0.0"
 	},
 	"description": "Using 6-Slice image scaling",
-	"doc": "http://doc.gameclosure.com/example/images-sixslice/",
+	"doc": "http://doc.gameclosure.com/example/images-six-slice/",
 	"sdkVersion": "dev-0.1.0"
 }

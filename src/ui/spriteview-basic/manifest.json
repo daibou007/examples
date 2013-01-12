@@ -51,7 +51,7 @@
 	},
 	"group": "examples",
 	"description": "A basic SpriteView",
-	"doc": "http://doc.gameclosure.com/example/ui-spriteviewbasic/",
+	"doc": "http://doc.gameclosure.com/example/ui-spriteview-basic/",
 	"resources": {},
 	"targets": {},
 	"groups": {},
