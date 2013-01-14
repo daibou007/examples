@@ -6,9 +6,7 @@ import ui.StackView as StackView;
 
 //## Class: Application
 exports = Class(GC.Application, function () {
-
 	this.initUI = function () {
-
 		var stackview = new StackView({
 			superview: this.view,
 			x: 50,

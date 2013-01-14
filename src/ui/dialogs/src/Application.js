@@ -4,15 +4,6 @@ import ui.TextView as TextView;
 import ui.ImageScaleView as ImageScaleView;
 
 exports = Class(GC.Application, function () {
-
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	this.initUI = function () {
 		// var textview = new TextView({
 		// 	superview: this.view,
@@ -96,7 +87,7 @@ exports = Class(GC.Application, function () {
 						sourceSlices: {
 							horizontal: {
 								left: 20,
-								right: 20 
+								right: 20
 							},
 							vertical: {
 								top: 20,
@@ -140,6 +131,6 @@ exports = Class(GC.Application, function () {
 			});
 		});
 	};
-	
+
 	this.launchUI = function () {};
 });

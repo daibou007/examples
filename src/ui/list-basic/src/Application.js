@@ -16,15 +16,6 @@ import ui.TextView as TextView;
 //## Class: Application
 //Create an application, set the default properties.
 exports = Class(GC.Application, function () {
-
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	this.initUI = function () {
 		this.style.backgroundColor = '#FFFFFF';
 

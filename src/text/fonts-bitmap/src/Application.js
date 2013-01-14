@@ -14,15 +14,6 @@ import device;
 //## Class: Application
 //Create an application and set the default properties.
 exports = Class(GC.Application, function () {
-
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	//The customFont1 is created with the font editor,
 	//the files are located in "resources/fonts/fonts.json"
 	this.render = function(ctx) {

@@ -8,15 +8,6 @@ import ui.View as View;
 
 //## Class: Application.js
 exports = Class(GC.Application, function () {
-
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	this.initUI = function () {
 		//Create a view which renders a couple of lines of text ...
 		var ttfview = new TTFView({
