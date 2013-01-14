@@ -10,15 +10,6 @@ import ui.View as View;
 //## Class: Application
 //Create an application and set the default properties.
 exports = Class(GC.Application, function () {
-
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	this.initUI = function () {
 		this._sound = new AudioManager({
 			path: 'resources/audio/',

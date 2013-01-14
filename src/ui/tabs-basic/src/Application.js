@@ -30,14 +30,6 @@ var TextPage = Class(TextView, function (supr) {
 });
 
 exports = Class(GC.Application, function () {
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	// Add two tab panes
 	this.addTabs = function () {
 		this._tabPanes.push(this._tabs.addPane("Another", new TextPage({text: "This is another tab"})));

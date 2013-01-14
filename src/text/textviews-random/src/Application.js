@@ -5,42 +5,42 @@ import device;
 import ui.TextView as TextView;
 
 exports = Class(GC.Application, function () {
-  this.initUI = function () {
+	this.initUI = function () {
 		//Create the header bar.
-    var title = new TextView({
-      superview: this.view,
-      autoSize: false,
-      y: 20,
-      height: 25,
-      fontSize: 26,
-      zIndex: 1,
-      text: "Welcome to the TextView",
-      color: 'black',
-      backgroundColor: 'white',
-      shadow: true,
-      shadowColor: 'white',
-      verticalAlign: 'top',
-      textAlign: 'left',
-      verticalPadding: 5,
-      horizontalPadding: 25
-    });
+		var title = new TextView({
+			superview: this.view,
+			autoSize: false,
+			y: 20,
+			height: 25,
+			fontSize: 26,
+			zIndex: 1,
+			text: "Welcome to the TextView",
+			color: 'black',
+			backgroundColor: 'white',
+			shadow: true,
+			shadowColor: 'white',
+			verticalAlign: 'top',
+			textAlign: 'left',
+			verticalPadding: 5,
+			horizontalPadding: 25
+		});
 		//Create a lot of TextViews
-    for (var i = 0; i < 1500; i++) {
+		for (var i = 0; i < 1500; i++) {
 			//Randomize the style properties of each TextView.
-      var letter = new TextView({
-        superview: this.view,
-        text: Math.random().toString(36).substring(2, 3),
-        color: "#fff",
-        opacity: Math.random(),
-        fontSize: Math.random() * 36,
-        x: Math.random() * device.width,
-        y: Math.random() * device.height,
-        width: Math.random() * 50,
-        height: Math.random() * 50,
-        r: Math.random() * (Math.PI * 2)
-      });
-    };
-  }
+			var letter = new TextView({
+				superview: this.view,
+				text: Math.random().toString(36).substring(2, 3),
+				color: "#fff",
+				opacity: Math.random(),
+				fontSize: Math.random() * 36,
+				x: Math.random() * device.width,
+				y: Math.random() * device.height,
+				width: Math.random() * 50,
+				height: Math.random() * 50,
+				r: Math.random() * (Math.PI * 2)
+			});
+		};
+	}
 });
 
 //Place this in the `Application.js` file of your project and you should see something like the following screenshot.

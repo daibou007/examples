@@ -6,15 +6,6 @@ import ui.View as View;
 
 //## Class: Application.js
 exports = Class(GC.Application, function() {
-	//Set the default settings of the application.
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	this.initUI = function() {
 		//Create a view, this is a view which will be the superview of the JumpingBox view.
 		var redbox = new View({
