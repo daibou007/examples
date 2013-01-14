@@ -8,15 +8,6 @@ import ui.TextView as TextView;
 //All user applications inherit from [GC.Application](../../api/appengine.html#class-gc.application).
 exports = Class(GC.Application, function () {
 
-	//The [application setting](../../api/appengine.html#application-settings).
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	//The [initUI](../../api/appengine.html#handler-initui) function is called after the scene graph has been created.
 	this.initUI = function () {
 		//Create a new TextView instance

@@ -31,14 +31,6 @@ var SubscribeView2 = Class(TextView, function(supr) {
 //Create the application with default settings:
 exports = Class(GC.Application, function() {
 
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	this.initUI = function() {
 		this._subscribeView1 = new TextView({
 			superview: this.view,

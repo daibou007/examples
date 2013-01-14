@@ -7,9 +7,6 @@ import ui.View as View;
 
 //## Class: Application
 exports = Class(GC.Application, function () {
-	this._settings = {
-		alwaysRepaint: true
-	};
 
 	this.initUI = function () {
 		var start_x = device.width / 2 - 75,

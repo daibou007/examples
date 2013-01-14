@@ -25,9 +25,6 @@ var boundsWidth = 576,
 
 //## Class: GC.Application
 exports = Class(GC.Application, function () {
-  this._settings = {
-    alwaysRepaint: true
-  };
 
   this.initUI = function () {
     //Scale the root view
