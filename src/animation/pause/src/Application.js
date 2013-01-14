@@ -9,14 +9,6 @@ import animate;
 //## Class: Application
 exports = Class(GC.Application, function() {
 
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	this.initUI = function() {
 		// Create a single red squared view...
 		var square = new AnimationView({
