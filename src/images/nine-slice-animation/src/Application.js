@@ -13,14 +13,6 @@ import ui.ImageScaleView as ImageScaleView;
 //Create an application class with the default settings.
 exports = Class(GC.Application, function() {
 
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	this.initUI = function() {
 		// The device width is used to center the image.
 		this._imageScaleView = new ImageScaleView({
