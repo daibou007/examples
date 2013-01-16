@@ -42,7 +42,8 @@ var ClickBox = Class(View, function (supr) {
 		//create a TextView to indicate which input event is currently occurring
 		this.textView = new TextView({
 				superview: this,
-				fontSize: this.style.height / 4, 
+				size: this.style.height / 4, 
+				wrap: true,
 				width: this.style.width, 
 				height: this.style.height, 
 				color: "#FFFFFF"
