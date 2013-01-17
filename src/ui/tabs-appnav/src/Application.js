@@ -31,14 +31,6 @@ var TextPage = Class(TextView, function (supr) {
 
 //##Class: Application
 exports = Class(GC.Application, function () {
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	//Create a tab pane and a tab buttons with an image
 	this.addIconPane = function (image, title, text) {
 		var tabPane = this._tabs.addPane(title, new TextPage({text: text}))

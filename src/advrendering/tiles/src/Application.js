@@ -7,14 +7,6 @@ import ui.View as View;
 //## Class: Application
 exports = Class(GC.Application, function () {
 
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	this.initUI = function() {
 		var Canvas = device.get("Canvas");
 

@@ -1,21 +1,12 @@
 //# Playing a background sound <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/sound/background/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This example shows how to add a background sound, pausing and resuming it.
 
-//Import the Sound class and the TextView class.
-import Sound;
+//Import the AudioManager class and the TextView class.
+import AudioManager;
 import ui.TextView as TextView;
 
 //## Class: Application
 exports = Class(GC.Application, function () {
-
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	this.initUI = function () {
 		this._textView = new TextView({
 			superview: this.view,
@@ -25,7 +16,7 @@ exports = Class(GC.Application, function () {
 		this._textView.onInputSelect = bind(this, "onClick");
 		this._paused = false;
 
-		this._sound = new Sound({
+		this._sound = new AudioManager({
 			path: 'resources/audio/',
 			files: {
 				// This index is the name of the file,

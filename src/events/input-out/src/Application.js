@@ -11,14 +11,6 @@ import ui.View as View;
 //Create an application with its default settings.
 exports = Class(GC.Application, function () {
 
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	this.initUI = function () {
 		var clickbox = new ClickBox({
 			superview: this.view,

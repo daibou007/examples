@@ -43,14 +43,6 @@ var TextPage = Class(ImageScaleView, function (supr) {
 });
 
 exports = Class(GC.Application, function () {
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	//Create a button with a three slice image for the borders
 	this._createTabButton = function (title) {
 		return new TabPaneButtonView({

@@ -12,14 +12,6 @@ import ui.ImageView as ImageView;
 //An application with default settings is defined.
 exports = Class(GC.Application, function () {
 
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	this.initUI = function() {
 		//The SheetView class is instantiated with the root view as the parent.
 		var sheetview = new SheetView({

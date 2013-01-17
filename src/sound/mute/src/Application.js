@@ -1,9 +1,9 @@
 //# Muting sounds <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/sound/mute/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This file shows how mute sounds and effects
 
-//Import device to get the width of the screen, import the Sound class to play music and effects.
+//Import device to get the width of the screen, import the AudioManager class to play music and effects.
 import device as device;
-import Sound as Sound;
+import AudioManager;
 //Import View and TextView to display elements.
 import ui.View as View;
 import ui.TextView as TextView;
@@ -11,15 +11,6 @@ import ui.TextView as TextView;
 //## Class: Application
 //Create an application and set the default properties.
 exports = Class(GC.Application, function () {
-
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	this.initUI = function () {
 		this._textView = new TextView({
 			superview: this.view,
@@ -27,7 +18,7 @@ exports = Class(GC.Application, function () {
 		});
 		this._paused = false;
 
-		this._sound = new Sound({
+		this._sound = new AudioManager({
 			path: 'resources/audio/',
 			files: {
 				// This index is the name of the file,
