@@ -3,7 +3,15 @@
 	"shortName": "basicsScaleScreen",
 	"title": "Layout: Scale Region",
 	"icons": {
-		"128": "resources/images/icon.png"
+		"28": "preload/icons/icon28.png",
+		"38": "preload/icons/icon38.png",
+		"48": "preload/icons/icon48.png",
+		"56": "preload/icons/icon56.png",
+		"57": "preload/icons/icon57.png",
+		"72": "preload/icons/icon72.png",
+		"114": "preload/icons/icon114.png",
+		"144": "preload/icons/icon144.png",
+		"512": "preload/icons/icon512.png"
 	},
 	"studio": {
 		"name": "Example Studio Name",
