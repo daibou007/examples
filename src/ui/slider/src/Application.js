@@ -11,7 +11,8 @@ exports = Class(GC.Application, function () {
 
 		this._sliderVer = new SliderView({
 			superview: this.view,
-			min: 0, max: 100,
+			minValue: 0,
+			maxValue: 100,
 			value: 50,
 			active: true, // Optional
 
@@ -70,7 +71,8 @@ exports = Class(GC.Application, function () {
 
 		this._sliderHor = new SliderView({
 			superview: this.view,
-			min: 0, max: 100,
+			minValue: 0,
+			maxValue: 100,
 			value: 50,
 			active: true, // Optional
 
