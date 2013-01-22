@@ -83,7 +83,7 @@ exports = Class(GC.Application, function () {
 			thumb: {
 				activeColor: '#00AA00',
 				pressedColor: '#990000',
-				inactiveColor: '#008800'
+				inactiveColor: '#B0B0B0'
 			},
 
 			x: device.width / 2 - 80,
