@@ -18,10 +18,10 @@
 		}
 	},
 	"icons": {
-		"28": "preload/icons/icon36.png",
-		"38": "preload/icons/icon48.png",
+		"28": "preload/icons/icon28.png",
+		"38": "preload/icons/icon38.png",
 		"48": "preload/icons/icon48.png",
-		"56": "preload/icons/icon72.png",
+		"56": "preload/icons/icon56.png",
 		"57": "preload/icons/icon57.png",
 		"72": "preload/icons/icon72.png",
 		"114": "preload/icons/icon114.png",
@@ -42,7 +42,6 @@
 		"tapjoyId": "",
 		"tapjoyKey": "",
 		"flurryKey": "",
-		"entryPoint": "runtimeNative.launchClient",
 		"tapjoyDaily": {}
 	},
 	"ios": {
