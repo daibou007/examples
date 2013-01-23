@@ -45,7 +45,6 @@
 	"android": {
 		"apsalarKey": "",
 		"apsalarSecret": "",
-		"entryPoint": "runtimeNative.launchClient",
 		"flurryKey": "",
 		"tapjoyDaily": {},
 		"tapjoyId": "",
@@ -55,7 +54,6 @@
 	"ios": {
 		"apsalarKey": "",
 		"apsalarSecret": "",
-		"entryPoint": "runtimeNative.launchClient",
 		"flurryKey": "",
 		"tapjoyId": "",
 		"tapjoyKey": "",
