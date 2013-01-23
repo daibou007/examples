@@ -26,7 +26,6 @@
 		"tapjoyId": "",
 		"tapjoyKey": "",
 		"flurryKey": "",
-		"entryPoint": "runtimeNative.launchClient",
 		"tapjoyDaily": {}
 	},
 	"ios": {
