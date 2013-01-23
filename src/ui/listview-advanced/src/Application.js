@@ -49,10 +49,10 @@ var ItemCell = Class(ui.widget.CellView, function (supr) {
 		subviews: [
 			{id: 'name', type: 'text',
 				color: 'white', fontSize: 12, fontWeight: 'bold',
-				autoSize: true, padding: "0 10"},
+				autoFontSize: false, autoSize: true, padding: "0 10"},
 			{id: 'number', type: 'text',
 				color: '#888', fontSize: 9,
-				autoSize: true, padding: "0 10"},
+				autoFontSize: false, autoSize: true, padding: "0 10"},
 
 			// Add a little styling: a 1px bottom border.
 			{bottom: 0, backgroundColor: '#444', height: 1, inLayout: false}
