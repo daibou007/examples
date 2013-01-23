@@ -3,23 +3,14 @@
 //You can click on one of the views to play an effect
 
 import device;
-import Sound;
+import AudioManager;
 import ui.View as View;
 
 //## Class: Application
 //Create an application and set the default settings.
 exports = Class(GC.Application, function () {
-
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	this.initUI = function () {
-		this._sound = new Sound({
+		this._sound = new AudioManager({
 			path: 'resources/audio/',
 			// Load three sound effects:
 			//    "resources/audio/sound1.mp3"
@@ -45,7 +36,7 @@ exports = Class(GC.Application, function () {
 		// Create three views, click on them the hear an effect play...
 		var w = device.width / 3,
 				colors = ["#FF0000", "#00FF00", "#0000FF"];
-		
+
 		for (var i = 0; i < 3; i++) {
 			var soundview = new SoundView({
 				superview: this.view,

@@ -8,14 +8,6 @@ import ui.View as View;
 //Create an application with the clickable view.
 exports = Class(GC.Application, function () {
 
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	//Create a new instance of the ClickBox view with the applications view as superview.
 	this.initUI = function () {
 		var clickbox = new ClickBox({

@@ -8,14 +8,6 @@ import ui.View as View;
 //## Class: Application
 //The entry point of the application.
 exports = Class(GC.Application, function() {
-	//The default settings of the application.
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
 
 	this.initUI = function() {
 		//Create a single red squared view.

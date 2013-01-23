@@ -9,14 +9,6 @@ import device;
 //## Class: Application
 exports = Class(GC.Application, function () {
 
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	//Capture the following events:
 	//* inputStart: to start drawing
 	//* inputMove: to change the end point of the list

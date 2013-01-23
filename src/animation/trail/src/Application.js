@@ -9,14 +9,6 @@ import animate;
 
 //## Class: Application
 exports = Class(GC.Application, function () {
-	//Settings for the app.
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
 
 	this.initUI = function () {
 		this.view.on('InputMove', function (evt, pt) {

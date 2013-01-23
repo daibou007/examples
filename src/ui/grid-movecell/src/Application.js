@@ -7,15 +7,6 @@ import ui.widget.GridView as GridView;
 
 //## Class: Application
 exports = Class(GC.Application, function () {
-
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true, // Turning this off will improve performance, if the whole screen is being painted
-		alwaysRepaint: true,
-		preload: []
-	};
-
 	this.setHorizontalMargin = function (horizontalMargin) {
 		this._gridView.updateOpts({horizontalMargin: horizontalMargin});
 	};
