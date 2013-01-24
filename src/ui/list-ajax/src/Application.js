@@ -11,10 +11,94 @@ import GCDataSource;
 //Import the `List` and `Cell` classes to create a list.
 import ui.widget.List as List;
 import ui.widget.Cell as Cell;
+import ui.widget.ButtonView as ButtonView;
+
 import ui.TextView as TextView;
+import ui.TextPromptView as TextPromptView;
 import ui.View as View;
 
 import util.ajax as ajax;
+
+var COLOR1 = 'rgb(59,89,152)';
+var COLOR2 = 'rgb(109,132,180)';
+var COLOR3 = 'rgb(205,216,234)';
+var COLOR4 = 'rgb(255,255,255)';
+var COLOR5 = 'rgb(175,189,212)';
+var COLOR6 = 'rgb(18,20,54)';
+
+var InfoDataSource = Class(GCDataSource, function (supr) {
+	this.init = function (opts) {
+		opts = merge(
+			opts,
+			{
+				key: 'id',
+				reverse: true,
+				//Sort by oldest first
+				sorter: function (data) { return data.created_time; }
+			}
+		);
+
+		supr(this, 'init', [opts]);
+
+		this.add({id: '0', title: 'Loading', itemsLoaded: 0});
+		this.load();
+	};
+
+	this.load = function () {
+		var loadingItem = this.get('0');
+
+		loadingItem.title = 'Loading';
+		loadingItem.loading = true;
+
+		this.emit('DataChanged');
+
+		ajax.get(
+			{
+				url: 'http://graph.facebook.com/search',
+				headers: {'Content-Type': 'text/plain'},
+				data: {q: 'phone+game', type: 'post'},
+				type: 'json'
+			},
+			bind(this, 'onData')
+		);
+	};
+
+	this.sort = function () {
+		supr(this, 'sort');
+
+		var i = this._byIndex.length;
+		while (i) this._byIndex[--i].index = i;
+	};
+
+	this._leadingZero = function (s, length) {
+		s += '';
+		while (s.length < length) s = '0' + s;
+		return s;
+	};
+
+	this.onData = function (err, response) {
+		if (!err) {
+			for (var i = 0; i < response.data.length; i++) {
+				var item = response.data[i];
+				var date = new Date(item.created_time);
+
+				item.posted = this._leadingZero(date.getHours(), 2) + ':' + this._leadingZero(date.getMinutes(), 2) + ' - ' +
+					(date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+			}
+
+			this.add(response.data);
+			this.sort();
+
+			var loadingItem = this.get('0');
+
+			loadingItem.title = 'Load more';
+			loadingItem.loading = false;
+			loadingItem.itemsLoaded = this.getCount();
+
+			this.emit('DataChanged');
+		}
+	};
+});
 
 //## Class: Application
 //Create an application, set the default properties.
@@ -28,214 +112,209 @@ exports = Class(GC.Application, function () {
 		preload: []
 	};
 
-	this.onData = function (err, data) {
-		console.log(err, data);
-	};
-
 	this.getCell = function () {
-		var filmList = this._filmList;
+		var infoList = this._infoList;
 
-		return new FilmCell({superview: filmList, height: 50});
+		return new InfoCell({superview: infoList, infoData: this._infoData});
 	};
 
 	this.initUI = function () {
 		//https://graph.facebook.com/search?q=phone+game&type=post
 		//http://graph.facebook.com/search?q=phone+game&type=post
-		ajax.get(
-			{
-				url: "http://graph.facebook.com/search",
-				headers: {'Content-Type': 'text/plain'},
-				data: {q: "phone+game", type: "post"}
-			},
-			bind(this, "onData")
-		);
-
-		this.style.backgroundColor = '#FFFFFF';
+		this.style.backgroundColor = COLOR4;
 
 		//Set up the datasource.
-		this._filmData = new GCDataSource({
-			//Entries require a key, which defaults to 'id'.
-			key: 'title',
-			//Sort by oldest first
-			sorter: function (data) { return data.year; }
+		this._infoData = new InfoDataSource();
+		this._infoData.on('DataChanged', bind(this, 'onDataChanged'));
+
+		this._title = new TextView({
+			superview: this,
+			x: 0,
+			y: 0,
+			width: device.width,
+			height: 50,
+			size: 30,
+			text: 'Search Facebook',
+			color: COLOR4,
+			backgroundColor: COLOR1
 		});
-		//And load our data.
-		this._filmData.add(scifiFilms);
 
 		//Create the List, which inherits from `ScrollView`.
-		var filmList = new List({
+		this._infoList = new List({
 			superview: this.view,
-			x: device.width / 2 - 140,
-			y: 10,
-			width: 280,
-			height: 300,
-			backgroundColor: '#D0D0D0',
+			x: 0,
+			y: 50,
+			width: device.width,
+			height: device.height - 100,
 			//Use the dataSource:
-			dataSource: this._filmData,
+			dataSource: this._infoData,
 			selectable: 'multi',
 			maxSelections: 10,
 			scrollX: false,
 			getCell: bind(this, 'getCell')
 		});
-		this._filmList = filmList;
 
-		var left = device.width / 2 - 140;
-		//A button to select single or multi select
-		new ListViewSetting({
-			superview: this.view,
-			x: left,
-			y: 320,
-			options: [
-				{name: 'multi select', callback: bind(this, 'onMultiSelect')},
-				{name: 'single select', callback: bind(this, 'onSingleSelect')}
-			]
+		this._searchLabel = new TextView({
+			superview: this,
+			x: 0,
+			y: device.height - 50,
+			width: device.width / 2,
+			height: 50,
+			size: 20,
+			text: 'search for:',
+			horizontalAlign: 'right',
+			color: COLOR1,
+			backgroundColor: COLOR5
 		});
-
-		left = device.width / 2 + 5;
-
-		//A button the log the selected items
-		new ListViewSetting({
-			superview: this.view,
-			x: left,
-			y: 320,
-			options: [
-				{name: 'log selection', callback: bind(this, 'onLogSelection')}
-			]
-		});
-	};
-
-	this._updateFilmList = function (selectable) {
-		this._filmList.deselectAll();
-
-		this._filmList.updateOpts({
-			dataSource: this._filmData,
-			selectable: selectable,
-			maxSelections: 10,
-			getCell: bind(this, 'getCell')
+		this._search = new TextPromptView({
+			superview: this,
+			x: device.width / 2,
+			y: device.height - 50,
+			width: device.width / 2,
+			height: 50,
+			size: 20,
+			text: 'game',
+			horizontalAlign: 'left',
+			padding: [0, 0, 0, 6],
+			color: COLOR1,
+			backgroundColor: COLOR5,
+			value: 'game',
+			prompt: 'Enter a search term:'
 		});
 	};
 
-	this.onMultiSelect = function () {
-		this._updateFilmList('multi');
-	};
+	this.onDataChanged = function () {
+		var subviews = this._infoList.getContentView().getSubviews();
+		var i = subviews.length;
 
-	this.onSingleSelect = function () {
-		this._updateFilmList('single');
-	};
-
-	this.onLogSelection = function () {
-		var selection = this._filmList.model.selection;
-		if (selection.getSelectionCount()) {
-			var selected = selection.get();
-			console.log("=== Selected ===");
-			for (var i in selected) {
-				console.log(i);
-			}
-		} else {
-			console.log("=== No items selected ===");
+		while (i) {
+			subviews[--i].update();
 		}
 	};
 
 	this.launchUI = function () {};
 });
 
-//## Class: FilmCell
+//## Class: InfoCell
 //Subclass a Cell which is a view, it can have child views, and accepts data from a List.
-var FilmCell = Class(Cell, function (supr) {
+var InfoCell = Class(Cell, function (supr) {
 	this.init = function (opts) {
-		opts.width = 280;
-		opts.height = 32;
+		this._infoData = opts.infoData;
+
+		opts.width = device.width;
+		opts.height = 75;
 
 		supr(this, 'init', [opts]);
 
-		this._title = new TextView({superview: this});
-	};
-
-	//Called when the cell is selected...
-	this._onSelect = function () {
-		this._title.updateOpts({color: '#FF0000'});
-	};
-
-	//Called when the cell is deselected...
-	this._onDeselect = function () {
-		this._title.updateOpts({color: '#000000'});
-	};
-
-	this.buildView = function () {
-		this._title.updateOpts({
-			width: this.style.width,
-			height: this.style.height
+		this._loadMore = new TextView({
+			superview: this,
+			x: 10,
+			y: 5,
+			width: device.width - 20,
+			height: 60,
+			size: 25,
+			color: COLOR2,
+			text: 'Loading...'
 		});
+		this._loaded = new TextView({
+			superview: this._loadMore,
+			x: 0,
+			y: 0,
+			width: device.width - 20,
+			height: 60,
+			size: 11,
+			color: COLOR6,
+			verticalAlign: 'bottom',
+			text: ''
+		});
+
+		this._messageContainer = new View({
+			superview: this,
+			x: 0,
+			y: 0,
+			width: device.width,
+			height: 75
+		});
+
+		this._from = new TextView({
+			superview: this._messageContainer,
+			x: 10,
+			y: 5,
+			width: device.width - 20,
+			height: 20,
+			size: 13,
+			horizontalAlign: 'left',
+			color: COLOR2
+		});
+		this._posted = new TextView({
+			superview: this._messageContainer,
+			x: 10,
+			y: 5,
+			width: device.width - 20,
+			height: 20,
+			size: 13,
+			horizontalAlign: 'right',
+			color: COLOR2
+		});
+		this._message = new TextView({
+			superview: this._messageContainer,
+			x: 10,
+			y: 25,
+			width: device.width - 20,
+			height: 47,
+			size: 13,
+			horizontalAlign: 'left',
+			verticalAlign: 'top',
+			wrap: true,
+			autoFontSize: false,
+			autoSize: false,
+			clip: true,
+			color: COLOR6
+		});
+	};
+
+	this._toLength = function (s, length) {
+		if (s.length > length) {
+			var i = Math.max(0, length - 10);
+			while (i < length - 1) {
+				if (s[i] === ' ') {
+					break;
+				}
+				i++;
+			}
+			s = s.substr(0, i) + '...';
+		}
+		return s;
+	};
+
+	this._onSelect = function () {
+		(this._data.id === '0') && this._infoData.load();
+	};
+
+	this.update = function () {
+		var data = this._data;
+		var loadMore = (data.id === '0');
+
+		this.style.backgroundColor = ((data.index & 1) === 0) ? COLOR3 : COLOR4;
+
+		this._loadMore.style.visible = loadMore;
+		this._messageContainer.style.visible = !loadMore;
+
+		if (loadMore) {
+			this._loadMore.setText(data.title);
+			this._loaded.setText('(' + data.itemsLoaded + ' items loaded)');
+		} else {
+			this._from.setText(this._toLength(data.from.name || '', 40));
+			this._posted.setText(data.posted);
+			this._message.setText(this._toLength(data.message || '', 100));
+		}
 	};
 
 	//Called when a cell is put on screen.
 	//We'll use it to update our TextView child.
 	this.setData = function (data) {
-		this._data = data; // Store it for the input event handler
-
-		this._title.setText(data.title + ' (' + data.year + ')');
-		this._title.updateOpts({color: this.isSelected(this._data) ? '#FF0000' : '#000000'});
-	};
-});
-
-//These are the items which will be displayed in the list.
-var scifiFilms = [
-	{title: 'Blade Runner', year: 1982},
-	{title: '2001: A Space Odyssey', year: 1968},
-	{title: 'Alien', year: 1979},
-	{title: 'The Terminator', year: 1984},
-	{title: 'The Matrix', year: 1999},
-	{title: 'Close Encounters of the Third Kind', year: 1977},
-	{title: 'Inception', year: 2010},
-	{title: 'WALL-E', year: 2008},
-	{title: 'Metropolis', year: 1927},
-	{title: 'Tron', year: 1982},
-	{title: 'E.T.: The Extra-Terrestrial', year: 1982},
-	{title: 'Back to the Future', year: 1985},
-	{title: 'Tron', year: 1982},
-	{title: 'Solaris', year: 1972},
-	{title: 'Brazil', year: 1985},
-	{title: 'Star Trek II: The Wrath of Khan', year: 1982},
-	{title: 'Star Wars', year: 1977},
-	{title: 'Planet of the Apes', year: 1968},
-	{title: 'RoboCop', year: 1987},
-	{title: 'Godzilla', year: 1954},
-	{title: 'Mad Max', year: 1979}
-];
-
-//A button to modify settings of the TextView
-var ListViewSetting = Class(View, function (supr) {
-	this.init = function (opts) {
-		opts.width = 135;
-		opts.height = 30;
-
-		supr(this, "init", [opts]);
-
-		this._options = opts.options;
-		this._optionIndex = 0;
-
-		this._text = new TextView({
-			superview: this,
-			backgroundColor: "#404040",
-			width: opts.width,
-			height: opts.height,
-			color: "#FFFFFF",
-			size: 11,
-			horizontalAlign: "center",
-			verticalALign: "center",
-			wrap: false,
-			autoSize: false,
-			autoFontSize: false,
-			text: this._options[this._optionIndex].name,
-			clip: true
-		});
-	};
-
-	this.onInputSelect = function () {
-		//Step through the available options
-		this._optionIndex = (this._optionIndex + 1) % this._options.length;
-		this._text.setText(this._options[this._optionIndex].name);
-		this._options[this._optionIndex].callback();
+		this._data = data;
+		this.update();
 	};
 });
 
