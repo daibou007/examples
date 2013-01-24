@@ -3,7 +3,6 @@
 	"shortName": "uiButton",
 	"title": "Button demo",
 	"description": "Buttons",
-	"doc": "http://doc.gameclosure.com/example/ui-button/",
 	"icons": {
 		"28": "preload/icons/icon28.png",
 		"38": "preload/icons/icon38.png",
@@ -21,9 +20,10 @@
 		"stagingDomain": "staging.example.com"
 	},
 	"supportedOrientations": [
-		"landscape"
+		"portrait"
 	],
 	"group": "examples",
+	"doc": "",
 	"preload": {
 		"autoHide": true,
 		"img": "preload/splash.png",
@@ -62,5 +62,6 @@
 		"bundleID": "example.bundle",
 		"appleID": "1234567",
 		"version": "1.0.0"
-	}
+	},
+	"sdkVersion": "dev-0.1.0"
 }
