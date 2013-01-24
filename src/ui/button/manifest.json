@@ -3,6 +3,7 @@
 	"shortName": "uiButton",
 	"title": "Button demo",
 	"description": "Buttons",
+	"doc": "http://doc.gameclosure.com/example/ui-button/",
 	"icons": {
 		"28": "preload/icons/icon28.png",
 		"38": "preload/icons/icon38.png",
@@ -22,8 +23,7 @@
 	"supportedOrientations": [
 		"landscape"
 	],
-	"group": "",
-	"doc": "",
+	"group": "examples",
 	"preload": {
 		"autoHide": true,
 		"img": "preload/splash.png",
