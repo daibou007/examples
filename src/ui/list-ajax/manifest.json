@@ -1,7 +1,8 @@
 {
 	"appID": "dec5a180194748ce8fa4ef0ff9892365",
-	"shortName": "list-ajax",
-	"title": "list-ajax",
+	"shortName": "uilistAjax",
+	"title": "List: Ajax",
+	"doc": "http://doc.gameclosure.com/example/ui-list-ajax/",
 	"icons": {
 		"28": "preload/icons/icon28.png",
 		"38": "preload/icons/icon38.png",
@@ -21,9 +22,8 @@
 	"supportedOrientations": [
 		"portrait"
 	],
-	"description": "",
-	"group": "",
-	"doc": "",
+	"description": "A list populated with items loaded from Facebook",
+	"group": "examples",
 	"preload": {
 		"autoHide": true,
 		"img": "preload/splash.png",

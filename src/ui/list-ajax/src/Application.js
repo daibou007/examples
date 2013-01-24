@@ -1,13 +1,14 @@
 //# A Basic List <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/ui/listbasic/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
-//Displaying a list of items requires the coordinated use of three classes: `ui.widget.ListView`,
-//`ui.widget.CellView`, and `GCDataSource`. There are components that handle some of these for you,
-//but to understand how they work together, we’ll display a list of arbitrary data that we can
-//scroll and click.
+//Displaying a list of items loaded from Facebook.
+//requires the coordinated use of three classes: `ui.widget.ListView`,
+//`ui.widget.CellView`, and `GCDataSource`.
 
 //Import device to get the screen size.
 import device;
+
 //Import `GCDataSource` to store the items.
 import GCDataSource;
+
 //Import the `List` and `Cell` classes to create a list.
 import ui.widget.List as List;
 import ui.widget.Cell as Cell;
@@ -33,36 +34,38 @@ var InfoDataSource = Class(GCDataSource, function (supr) {
 			{
 				key: 'id',
 				reverse: true,
-				//Sort by oldest first
+				//Sort by oldest last
 				sorter: function (data) { return data.created_time; }
 			}
 		);
 
 		supr(this, 'init', [opts]);
 
-		this.add({id: '0', title: 'Loading', itemsLoaded: 0});
+		this._searchFor = 'game';
+
 		this.load();
 	};
 
 	this.load = function () {
-		var loadingItem = this.get('0');
+		this.clear();
+		this.emit('Clear');
 
-		loadingItem.title = 'Loading';
-		loadingItem.loading = true;
-
-		this.emit('DataChanged');
-
+		//Search Facebook
 		ajax.get(
 			{
 				url: 'http://graph.facebook.com/search',
 				headers: {'Content-Type': 'text/plain'},
-				data: {q: 'phone+game', type: 'post'},
+				//This data will be added as query parameters
+				data: {q: this._searchFor, type: 'post'},
+				//Parse the result as JSON
 				type: 'json'
 			},
+			//call `onData` when the search results are loaded
 			bind(this, 'onData')
 		);
 	};
 
+	//Customize the sort function, add indices to the items after sorting
 	this.sort = function () {
 		supr(this, 'sort');
 
@@ -70,14 +73,17 @@ var InfoDataSource = Class(GCDataSource, function (supr) {
 		while (i) this._byIndex[--i].index = i;
 	};
 
+	//Prepend zeros to a string
 	this._leadingZero = function (s, length) {
 		s += '';
 		while (s.length < length) s = '0' + s;
 		return s;
 	};
 
+	//This callback is called when the data is loaded
 	this.onData = function (err, response) {
 		if (!err) {
+			//Iterate over the list and parse the date
 			for (var i = 0; i < response.data.length; i++) {
 				var item = response.data[i];
 				var date = new Date(item.created_time);
@@ -86,31 +92,28 @@ var InfoDataSource = Class(GCDataSource, function (supr) {
 					(date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
 			}
 
+			//Add the list to the data source
 			this.add(response.data);
+			//Sort the list
 			this.sort();
-
-			var loadingItem = this.get('0');
-
-			loadingItem.title = 'Load more';
-			loadingItem.loading = false;
-			loadingItem.itemsLoaded = this.getCount();
-
-			this.emit('DataChanged');
+			//Left the view know that the data is ready
+			this.emit('Loaded');
+		} else {
+			//Something went wrong, publis the `Error` event so that a message can be displayed
+			this.emit('Error');
 		}
+	};
+
+	//Set the search string and load the data
+	this.setSearchFor = function (searchFor) {
+		this._searchFor = searchFor;
+		this.load();
 	};
 });
 
 //## Class: Application
 //Create an application, set the default properties.
 exports = Class(GC.Application, function () {
-
-	this._settings = {
-		logsEnabled: window.DEV_MODE,
-		showFPS: window.DEV_MODE,
-		clearEachFrame: true,
-		alwaysRepaint: true,
-		preload: []
-	};
 
 	this.getCell = function () {
 		var infoList = this._infoList;
@@ -119,13 +122,13 @@ exports = Class(GC.Application, function () {
 	};
 
 	this.initUI = function () {
-		//https://graph.facebook.com/search?q=phone+game&type=post
-		//http://graph.facebook.com/search?q=phone+game&type=post
 		this.style.backgroundColor = COLOR4;
 
 		//Set up the datasource.
 		this._infoData = new InfoDataSource();
-		this._infoData.on('DataChanged', bind(this, 'onDataChanged'));
+		this._infoData.on('Clear', bind(this, 'onClear'));
+		this._infoData.on('Loaded', bind(this, 'onLoaded'));
+		this._infoData.on('Error', bind(this, 'onError'));
 
 		this._title = new TextView({
 			superview: this,
@@ -137,6 +140,17 @@ exports = Class(GC.Application, function () {
 			text: 'Search Facebook',
 			color: COLOR4,
 			backgroundColor: COLOR1
+		});
+
+		this._loadingLabel = new TextView({
+			superview: this,
+			x: 0,
+			y: 50,
+			width: device.width,
+			height: device.height - 100,
+			size: 18,
+			text: 'Searching for: game',
+			color: COLOR6
 		});
 
 		//Create the List, which inherits from `ScrollView`.
@@ -151,7 +165,8 @@ exports = Class(GC.Application, function () {
 			selectable: 'multi',
 			maxSelections: 10,
 			scrollX: false,
-			getCell: bind(this, 'getCell')
+			getCell: bind(this, 'getCell'),
+			visible: false
 		});
 
 		this._searchLabel = new TextView({
@@ -166,6 +181,7 @@ exports = Class(GC.Application, function () {
 			color: COLOR1,
 			backgroundColor: COLOR5
 		});
+		this._searchLabel.onInputSelect = bind(this, 'onSelectSeach');
 		this._search = new TextPromptView({
 			superview: this,
 			x: device.width / 2,
@@ -181,15 +197,36 @@ exports = Class(GC.Application, function () {
 			value: 'game',
 			prompt: 'Enter a search term:'
 		});
+		this._search.on('Change', bind(this, 'onChangeSearch'));
 	};
 
-	this.onDataChanged = function () {
-		var subviews = this._infoList.getContentView().getSubviews();
-		var i = subviews.length;
+	//This callback is called when the search label is clicked
+	this.onSelectSeach = function () {
+		this._search.showPrompt();
+	};
 
-		while (i) {
-			subviews[--i].update();
-		}
+	//When there's a new text entered in the prompt dialog then this callback is called
+	//and Facebook is searched again
+	this.onChangeSearch = function (value) {
+		this._loadingLabel.setText('Searching for: ' + value);
+		this._infoData.setSearchFor(value);
+	};
+
+	//Something in the request went wrong
+	this.onError = function () {
+		this._loadingLabel.setText('Failed to load data');
+	};
+
+	//This function is called when a new search starts, the list is hidden and the searching message is shown
+	this.onClear = function () {
+		this._infoList.style.visible = false;
+		this._loadingLabel.style.visible = true;
+	};
+
+	//This callback is called when the search data is loaded
+	this.onLoaded = function () {
+		this._infoList.style.visible = true;
+		this._loadingLabel.style.visible = false;
 	};
 
 	this.launchUI = function () {};
@@ -206,38 +243,9 @@ var InfoCell = Class(Cell, function (supr) {
 
 		supr(this, 'init', [opts]);
 
-		this._loadMore = new TextView({
-			superview: this,
-			x: 10,
-			y: 5,
-			width: device.width - 20,
-			height: 60,
-			size: 25,
-			color: COLOR2,
-			text: 'Loading...'
-		});
-		this._loaded = new TextView({
-			superview: this._loadMore,
-			x: 0,
-			y: 0,
-			width: device.width - 20,
-			height: 60,
-			size: 11,
-			color: COLOR6,
-			verticalAlign: 'bottom',
-			text: ''
-		});
-
-		this._messageContainer = new View({
-			superview: this,
-			x: 0,
-			y: 0,
-			width: device.width,
-			height: 75
-		});
-
+		//The TextView showing who posted the message
 		this._from = new TextView({
-			superview: this._messageContainer,
+			superview: this,
 			x: 10,
 			y: 5,
 			width: device.width - 20,
@@ -246,8 +254,9 @@ var InfoCell = Class(Cell, function (supr) {
 			horizontalAlign: 'left',
 			color: COLOR2
 		});
+		//The time and date when the message was posted
 		this._posted = new TextView({
-			superview: this._messageContainer,
+			superview: this,
 			x: 10,
 			y: 5,
 			width: device.width - 20,
@@ -256,8 +265,9 @@ var InfoCell = Class(Cell, function (supr) {
 			horizontalAlign: 'right',
 			color: COLOR2
 		});
+		//The message
 		this._message = new TextView({
-			superview: this._messageContainer,
+			superview: this,
 			x: 10,
 			y: 25,
 			width: device.width - 20,
@@ -287,27 +297,18 @@ var InfoCell = Class(Cell, function (supr) {
 		return s;
 	};
 
-	this._onSelect = function () {
-		(this._data.id === '0') && this._infoData.load();
-	};
-
 	this.update = function () {
 		var data = this._data;
-		var loadMore = (data.id === '0');
 
+		//Set the color depending on if it's an even or odd row
 		this.style.backgroundColor = ((data.index & 1) === 0) ? COLOR3 : COLOR4;
 
-		this._loadMore.style.visible = loadMore;
-		this._messageContainer.style.visible = !loadMore;
-
-		if (loadMore) {
-			this._loadMore.setText(data.title);
-			this._loaded.setText('(' + data.itemsLoaded + ' items loaded)');
-		} else {
-			this._from.setText(this._toLength(data.from.name || '', 40));
-			this._posted.setText(data.posted);
-			this._message.setText(this._toLength(data.message || '', 100));
-		}
+		//Show the first 40 characters of the name
+		this._from.setText(this._toLength(data.from.name || '', 40));
+		//Show the time and date
+		this._posted.setText(data.posted);
+		//Show the first 100 characters of the message
+		this._message.setText(this._toLength(data.message || '', 100));
 	};
 
 	//Called when a cell is put on screen.
@@ -319,6 +320,5 @@ var InfoCell = Class(Cell, function (supr) {
 });
 
 //Run this code in the simulator, and you should see something like the following screenshot.
-//You can drag the list up and down, but not right or left. When you click on a film title, it
-//will turn red and output its title in the debugging console.
+//You can drag the list up and down, but not right or left.
 //<img src="./doc/screenshot.png" alt="listview screenshot" class="screenshot">
