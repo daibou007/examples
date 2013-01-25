@@ -13,8 +13,8 @@ exports = Class(GC.Application, function () {
 	this.initUI = function () {
 		this.style.backgroundColor = "#FFFFFF";
 
-		this.view.on('InputMove', function (evt, pt) {
-			var trailbox = new TrailBox(merge(pt, {superview: GC.app.view}))
+		this.view.on("InputMove", function (evt, pt) {
+			new TrailBox(merge(pt, {superview: GC.app.view}))
 		});
 	};
 
@@ -35,7 +35,7 @@ var TrailBox = Class(View, function(supr) {
 			r: 0
 		});
 
-		supr(this, 'init', [opts]);
+		supr(this, "init", [opts]);
 
 		animate(this).now({
 			opacity: 0,

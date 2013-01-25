@@ -19,9 +19,9 @@ exports = Class(GC.Application, function () {
 			size: (device.height * .1)  | 0,
 			zIndex: 1,
 			text: "Text View Clock",
-			color: '#888888',
-			backgroundColor: 'white',
-			outlineColor: 'black',
+			color: "#888888",
+			backgroundColor: "#FFFFFF",
+			outlineColor: "#000000",
 			verticalPadding: 5,
 			horizontalPadding: 20
 		});
@@ -38,9 +38,9 @@ exports = Class(GC.Application, function () {
 			zIndex: 1,
 			wrap: true,
 			text: "Date\n",
-			color: '#FF8888',
-			backgroundColor: '#DDDDDD',
-			outlineColor: 'black',
+			color: "#FF8888",
+			backgroundColor: "#DDDDDD",
+			outlineColor: "#000000",
 			verticalPadding: 5,
 			horizontalPadding: 20
 		});
@@ -57,8 +57,8 @@ exports = Class(GC.Application, function () {
 			zIndex: 1,
 			wrap: true,
 			text: "Time\n",
-			color: '#4488FF',
-			outlineColor: 'white',
+			color: "#4488FF",
+			outlineColor: "#FFFFFF",
 			verticalPadding: 5,
 			horizontalPadding: 20
 		});

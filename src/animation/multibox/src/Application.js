@@ -9,8 +9,8 @@ import ui.View as View;
 exports = Class(GC.Application, function () {
 
 	this.initUI = function () {
-		var startX = device.width / 2 - 75,
-			startY = device.height / 2 - 25;
+		var startX = device.width / 2 - 75;
+		var startY = device.height / 2 - 25;
 
 		this.style.backgroundColor = "#FFFFFF";
 
@@ -20,12 +20,12 @@ exports = Class(GC.Application, function () {
 			y: startY,
 			width: 50,
 			height: 50,
-			backgroundColor: '#FF0000'
+			backgroundColor: "#FF0000"
 		});
 		redBox.style.anchorX = redBox.style.width / 2;
 		redBox.style.anchorY = redBox.style.height / 2;
 
-		redBox.on('InputOver', function () {
+		redBox.on("InputOver", function () {
 			moveSquare(this, 3000, 0);
 		});
 
@@ -35,12 +35,12 @@ exports = Class(GC.Application, function () {
 			y: startY,
 			width: 50,
 			height: 50,
-			backgroundColor: '#00FF00'
+			backgroundColor: "#00FF00"
 		});
 		greenBox.style.anchorX = greenBox.style.width / 2;
 		greenBox.style.anchorY = greenBox.style.height / 2;
 
-		greenBox.on('InputOver', function () {
+		greenBox.on("InputOver", function () {
 			moveSquare(this, 2000, device.height / 2 - this.style.height / 2);
 		});
 
@@ -50,12 +50,12 @@ exports = Class(GC.Application, function () {
 			y: startY,
 			width: 50,
 			height: 50,
-			backgroundColor: '#0000FF'
+			backgroundColor: "#0000FF"
 		});
 		blueBox.style.anchorX = blueBox.style.width / 2;
 		blueBox.style.anchorY = blueBox.style.height / 2;
 
-		blueBox.on('InputOver', function () {
+		blueBox.on("InputOver", function () {
 			moveSquare(this, 1000, device.height - this.style.height);
 		});
 	};

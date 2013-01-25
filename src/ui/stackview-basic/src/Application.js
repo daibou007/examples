@@ -7,7 +7,9 @@ import ui.StackView as StackView;
 //## Class: Application
 exports = Class(GC.Application, function () {
 	this.initUI = function () {
-		var stackview = new StackView({
+		this.style.backgroundColor = "#FFFFFF";
+
+		var stackView = new StackView({
 			superview: this.view,
 			x: 50,
 			y: 50,
@@ -16,40 +18,40 @@ exports = Class(GC.Application, function () {
 			backgroundColor: "#999"
 		});
 
-		//when added to a stackview, child views take the same dimensions.
+		//when added to a stackView, child views take the same dimensions.
 		var front = new TextView({
 			x: 0,
 			y: 0,
 			text: "Click to dismiss! This is the front view.",
-			backgroundColor: "#00f" //blue
+			backgroundColor: "#00F" //blue
 		});
 
 		var middle = new TextView({
 			x: 0,
 			y: 0,
 			text: "Click to dismiss! This is the middle view.",
-			backgroundColor: "#0f0" //green
+			backgroundColor: "#0F0" //green
 		});
 
 		var back = new TextView({
 			x: 0,
 			y: 0,
 			text: "Click to dismiss! This is the back view.",
-			backgroundColor: "#f00" //red
+			backgroundColor: "#F00" //red
 		});
 
-		function pop_off () {
-			stackview.pop(this);
+		function popOff () {
+			stackView.pop(this);
 		}
 
-		front.on('InputStart', pop_off);
-		middle.on('InputStart', pop_off);
-		back.on('InputStart', pop_off);
+		front.on('InputStart', popOff);
+		middle.on('InputStart', popOff);
+		back.on('InputStart', popOff);
 
-		//Don't animate the views as they are attached to the stackview.
-		stackview.push(front, true);
-		stackview.push(middle, true);
-		stackview.push(back, true);
+		//Don't animate the views as they are attached to the stackView.
+		stackView.push(front, true);
+		stackView.push(middle, true);
+		stackView.push(back, true);
 	};
 
 	this.launchUI = function () {};

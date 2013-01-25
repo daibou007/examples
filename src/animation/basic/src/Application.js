@@ -10,12 +10,12 @@ import ui.View as View;
 exports = Class(GC.Application, function() {
 
 	this.initUI = function() {
-		this.style.backgroundColor = '#FFFFFF';
+		this.style.backgroundColor = "#FFFFFF";
 
 		//Create a single red squared view.
 		var square = new View({
 			superview: this.view,
-			backgroundColor: '#FF0000',
+			backgroundColor: "#FF0000",
 			x: 20,
 			y: 20,
 			width: 100,
@@ -24,7 +24,7 @@ exports = Class(GC.Application, function() {
 
 		//Change the x property from 20 to 200 in 500 ms.
 		animate(square).now({x: 200}, 500)
-			//Then change the x property fron 200 to 20 in 1500 ms.
+			//Then change the x property from 200 to 20 in 1500 ms.
 			.then({x: 20}, 1500);
 	};
 

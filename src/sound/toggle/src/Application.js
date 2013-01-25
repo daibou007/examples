@@ -24,7 +24,7 @@ import AudioManager;
 exports = Class(GC.Application, function () {
 	this.initUI = function () {
 		this.sound = new AudioManager({
-			path: 'resources/sounds',
+			path: "resources/sounds",
 			files: {
 				levelmusic: {
 					background: true,
@@ -39,11 +39,11 @@ exports = Class(GC.Application, function () {
 			y: 100,
 			width: 100,
 			height: 100,
-			backgroundColor: '#00ff00'
+			backgroundColor: "#00FF00"
 		});
 
-		play.on('InputSelect', bind(this, function () {
-			this.sound.play('levelmusic');
+		play.on("InputSelect", bind(this, function () {
+			this.sound.play("levelmusic");
 		}));
 
 		var stop = new View({
@@ -52,11 +52,11 @@ exports = Class(GC.Application, function () {
 			y: 100,
 			width: 100,
 			height: 100,
-			backgroundColor: '#ff0000'
+			backgroundColor: "#FF0000"
 		});
 
-		stop.on('InputSelect', bind(this, function () {
-			this.sound.pause('levelmusic');
+		stop.on("InputSelect", bind(this, function () {
+			this.sound.pause("levelmusic");
 		}));
 	};
 });

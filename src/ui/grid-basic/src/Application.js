@@ -1,9 +1,12 @@
 //# Grid, Basic <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/ui/grid-basic/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 
 import device;
+
 import ui.TextView as TextView;
 import ui.View as View;
+
 import ui.widget.GridView as GridView;
+import ui.widget.ButtonView as ButtonView;
 
 //## Class: Application
 exports = Class(GC.Application, function () {
@@ -131,11 +134,40 @@ function optionValue (s) {
 	return (s.length > 10) ? (s.substr(0, 10) + "...") : s;
 }
 
-//A button to modify settings of a View
-var GridViewSetting = Class(View, function (supr) {
+//## Class: GridViewSetting
+//A button to change a setting
+var GridViewSetting = Class(ButtonView, function (supr) {
 	this.init = function (opts) {
-		opts.width = 135;
-		opts.height = 30;
+		opts = merge(
+			opts,
+			{
+				width: 135,
+				height: 34,
+				images: {
+					up: "resources/images/blue1.png",
+					down: "resources/images/blue2.png"
+				},
+				scaleMethod: "9slice",
+				sourceSlices: {
+					horizontal: {left: 80, center: 116, right: 80},
+					vertical: {top: 10, middle: 80, bottom: 10}
+				},
+				destSlices: {
+					horizontal: {left: 40, right: 40},
+					vertical: {top: 4, bottom: 4}
+				},
+				text: {
+					color: "#000044",
+					size: 11,
+					autoFontSize: false,
+					autoSize: false
+				},
+				on: {
+					up: bind(this, "onClick")
+				},
+				title: opts.property + "=" + optionValue(opts.options[0])
+			}
+		);
 
 		supr(this, "init", [opts]);
 
@@ -145,25 +177,9 @@ var GridViewSetting = Class(View, function (supr) {
 		this._optionIndex = 0;
 		this._property = opts.property;
 		this._setter = opts.setter;
-
-		this._text = new TextView({
-			superview: this,
-			backgroundColor: "#404040",
-			width: opts.width,
-			height: opts.height,
-			color: "#FFFFFF",
-			size: 11,
-			horizontalAlign: "center",
-			verticalALign: "center",
-			wrap: false,
-			autoSize: false,
-			autoFontSize: false,
-			text: opts.property + "=" + optionValue(this._options[0]),
-			clip: true
-		});
 	};
 
-	this.onInputSelect = function () {
+	this.onClick = function () {
 		//Step through the available options
 		this._optionIndex = (this._optionIndex + 1) % this._options.length;
 		this._text.setText(this._property + "=" + optionValue(this._options[this._optionIndex]));

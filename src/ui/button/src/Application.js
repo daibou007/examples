@@ -9,6 +9,7 @@ exports = Class(GC.Application, function () {
 		this.view.style.backgroundColor = "#FFFFFF";
 
 		//Create button2 first because button1 and button2 bind callbacks to this button...
+		//This is the button which will be enabled or disabled
 		this._button2 = new ButtonView({
 			superview: this.view,
 			width: 200,
@@ -16,19 +17,25 @@ exports = Class(GC.Application, function () {
 			x: device.width / 2 - 100,
 			y: 150,
 			images: {
-				up: "resources/images/window3.png",
-				down: "resources/images/window2.png",
-				unselect: "resources/images/window3.png",
-				disabled: "resources/images/window2.png"
+				up: "resources/images/blue1.png",
+				down: "resources/images/blue2.png",
+				disabled: "resources/images/white1.png"
 			},
-			scaleMethod: '9slice',
+			scaleMethod: "9slice",
 			sourceSlices: {
-				horizontal: {left: 25, center: 100, right: 25},
-				vertical: {top: 25, middle: 100, bottom: 25}
+				horizontal: {left: 80, center: 116, right: 80},
+				vertical: {top: 10, middle: 80, bottom: 10}
+			},
+			destSlices: {
+				horizontal: {left: 40, right: 40},
+				vertical: {top: 4, bottom: 4}
 			},
 			title: "Button",
 			text: {
-				size: 20
+				color: "#000044",
+				size: 16,
+				autoFontSize: false,
+				autoSize: false
 			}
 		});
 
@@ -40,21 +47,27 @@ exports = Class(GC.Application, function () {
 			x: device.width / 2 - 100,
 			y: 50,
 			images: {
-				up: "resources/images/window1.png",
-				down: "resources/images/window2.png",
-				unselect: "resources/images/window3.png"
+				up: "resources/images/blue1.png",
+				down: "resources/images/blue2.png"
 			},
-			scaleMethod: '9slice',
+			scaleMethod: "9slice",
 			sourceSlices: {
-				horizontal: {left: 25, center: 100, right: 25},
-				vertical: {top: 25, middle: 100, bottom: 25}
+				horizontal: {left: 80, center: 116, right: 80},
+				vertical: {top: 10, middle: 80, bottom: 10}
+			},
+			destSlices: {
+				horizontal: {left: 40, right: 40},
+				vertical: {top: 4, bottom: 4}
 			},
 			on: {
 				up: bind(this._button2, "setState", ButtonView.states.DISABLED)
 			},
 			title: "Disable",
 			text: {
-				size: 20
+				color: "#000044",
+				size: 16,
+				autoFontSize: false,
+				autoSize: false
 			}
 		});
 
@@ -66,21 +79,27 @@ exports = Class(GC.Application, function () {
 			x: device.width / 2 - 100,
 			y: 250,
 			images: {
-				up: "resources/images/window1.png",
-				down: "resources/images/window2.png",
-				unselect: "resources/images/window3.png"
+				up: "resources/images/blue1.png",
+				down: "resources/images/blue2.png"
 			},
-			scaleMethod: '9slice',
+			scaleMethod: "9slice",
 			sourceSlices: {
-				horizontal: {left: 25, center: 100, right: 25},
-				vertical: {top: 25, middle: 100, bottom: 25}
+				horizontal: {left: 80, center: 116, right: 80},
+				vertical: {top: 10, middle: 80, bottom: 10}
+			},
+			destSlices: {
+				horizontal: {left: 40, right: 40},
+				vertical: {top: 4, bottom: 4}
 			},
 			on: {
 				down: bind(this._button2, "setState", ButtonView.states.UP)
 			},
 			title: "Enable",
 			text: {
-				size: 20
+				color: "#000044",
+				size: 16,
+				autoFontSize: false,
+				autoSize: false
 			}
 		});
 	};

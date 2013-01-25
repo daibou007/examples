@@ -5,12 +5,12 @@
 import animate;
 import ui.View as View;
 
-// ## Class: Application
+//## Class: Application
 exports = Class(GC.Application, function () {
 
 	this.initUI = function() {
 		this.style.backgroundColor = "#FFFFFF";
-		// Create a single red squared view.
+		//Create a single red squared view.
 		var square = new View({
 			superview: this.view,
 			backgroundColor: '#FF0000',
@@ -20,13 +20,13 @@ exports = Class(GC.Application, function () {
 			height: 100
 		});
 		//Start the animation.
-		continuous_animate.call(square);
+		continuousAnimate.call(square);
 	};
 
 	this.launchUI = function () {};
 });
 
-function continuous_animate () {
+function continuousAnimate () {
 	animate(this).clear()
 		// Move right - linear
 		.now({x: 200}, 1000, animate.linear)
@@ -37,6 +37,6 @@ function continuous_animate () {
 		// Move up - ease in, ease out
 		.then({y: 20}, 1000, animate.easeInOut)
 		// Start animating again
-		.then(continuous_animate.bind(this));
+		.then(continuousAnimate.bind(this));
 }
 //<img src="./doc/screenshot.png" alt="trail screenshot" class="screenshot">

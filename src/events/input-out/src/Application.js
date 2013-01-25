@@ -8,7 +8,7 @@
 import ui.View as View;
 
 //## Class: Application
-//Create an application with its default settings.
+//Create an application.
 exports = Class(GC.Application, function () {
 
 	this.initUI = function () {

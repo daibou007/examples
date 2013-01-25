@@ -14,7 +14,7 @@ exports = Class(GC.Application, function () {
 
 	this.initUI = function() {
 		//The SheetView class is instantiated with the root view as the parent.
-		var sheetview = new SheetView({
+		new SheetView({
 			superview: this.view,
 			x: 10,
 			y: 10,
@@ -64,7 +64,7 @@ var SheetView = Class(ImageView, function(supr) {
 			// Use the values from the initial map.
 			map.width = this._sizeX;
 			map.height = this._sizeY;
-			map.x = this._offsetX + ((this._index /3) | 0) * this._sizeX;
+			map.x = this._offsetX + ((this._index / 3) | 0) * this._sizeX;
 			map.y = this._offsetY + (this._index % 3) * this._sizeY;
 		}
 	};

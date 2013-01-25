@@ -11,7 +11,7 @@ import ui.View as View;
 exports = Class(GC.Application, function () {
 	this.initUI = function () {
 		this._sound = new AudioManager({
-			path: 'resources/audio/',
+			path: "resources/audio/",
 			// Load three sound effects:
 			//    "resources/audio/sound1.mp3"
 			//    "resources/audio/sound2.mp3"
@@ -38,7 +38,7 @@ exports = Class(GC.Application, function () {
 				colors = ["#FF0000", "#00FF00", "#0000FF"];
 
 		for (var i = 0; i < 3; i++) {
-			var soundview = new SoundView({
+			new SoundView({
 				superview: this.view,
 				x: i * w + 10,
 				y: 10,

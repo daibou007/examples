@@ -19,7 +19,7 @@ exports = Class(GC.Application, function () {
 		this._paused = false;
 
 		this._sound = new AudioManager({
-			path: 'resources/audio/',
+			path: "resources/audio/",
 			files: {
 				// This index is the name of the file,
 				// the extension is depending on the system.

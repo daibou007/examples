@@ -11,7 +11,7 @@ exports = Class(GC.Application, function () {
 	//Create a new instance of the ClickBox view with the applications view as superview.
 	this.initUI = function () {
 		this.style.backgroundColor = "#FFFFFF";
-		var clickbox = new ClickBox({
+		new ClickBox({
 			superview: this.view,
 			x: 10,
 			y: 10,

@@ -8,11 +8,11 @@ import AudioManager;
 import ui.View as View;
 
 //## Class: Application
-//Create an application and set the default properties.
+//Create an application.
 exports = Class(GC.Application, function () {
 	this.initUI = function () {
 		this._sound = new AudioManager({
-			path: 'resources/audio/',
+			path: "resources/audio/",
 			// Load one sound effects:
 			//    "resources/audio/bubble_hit_01.mp3"
 			// or:
