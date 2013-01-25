@@ -8,14 +8,27 @@
 //├── build/
 //├── resources/
 //│   └── images/
-//│        └── characters/
-//│             ├── carl-idle-01.png
-//│             ├── carl-idle-02.png
-//│             ├── carl-idle-03.png
-//│             ├── carl-idle-04.png
-//│             ├── carl-walk-01.png
-//│             ├── carl-walk-02.png
-//│             └── carl-walk-03.png
+//│        └── bot/
+//│             ├── sdkBot-idle-0001.png
+//│             ├── sdkBot-idle-0002.png
+//│             ├── sdkBot-idle-0003.png
+//│             ├── sdkBot-idle-0004.png
+//│             ├── sdkBot-idle-0005.png
+//│             ├── sdkBot-idle-0006.png
+//│             ├── sdkBot-idle-0007.png
+//│             ├── sdkBot-idle-0008.png
+//│             ├── sdkBot-idle-0009.png
+//│             ├── sdkBot-idle-0010.png
+//│             ├── sdkBot-walk-0001.png
+//│             ├── sdkBot-walk-0002.png
+//│             ├── sdkBot-walk-0003.png
+//│             ├── sdkBot-walk-0004.png
+//│             ├── sdkBot-walk-0005.png
+//│             ├── sdkBot-walk-0006.png
+//│             ├── sdkBot-walk-0007.png
+//│             ├── sdkBot-walk-0008.png
+//│             ├── sdkBot-walk-0009.png
+//│             └── sdkBot-walk-0010.png
 //└── src/
 //    └── Application.js
 //</pre>
@@ -25,13 +38,15 @@ import ui.SpriteView as SpriteView;
 //## Class: Application
 exports = Class(GC.Application, function () {
 	this.initUI = function () {
+		this.style.backgroundColor = "#FFFFFF";
+
 		var sprite = new SpriteView({
 			superview: this.view,
-			x: 0,
-			y: 0,
-			width: 60,
-			height: 60,
-			url: "resources/images/characters/carl",
+			x: this.style.width / 2 - 100,
+			y: this.style.height / 2 - 100,
+			width: 200,
+			height: 200,
+			url: "resources/images/bot/sdkBot",
 			defaultAnimation: "idle"
 		});
 

@@ -13,10 +13,10 @@ exports = Class(GC.Application, function () {
 		this.style.backgroundColor = "#FFFFFF";
 		new ClickBox({
 			superview: this.view,
-			x: 10,
-			y: 10,
-			width: 100,
-			height: 100,
+			x: this.style.width / 4,
+			y: this.style.height / 4,
+			width: this.style.width / 2,
+			height: this.style.height / 2,
 			backgroundColor: "#FF0000"
 		});
 	};

@@ -8,10 +8,15 @@ import ui.TextView as TextView;
 //## Class: Application
 exports = Class(GC.Application, function () {
 	this.initUI = function () {
+		this.style.backgroundColor = "#FFFFFF";
+
 		this._textView = new TextView({
 			superview: this.view,
+			width: this.style.width,
+			height: this.style.height,
 			text: "Click to pause",
-			color: "white"
+			size: 18,
+			color: "#000044"
 		});
 		this._textView.onInputSelect = bind(this, "onClick");
 		this._paused = false;

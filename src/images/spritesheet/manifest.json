@@ -2,21 +2,6 @@
 	"appID": "00000000000000000000000000000000",
 	"shortName": "imagesSpriteSheet",
 	"title": "Images: Sprite Sheet",
-	"preload": {
-		"autoHide": true,
-		"img": "preload/splash.png",
-		"iphone": {
-			"launch": "preload/iphone/Default.png",
-			"launchRetina": "preload/iphone/Default@2x.png",
-			"launchRetina4": "preload/iphone/Default-568h@2x.png"
-		},
-		"ipad": {
-			"portrait": "preload/ipad/Default-Portrait~ipad.png",
-			"portraitRetina": "preload/ipad/Default-Portrait@2x~ipad.png",
-			"landscape": "preload/ipad/Default-Landscape~ipad.png",
-			"landscapeRetina": "preload/ipad/Default-Landscape@2x~ipad.png"
-		}
-	},
 	"icons": {
 		"28": "preload/icons/icon28.png",
 		"38": "preload/icons/icon38.png",
@@ -36,6 +21,21 @@
 	"supportedOrientations": [
 		"portrait"
 	],
+	"preload": {
+		"autoHide": true,
+		"img": "preload/splash.png",
+		"iphone": {
+			"launch": "preload/iphone/Default.png",
+			"launchRetina": "preload/iphone/Default@2x.png",
+			"launchRetina4": "preload/iphone/Default-568h@2x.png"
+		},
+		"ipad": {
+			"portrait": "preload/ipad/Default-Portrait~ipad.png",
+			"portraitRetina": "preload/ipad/Default-Portrait@2x~ipad.png",
+			"landscape": "preload/ipad/Default-Landscape~ipad.png",
+			"landscapeRetina": "preload/ipad/Default-Landscape@2x~ipad.png"
+		}
+	},
 	"android": {
 		"versionCode": 1,
 		"tapjoyId": "",

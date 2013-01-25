@@ -4,19 +4,22 @@
 
 import device;
 import AudioManager;
+import ui.widget.ButtonView as ButtonView;
 import ui.View as View;
 
 //## Class: Application
 //Create an application and set the default settings.
 exports = Class(GC.Application, function () {
 	this.initUI = function () {
+		this.style.backgroundColor = "#FFFFFF";
+
 		this._sound = new AudioManager({
 			path: "resources/audio/",
-			// Load three sound effects:
+			//Load three sound effects:
 			//    "resources/audio/sound1.mp3"
 			//    "resources/audio/sound2.mp3"
 			//    "resources/audio/sound3.mp3"
-			// or:
+			//or:
 			//    "resources/audio/sound1.ogg"
 			//    "resources/audio/sound2.ogg"
 			//    "resources/audio/sound3.ogg"
@@ -33,20 +36,18 @@ exports = Class(GC.Application, function () {
 			}
 		});
 
-		// Create three views, click on them the hear an effect play...
-		var w = device.width / 3,
-				colors = ["#FF0000", "#00FF00", "#0000FF"];
-
+		//Create three views, click on them the hear an effect play...
 		for (var i = 0; i < 3; i++) {
-			new SoundView({
+			var j = i + 1;
+			new SoundButton({
 				superview: this.view,
-				x: i * w + 10,
-				y: 10,
-				width: w - 20,
-				height: 100,
+				width: 200,
+				height: 60,
+				x: device.width / 2 - 100,
+				y: 50 + i * 80,
 				sound: this._sound,
-				index: "sound" + (i + 1),
-				backgroundColor: colors[i]
+				index: "sound" + j,
+				title: "Sound " + j
 			})
 		}
 	};
@@ -54,16 +55,44 @@ exports = Class(GC.Application, function () {
 	this.launchUI = function () {};
 });
 
-//## Class: SoundView
-var SoundView = Class(View, function(supr) {
+//## Class: SoundButton
+var SoundButton = Class(ButtonView, function(supr) {
 	this.init = function(opts) {
+		opts = merge(
+			opts,
+			{
+				images: {
+					up: "resources/images/blue1.png",
+					down: "resources/images/blue2.png"
+				},
+				scaleMethod: "9slice",
+				sourceSlices: {
+					horizontal: {left: 80, center: 116, right: 80},
+					vertical: {top: 10, middle: 80, bottom: 10}
+				},
+				destSlices: {
+					horizontal: {left: 40, right: 40},
+					vertical: {top: 4, bottom: 4}
+				},
+				text: {
+					color: "#000044",
+					size: 16,
+					autoFontSize: false,
+					autoSize: false
+				},
+				on: {
+					up: bind(this, "onClick")
+				}
+			}
+		);
+
 		supr(this, "init", [opts]);
 
 		this._sound = opts.sound;
 		this._index = opts.index;
 	};
 
-	this.onInputSelect = function() {
+	this.onClick = function() {
 		this._sound.play(this._index);
 	};
 });

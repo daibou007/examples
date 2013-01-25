@@ -39,7 +39,7 @@ exports = Class(GC.Application, function () {
 //Create a view which fades out over a time of 500 ms.
 var TrailBox = Class(View, function (supr) {
 	this.init = function (opts) {
-		supr(this, "init", [merge(opts, {width: 6, height: 6, backgroundColor: "#00FF00"})]);
+		supr(this, "init", [merge(opts, {width: 6, height: 6, backgroundColor: "#008800"})]);
 		//Set the start time.
 		this._dt = 0;
 	};

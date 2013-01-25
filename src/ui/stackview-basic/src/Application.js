@@ -11,8 +11,8 @@ exports = Class(GC.Application, function () {
 
 		var stackView = new StackView({
 			superview: this.view,
-			x: 50,
-			y: 50,
+			x: this.style.width / 2 - 100,
+			y: this.style.height / 2 - 100,
 			height: 200,
 			width: 200,
 			backgroundColor: "#999"
@@ -22,22 +22,37 @@ exports = Class(GC.Application, function () {
 		var front = new TextView({
 			x: 0,
 			y: 0,
-			text: "Click to dismiss! This is the front view.",
-			backgroundColor: "#00F" //blue
+			text: "Click to dismiss!\nThis is the front view.",
+			backgroundColor: "#00F", //blue,
+			color: "#FFF",
+			size: 20,
+			autoSize: false,
+			autoFontSize: false,
+			wrap: true
 		});
 
 		var middle = new TextView({
 			x: 0,
 			y: 0,
-			text: "Click to dismiss! This is the middle view.",
-			backgroundColor: "#0F0" //green
+			text: "Click to dismiss!\nThis is the middle view.",
+			backgroundColor: "#080", //green
+			color: "#FFF",
+			size: 20,
+			autoSize: false,
+			autoFontSize: false,
+			wrap: true
 		});
 
 		var back = new TextView({
 			x: 0,
 			y: 0,
-			text: "Click to dismiss! This is the back view.",
-			backgroundColor: "#F00" //red
+			text: "Click to dismiss!\nThis is the back view.",
+			backgroundColor: "#F00", //red
+			color: "#FFF",
+			size: 20,
+			autoSize: false,
+			autoFontSize: false,
+			wrap: true
 		});
 
 		function popOff () {
@@ -57,4 +72,7 @@ exports = Class(GC.Application, function () {
 	this.launchUI = function () {};
 });
 
-//<img src="./doc/screenshot.png" alt="view style screenshot" class="screenshot">
+//<img src="./doc/screenshot1.png" alt="view style screenshot" class="screenshot">
+//<img src="./doc/screenshot2.png" alt="view style screenshot" class="screenshot">
+//<img src="./doc/screenshot3.png" alt="view style screenshot" class="screenshot">
+//<img src="./doc/screenshot4.png" alt="view style screenshot" class="screenshot">

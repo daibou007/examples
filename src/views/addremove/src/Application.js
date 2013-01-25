@@ -1,34 +1,38 @@
 //# Add and Remove Views <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/views/addremove/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This file demonstrates how to move a subview from one superview to another superview.
 
+import device;
+
 //Import the ui.View class.
 import ui.View as View;
 
 //## Class: Application.js
 exports = Class(GC.Application, function() {
 	this.initUI = function() {
+		this.style.backgroundColor = "#FFFFFF";
+
 		//Create a view, this is a view which will be the superview of the JumpingBox view.
-		var redbox = new View({
+		new View({
 			superview: this.view,
 			backgroundColor: "#FF0000",
-			x: 20,
-			y: 20,
+			x: device.width / 2 - 100,
+			y: device.height / 2 - 100,
 			width: 100,
 			height: 100
 		});
 
 		//Create another view, this is a view which will be the superview of the JumpingBox view.
-		var bluebox = new View({
+		new View({
 			superview: this.view,
 			backgroundColor: "#0000FF",
-			x: 120,
-			y: 120,
+			x: device.width / 2,
+			y: device.height / 2,
 			width: 100,
 			height: 100
 		});
 
 		//This view will jump between the two previously instantiated views.
-		var greenbox = new JumpingBox({
+		new JumpingBox({
 			superview: this.view.getSubviews()[0],
 			backgroundColor: "#008800",
 			x: 25,
@@ -45,7 +49,7 @@ exports = Class(GC.Application, function() {
 //This is a box which will jump from the red box to the blue box and back.
 var JumpingBox = Class(View, function (supr) {
 	this.init = function (opts) {
-		supr(this, 'init', [opts]);
+		supr(this, "init", [opts]);
 
 		this._dt = 0;
 		//This view starts as a subview of the red box.

@@ -2,7 +2,6 @@
 	"appID": "00000000000000000000000000000000",
 	"shortName": "uiButton",
 	"title": "Button demo",
-	"description": "Buttons",
 	"icons": {
 		"28": "preload/icons/icon28.png",
 		"38": "preload/icons/icon38.png",
@@ -22,8 +21,9 @@
 	"supportedOrientations": [
 		"portrait"
 	],
+	"description": "Buttons",
 	"group": "examples",
-	"doc": "",
+	"doc": "http://doc.gameclosure.com/example/ui-button/",
 	"preload": {
 		"autoHide": true,
 		"img": "preload/splash.png",

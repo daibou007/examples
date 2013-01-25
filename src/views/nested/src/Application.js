@@ -10,34 +10,43 @@ import ui.View as View;
 //## Class: Application
 exports = Class(GC.Application, function () {
 	this.initUI = function () {
-		var doublebox = new DoubleBox({width: device.width, height: device.height});
-		this.view.addSubview(doublebox);
+		this.style.backgroundColor = "#FFFFFF";
+
+		new DoubleBox({superview: this, width: device.width, height: device.height});
 	};
 });
 
 //## Class: DoubleBox
 //This class inherits from `ui.View` and contains two child views
 var DoubleBox = Class(View, function (supr) {
-	//Called before the first render of the view.
-	this.buildView = function () {
+	this.init = function (opts) {
+		supr(this, "init", [opts]);
+
+		this.style.backgroundColor = "#FFDD00"; //Yellow
+
+		this.style.x = device.width * 0.125;
+		this.style.y = device.height * 0.125;
+		this.style.width = device.width * 0.75;
+		this.style.height = device.height * 0.75;
+
 		//Create a View with a red background color.
-		var redbox = new View({
+		new View({
 			superview: this,
 			x: 0,
 			y: 0,
-			width: device.width / 2,
-			height: device.height / 2,
-			backgroundColor: '#FF0000',
+			width: device.width * 0.5,
+			height: device.height * 0.5,
+			backgroundColor: '#FF0000', //Red
 			zIndex: 1
 		});
 		//Create a View with a blue background color.
-		var bluebox = new View({
+		new View({
 			superview: this,
-			x: 100,
-			y: 100,
-			width: device.width / 2,
-			height: device.height / 2,
-			backgroundColor: '#0000FF'
+			x: device.width * 0.25,
+			y: device.height * 0.25,
+			width: device.width * 0.5,
+			height: device.height * 0.5,
+			backgroundColor: '#0000FF' //Blue
 		});
 	};
 });

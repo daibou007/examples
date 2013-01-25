@@ -8,15 +8,21 @@ import ui.View as View;
 //## Class: Application
 exports = Class(GC.Application, function () {
 	this.initUI = function () {
+		this.style.backgroundColor = "#FFFFFF";
+
 		//Create 200 views
 		for (var i = 0; i < 200; i++) {
 			//Randomize the size, shape, position, and color of each View.
-			var view = new View({
+			var width = 10 + Math.random() * 40;
+			var height = 10 + Math.random() * 40;
+			new View({
 				superview: this.view,
-				x: Math.random() * device.width - 25,
-				y: Math.random() * device.height - 25,
-				width: Math.random() * 50,
-				height: Math.random() * 50,
+				x: Math.random() * device.width,
+				y: Math.random() * device.height,
+				width: width,
+				height: height,
+				offsetX: width / 2,
+				offsetY: height / 2,
 				r: Math.random() * (Math.PI * 2),
 				backgroundColor: getRandomColor()
 			});
@@ -27,7 +33,7 @@ exports = Class(GC.Application, function () {
 //Generate a random color string in hexadecimal format.
 function getRandomColor () {
 	var hex = Math.floor(Math.random() * 0xFFFFFF);
-	return '#' + ('000000' + hex.toString(16)).substr(-6); //pad string
+	return "#" + ("000000" + hex.toString(16)).substr(-6); //pad string
 }
 
 //<img src="./doc/screenshot.png" alt="view style screenshot" class="screenshot">

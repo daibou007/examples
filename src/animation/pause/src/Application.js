@@ -14,7 +14,7 @@ exports = Class(GC.Application, function() {
 		// Create a single red squared view...
 		var square = new AnimationView({
 			superview: this.view,
-			backgroundColor: "#FF0000",
+			backgroundColor: "#FFDD00",
 			x: 20,
 			y: 20,
 			width: 100,
