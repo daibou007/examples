@@ -32,6 +32,8 @@ var SubscribeView2 = Class(TextView, function(supr) {
 exports = Class(GC.Application, function() {
 
 	this.initUI = function() {
+		this.style.backgroundColor = "#FFFFFF";
+
 		this._subscribeView1 = new TextView({
 			superview: this.view,
 			text: "Waiting for click",

@@ -10,13 +10,14 @@ exports = Class(GC.Application, function () {
 
 	//Create a new instance of the ClickBox view with the applications view as superview.
 	this.initUI = function () {
+		this.style.backgroundColor = "#FFFFFF";
 		var clickbox = new ClickBox({
 			superview: this.view,
 			x: 10,
 			y: 10,
 			width: 100,
 			height: 100,
-			backgroundColor: "#ff0000"
+			backgroundColor: "#FF0000"
 		});
 	};
 
@@ -29,10 +30,10 @@ var ClickBox = Class(View, function (supr) {
 	this.init = function (opts) {
 		supr(this, "init", [opts]);
 
-		this.on('InputSelect', function () {
+		this.on("InputSelect", function () {
 			// Change the background color of this view
-			var bg_color = (this.style.backgroundColor === '#ff0000') ? '#0000ff' : '#ff0000';
-			this.updateOpts({backgroundColor: bg_color});
+			var backgroundColor = (this.style.backgroundColor === "#FF0000") ? "#0000FF" : "#FF0000";
+			this.updateOpts({backgroundColor: backgroundColor});
 		});
 	};
 });

@@ -12,38 +12,39 @@ import ui.View as View;
 exports = Class(GC.Application, function () {
 
 	this.initUI = function () {
-		var clickbox = new ClickBox({
+		this.style.backgroundColor = "#FFFFFF";
+		var clickBox = new ClickBox({
 			superview: this.view,
 			x: 10,
 			y: 10,
 			width: 100,
 			height: 100,
-			backgroundColor: '#ff0000'
+			backgroundColor: "#FF0000"
 		});
 
-		this.view.on('InputSelect', bind(this, function () {
+		this.view.on("InputSelect", bind(this, function () {
 			// Restore the background of the view.
-			clickbox.updateOpts({backgroundColor: "#FF0000"});
+			clickBox.updateOpts({backgroundColor: "#FF0000"});
 		}));
 	};
 
 	this.launchUI = function () {};
 });
 
-//## Class: ClickBox
+//## Class: clickBox
 //Create a view based on the view class which changes color when clicked.
 var ClickBox = Class(View, function (supr) {
 	this.init = function (opts) {
-		supr(this, 'init', [opts]);
+		supr(this, "init", [opts]);
 
-		this.on('InputStart', function () {
+		this.on("InputStart", function () {
 			// Change the color when the view is clicked.
-			this.style.backgroundColor = '#0000ff';
+			this.style.backgroundColor = "#0000FF";
 		});
 
-		this.on('InputOut', function () {
+		this.on("InputOut", function () {
 			// Change the view when dragged outside the view.
-			this.style.backgroundColor = '#aa0000';
+			this.style.backgroundColor = "#AA0000";
 		});
 	};
 });

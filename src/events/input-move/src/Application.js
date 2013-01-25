@@ -11,13 +11,14 @@ exports = Class(GC.Application, function () {
 
 	//Create a circular buffer and the index in the buffer.
 	this.initUI = function () {
+		this.style.backgroundColor = "#FFFFFF";
 		// A circular buffer
 		this._trail = [];
 		// The index in the buffer
 		this._index = 0;
 
 		//This function is called when the user drags. The second parameter contains the drag coordinates.
-		this.view.on('InputMove', function (evt, pt) {
+		this.view.on("InputMove", function (evt, pt) {
 			var opts = {superview: GC.app.view, x: pt.x - 3, y: pt.y - 3};
 
 			if (GC.app._trail.length < 64) {

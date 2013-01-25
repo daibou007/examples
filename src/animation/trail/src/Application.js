@@ -11,6 +11,8 @@ import animate;
 exports = Class(GC.Application, function () {
 
 	this.initUI = function () {
+		this.style.backgroundColor = "#FFFFFF";
+
 		this.view.on('InputMove', function (evt, pt) {
 			var trailbox = new TrailBox(merge(pt, {superview: GC.app.view}))
 		});

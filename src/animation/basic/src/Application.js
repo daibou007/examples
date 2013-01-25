@@ -10,10 +10,12 @@ import ui.View as View;
 exports = Class(GC.Application, function() {
 
 	this.initUI = function() {
+		this.style.backgroundColor = '#FFFFFF';
+
 		//Create a single red squared view.
 		var square = new View({
 			superview: this.view,
-			backgroundColor: '#ff0000',
+			backgroundColor: '#FF0000',
 			x: 20,
 			y: 20,
 			width: 100,
