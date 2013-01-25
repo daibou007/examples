@@ -16,7 +16,7 @@ exports = Class(GC.Application, function () {
 			y: 20,
 			height: device.height * .10,
 			width: this.view.style.width,
-			size: device.height * .10,
+			size: (device.height * .1)  | 0,
 			zIndex: 1,
 			text: "Text View Clock",
 			color: '#888888',
@@ -34,7 +34,7 @@ exports = Class(GC.Application, function () {
 			y: title.style.y + title.style.height + device.height * .05,
 			height: device.height * .25,
 			width: this.view.style.width,
-			size: device.height * .125,
+			size: (device.height * .07) | 0,
 			zIndex: 1,
 			wrap: true,
 			text: "Date\n",
@@ -53,7 +53,7 @@ exports = Class(GC.Application, function () {
 			y: dateTextView.style.y + dateTextView.style.height + 40,
 			height: device.height * .3,
 			width: this.view.style.width,
-			size: device.height * .15,
+			size: (device.height * .06) | 0,
 			zIndex: 1,
 			wrap: true,
 			text: "Time\n",
@@ -63,7 +63,7 @@ exports = Class(GC.Application, function () {
 			horizontalPadding: 20
 		});
 
-		// Check what the date / time it is every half second, and 
+		// Check what the date / time it is every half second, and
 		// adjust date and time appropriately within the text views.
 		// Make sure we don't miss a second!
 		setInterval(bind(this, function() {

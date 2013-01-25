@@ -1,12 +1,12 @@
 {
-	"appID": "73221e0165e345a890b28201bbd54900",
-	"shortName": "prompt",
-	"title": "Prompt demo",
+	"appID": "aabeef7731e44ca6b67d5d51b07ec4c4",
+	"shortName": "example",
+	"title": "Advanced List View",
 	"icons": {
-		"28": "preload/icons/icon28.png",
-		"38": "preload/icons/icon38.png",
+		"28": "preload/icons/icon36.png",
+		"38": "preload/icons/icon48.png",
 		"48": "preload/icons/icon48.png",
-		"56": "preload/icons/icon56.png",
+		"56": "preload/icons/icon72.png",
 		"57": "preload/icons/icon57.png",
 		"72": "preload/icons/icon72.png",
 		"114": "preload/icons/icon114.png",
@@ -14,12 +14,12 @@
 		"512": "preload/icons/icon512.png"
 	},
 	"studio": {
-		"name": "GameClosure demo",
-		"domain": "gameclosure.com",
+		"name": "Example Studio Name",
+		"domain": "studio.example.com",
 		"stagingDomain": "staging.example.com"
 	},
 	"supportedOrientations": [
-		"portrait"
+		"landscape"
 	],
 	"description": "",
 	"group": "",
