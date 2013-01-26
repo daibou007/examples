@@ -1,7 +1,7 @@
 {
-	"appID": "73221e0165e345a890b28201bbd54900",
-	"shortName": "prompt",
-	"title": "Prompt demo",
+	"appID": "31a9c7220e634527a81bed83889e6e9a",
+	"shortName": "rotateViews",
+	"title": "Views: Rotation",
 	"icons": {
 		"28": "preload/icons/icon28.png",
 		"38": "preload/icons/icon38.png",
@@ -14,16 +14,16 @@
 		"512": "preload/icons/icon512.png"
 	},
 	"studio": {
-		"name": "GameClosure demo",
-		"domain": "gameclosure.com",
+		"name": "Example Studio Name",
+		"domain": "studio.example.com",
 		"stagingDomain": "staging.example.com"
 	},
 	"supportedOrientations": [
 		"portrait"
 	],
-	"description": "Showing a prompt dialog",
+	"description": "Rotating a view around a point",
 	"group": "examples",
-	"doc": "http://doc.gameclosure.com/example/text-prompt/",
+	"doc": "http://doc.gameclosure.com/example/views-rotate/",
 	"preload": {
 		"autoHide": true,
 		"img": "preload/splash.png",

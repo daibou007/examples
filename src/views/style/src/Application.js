@@ -17,12 +17,12 @@ exports = Class(GC.Application, function () {
 			var height = 10 + Math.random() * 40;
 			new View({
 				superview: this.view,
-				x: Math.random() * device.width,
-				y: Math.random() * device.height,
+				x: Math.random() * (device.width + 50) - 25,
+				y: Math.random() * (device.height + 50) - 25,
 				width: width,
 				height: height,
-				offsetX: width / 2,
-				offsetY: height / 2,
+				anchorX: width / 2,
+				anchorY: height / 2,
 				r: Math.random() * (Math.PI * 2),
 				backgroundColor: getRandomColor()
 			});
