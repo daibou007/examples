@@ -8,9 +8,12 @@
 import device;
 //Import `GCDataSource` to store the items.
 import GCDataSource;
+
+import ui.widget.ButtonView as ButtonView;
 //Import the `List` and `Cell` classes to create a list.
 import ui.widget.List as List;
 import ui.widget.Cell as Cell;
+
 import ui.TextView as TextView;
 import ui.View as View;
 
@@ -25,12 +28,12 @@ exports = Class(GC.Application, function () {
 	};
 
 	this.initUI = function () {
-		this.style.backgroundColor = '#FFFFFF';
+		this.style.backgroundColor = "#FFFFFF";
 
 		//Set up the datasource.
 		this._filmData = new GCDataSource({
-			//Entries require a key, which defaults to 'id'.
-			key: 'title',
+			//Entries require a key, which defaults to "id".
+			key: "title",
 			//Sort by oldest first
 			sorter: function (data) { return data.year; }
 		});
@@ -44,13 +47,13 @@ exports = Class(GC.Application, function () {
 			y: 10,
 			width: 280,
 			height: 300,
-			backgroundColor: '#D0D0D0',
+			backgroundColor: "#D0D0D0",
 			//Use the dataSource:
 			dataSource: this._filmData,
-			selectable: 'multi',
+			selectable: "multi",
 			maxSelections: 10,
 			scrollX: false,
-			getCell: bind(this, 'getCell')
+			getCell: bind(this, "getCell")
 		});
 		this._filmList = filmList;
 
@@ -61,8 +64,8 @@ exports = Class(GC.Application, function () {
 			x: left,
 			y: 320,
 			options: [
-				{name: 'multi select', callback: bind(this, 'onMultiSelect')},
-				{name: 'single select', callback: bind(this, 'onSingleSelect')}
+				{name: "multi select", callback: bind(this, "onMultiSelect")},
+				{name: "single select", callback: bind(this, "onSingleSelect")}
 			]
 		});
 
@@ -74,7 +77,7 @@ exports = Class(GC.Application, function () {
 			x: left,
 			y: 320,
 			options: [
-				{name: 'log selection', callback: bind(this, 'onLogSelection')}
+				{name: "log selection", callback: bind(this, "onLogSelection")}
 			]
 		});
 	};
@@ -86,16 +89,16 @@ exports = Class(GC.Application, function () {
 			dataSource: this._filmData,
 			selectable: selectable,
 			maxSelections: 10,
-			getCell: bind(this, 'getCell')
+			getCell: bind(this, "getCell")
 		});
 	};
 
 	this.onMultiSelect = function () {
-		this._updateFilmList('multi');
+		this._updateFilmList("multi");
 	};
 
 	this.onSingleSelect = function () {
-		this._updateFilmList('single');
+		this._updateFilmList("single");
 	};
 
 	this.onLogSelection = function () {
@@ -121,19 +124,19 @@ var FilmCell = Class(Cell, function (supr) {
 		opts.width = 280;
 		opts.height = 32;
 
-		supr(this, 'init', [opts]);
+		supr(this, "init", [opts]);
 
 		this._title = new TextView({superview: this});
 	};
 
 	//Called when the cell is selected...
 	this._onSelect = function () {
-		this._title.updateOpts({color: '#FF0000'});
+		this._title.updateOpts({color: "#FF0000"});
 	};
 
 	//Called when the cell is deselected...
 	this._onDeselect = function () {
-		this._title.updateOpts({color: '#000000'});
+		this._title.updateOpts({color: "#000000"});
 	};
 
 	this.buildView = function () {
@@ -148,65 +151,78 @@ var FilmCell = Class(Cell, function (supr) {
 	this.setData = function (data) {
 		this._data = data; // Store it for the input event handler
 
-		this._title.setText(data.title + ' (' + data.year + ')');
-		this._title.updateOpts({color: this.isSelected(this._data) ? '#FF0000' : '#000000'});
+		this._title.setText(data.title + " (" + data.year + ")");
+		this._title.updateOpts({color: this.isSelected(this._data) ? "#FF0000" : "#000000"});
 	};
 });
 
 //These are the items which will be displayed in the list.
 var scifiFilms = [
-	{title: 'Blade Runner', year: 1982},
-	{title: '2001: A Space Odyssey', year: 1968},
-	{title: 'Alien', year: 1979},
-	{title: 'The Terminator', year: 1984},
-	{title: 'The Matrix', year: 1999},
-	{title: 'Close Encounters of the Third Kind', year: 1977},
-	{title: 'Inception', year: 2010},
-	{title: 'WALL-E', year: 2008},
-	{title: 'Metropolis', year: 1927},
-	{title: 'Tron', year: 1982},
-	{title: 'E.T.: The Extra-Terrestrial', year: 1982},
-	{title: 'Back to the Future', year: 1985},
-	{title: 'Tron', year: 1982},
-	{title: 'Solaris', year: 1972},
-	{title: 'Brazil', year: 1985},
-	{title: 'Star Trek II: The Wrath of Khan', year: 1982},
-	{title: 'Star Wars', year: 1977},
-	{title: 'Planet of the Apes', year: 1968},
-	{title: 'RoboCop', year: 1987},
-	{title: 'Godzilla', year: 1954},
-	{title: 'Mad Max', year: 1979}
+	{title: "Blade Runner", year: 1982},
+	{title: "2001: A Space Odyssey", year: 1968},
+	{title: "Alien", year: 1979},
+	{title: "The Terminator", year: 1984},
+	{title: "The Matrix", year: 1999},
+	{title: "Close Encounters of the Third Kind", year: 1977},
+	{title: "Inception", year: 2010},
+	{title: "WALL-E", year: 2008},
+	{title: "Metropolis", year: 1927},
+	{title: "Tron", year: 1982},
+	{title: "E.T.: The Extra-Terrestrial", year: 1982},
+	{title: "Back to the Future", year: 1985},
+	{title: "Tron", year: 1982},
+	{title: "Solaris", year: 1972},
+	{title: "Brazil", year: 1985},
+	{title: "Star Trek II: The Wrath of Khan", year: 1982},
+	{title: "Star Wars", year: 1977},
+	{title: "Planet of the Apes", year: 1968},
+	{title: "RoboCop", year: 1987},
+	{title: "Godzilla", year: 1954},
+	{title: "Mad Max", year: 1979}
 ];
 
+//## Class: ListViewSetting
 //A button to modify settings of the TextView
-var ListViewSetting = Class(View, function (supr) {
+var ListViewSetting = Class(ButtonView, function (supr) {
 	this.init = function (opts) {
-		opts.width = 135;
-		opts.height = 30;
-
-		supr(this, "init", [opts]);
-
 		this._options = opts.options;
 		this._optionIndex = 0;
 
-		this._text = new TextView({
-			superview: this,
-			backgroundColor: "#404040",
-			width: opts.width,
-			height: opts.height,
-			color: "#FFFFFF",
-			size: 11,
-			horizontalAlign: "center",
-			verticalALign: "center",
-			wrap: false,
-			autoSize: false,
-			autoFontSize: false,
-			text: this._options[this._optionIndex].name,
-			clip: true
-		});
+		opts = merge(
+			opts,
+			{
+				width: 135,
+				height: 34,
+				images: {
+					up: "resources/images/blue1.png",
+					down: "resources/images/blue2.png"
+				},
+				scaleMethod: "9slice",
+				sourceSlices: {
+					horizontal: {left: 80, center: 116, right: 80},
+					vertical: {top: 10, middle: 80, bottom: 10}
+				},
+				destSlices: {
+					horizontal: {left: 40, right: 40},
+					vertical: {top: 4, bottom: 4}
+				},
+				text: {
+					color: "#000044",
+					size: 11,
+					autoFontSize: false,
+					autoSize: false
+				},
+				on: {
+					up: bind(this, "onClick")
+				},
+				title: this._options[this._optionIndex].name
+			}
+		);
+
+		supr(this, "init", [opts]);
 	};
 
-	this.onInputSelect = function () {
+	this.onClick = function () {
 		//Step through the available options
 		this._optionIndex = (this._optionIndex + 1) % this._options.length;
 		this._text.setText(this._options[this._optionIndex].name);

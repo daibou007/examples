@@ -21,9 +21,9 @@
 	"supportedOrientations": [
 		"portrait"
 	],
-	"description": "",
-	"group": "",
-	"doc": "",
+	"description": "Showing a prompt dialog",
+	"group": "examples",
+	"doc": "http://doc.gameclosure.com/example/text-prompt/",
 	"preload": {
 		"autoHide": true,
 		"img": "preload/splash.png",

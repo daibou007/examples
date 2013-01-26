@@ -22,8 +22,8 @@ exports = Class(GC.Application, function () {
 				y: y + i * 110 + 10,
 				width: 100,
 				height: 100,
-				image: 'resources/images/window.png',
-				scaleMethod: '3slice',
+				image: "resources/images/window.png",
+				scaleMethod: "3slice",
 				debug: true,
 				sourceSlices: {
 					horizontal: {left: 50, center: 100, right: 50}
@@ -39,8 +39,8 @@ exports = Class(GC.Application, function () {
 				y: y + i * 110 + 10,
 				width: 100,
 				height: 100,
-				image: 'resources/images/window.png',
-				scaleMethod: '3slice',
+				image: "resources/images/window.png",
+				scaleMethod: "3slice",
 				debug: true,
 				sourceSlices: {
 					vertical: {top: 50, middle: 100, bottom: 50}

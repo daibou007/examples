@@ -8,6 +8,7 @@ import ui.TextView as TextView;
 exports = Class(GC.Application, function() {
 
 	this.initUI = function () {
+		this.style.backgroundColor = "#FFFFFF";
 
 		this._subscribeView1 = new TextView({
 			superview: this.view,
@@ -55,14 +56,14 @@ exports = Class(GC.Application, function() {
 
 		// When "Clicked" is published then the setText method is
 		// invoked with the parameter value "Red was clicked".
-		emitterview.once('Clicked', bind(this, function (val) {
+		emitterview.once("Clicked", bind(this, function (val) {
 			this._subscribeView1.setText("Red was clicked");
 		}));
 
 		// When "Clicked" is published then the onClick method is
 		// invoked, this method will also use the parameter value 12 which
 		// is passed from the publish call.
-		emitterview.once('Clicked', bind(this, function (val) {
+		emitterview.once("Clicked", bind(this, function (val) {
 			this._subscribeView2.onClick(val);
 		}));
 
@@ -70,7 +71,7 @@ exports = Class(GC.Application, function() {
 		// invoked, the onClick method will receive two parameters: the
 		// string "Red was clicked, someValue: " and the number 12 which
 		// is passed from the publish call.
-		emitterview.once('Clicked', bind(this, function (val) {
+		emitterview.once("Clicked", bind(this, function (val) {
 			this._subscribeView3.onClick("Red was clicked, someValue: ", val);
 		}));
 	};
@@ -82,13 +83,13 @@ exports = Class(GC.Application, function() {
 //Create a view which publishes an event and a value, each time the view is clicked the value will be increased.
 var EmitterView = Class(TextView, function (supr) {
 	this.init = function (opts) {
-		supr(this, 'init', [opts]);
+		supr(this, "init", [opts]);
 		//Keep track of clicks
 		this._value = 0;
 		//Add an event listener
-		this.on('InputSelect', function () {
+		this.on("InputSelect", function () {
 			this._value += 1;
-			this.emit('Clicked', this._value);
+			this.emit("Clicked", this._value);
 		});
 	};
 });

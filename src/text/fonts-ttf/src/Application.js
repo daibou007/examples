@@ -9,8 +9,10 @@ import ui.View as View;
 //## Class: Application.js
 exports = Class(GC.Application, function () {
 	this.initUI = function () {
+		this.view.style.backgroundColor = "#FFFFFF";
+
 		//Create a view which renders a couple of lines of text ...
-		var ttfview = new TTFView({
+		new TTFView({
 			superview: this.view,
 			width: device.width,
 			height: device.height
@@ -23,7 +25,7 @@ exports = Class(GC.Application, function () {
 //## Class: TTFView
 var TTFView = Class(View, function () {
 	this._renderText = function (ctx, text, y) {
-		ctx.fillStyle = "#FFFFFF";
+		ctx.fillStyle = "#000044";
 		ctx.font = "20px Verdana";
 		ctx.fillText(text, (device.width - ctx.measureText(text).width) / 2, y);
 	};

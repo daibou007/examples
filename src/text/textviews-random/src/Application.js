@@ -15,12 +15,12 @@ exports = Class(GC.Application, function () {
 			fontSize: 26,
 			zIndex: 1,
 			text: "Welcome to the TextView",
-			color: 'black',
-			backgroundColor: 'white',
+			color: "#000000",
+			backgroundColor: "#FFFFFF",
 			shadow: true,
-			shadowColor: 'white',
-			verticalAlign: 'top',
-			textAlign: 'left',
+			shadowColor: "#FFFFFF",
+			verticalAlign: "top",
+			textAlign: "left",
 			verticalPadding: 5,
 			horizontalPadding: 25
 		});
@@ -30,7 +30,7 @@ exports = Class(GC.Application, function () {
 			var letter = new TextView({
 				superview: this.view,
 				text: Math.random().toString(36).substring(2, 3),
-				color: "#fff",
+				color: "#FFF",
 				opacity: Math.random(),
 				fontSize: Math.random() * 36,
 				x: Math.random() * device.width,

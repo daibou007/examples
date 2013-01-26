@@ -2,6 +2,8 @@ import device;
 
 import ui.View as View;
 import ui.TextView as TextView;
+
+import ui.widget.ButtonView as ButtonView;
 import ui.widget.SliderView as SliderView;
 
 exports = Class(GC.Application, function () {
@@ -17,31 +19,13 @@ exports = Class(GC.Application, function () {
 			active: true, // Optional
 
 			track: {
-				active: 'resources/images/window3.png',
-				inactive: 'resources/images/window1.png',
-				scaleMethod: '9slice',
-				sourceSlices: {
-					horizontal: {left: 50, center: 100, right: 50},
-					vertical: {top: 50, middle: 100, bottom: 50}
-				},
-				destSlices: {
-					horizontal: {left: 10, right: 10},
-					vertical: {top: 10, bottom: 10}
-				}
+				activeColor: '#EE9900',
+				inactiveColor: '#E0E0E0'
 			},
 			thumb: {
-				active: 'resources/images/window3.png',
-				pressed: 'resources/images/window2.png',
-				inactive: 'resources/images/window1.png',
-				scaleMethod: '9slice',
-				sourceSlices: {
-					horizontal: {left: 50, center: 100, right: 50},
-					vertical: {top: 50, middle: 100, bottom: 50}
-				},
-				destSlices: {
-					horizontal: {left: 10, right: 10},
-					vertical: {top: 10, bottom: 10}
-				}
+				activeColor: '#FFBB00',
+				pressedColor: '#990000',
+				inactiveColor: '#B0B0B0'
 			},
 
 			x: device.width / 2 - 120,
@@ -77,13 +61,31 @@ exports = Class(GC.Application, function () {
 			active: true, // Optional
 
 			track: {
-				activeColor: '#008800',
-				inactiveColor: '#E0E0E0'
+				active: 'resources/images/gold1.png',
+				inactive: 'resources/images/white1.png',
+				scaleMethod: '9slice',
+				sourceSlices: {
+					horizontal: {left: 50, center: 100, right: 50},
+					vertical: {top: 50, middle: 100, bottom: 50}
+				},
+				destSlices: {
+					horizontal: {left: 12, right: 12},
+					vertical: {top: 12, bottom: 12}
+				}
 			},
 			thumb: {
-				activeColor: '#00AA00',
-				pressedColor: '#990000',
-				inactiveColor: '#B0B0B0'
+				active: 'resources/images/gold1.png',
+				pressed: 'resources/images/gold2.png',
+				inactive: 'resources/images/white1.png',
+				scaleMethod: '9slice',
+				sourceSlices: {
+					horizontal: {left: 50, center: 100, right: 50},
+					vertical: {top: 50, middle: 100, bottom: 50}
+				},
+				destSlices: {
+					horizontal: {left: 12, right: 12},
+					vertical: {top: 12, bottom: 12}
+				}
 			},
 
 			x: device.width / 2 - 80,
@@ -118,7 +120,7 @@ exports = Class(GC.Application, function () {
 			callback: bind(this, "setHorValue"),
 			x: left,
 			y: 270,
-			title: "hor value",
+			titleText: "hor value",
 			options: [0, 50, 100]
 		});
 		//A button to set the padding of the horizontal slider
@@ -127,7 +129,7 @@ exports = Class(GC.Application, function () {
 			callback: bind(this, "setHorPadding"),
 			x: left,
 			y: 305,
-			title: "hor padding",
+			titleText: "hor padding",
 			options: [0, 4, [4, 20]]
 		});
 		//A button to change the horizontal thumb size
@@ -136,7 +138,7 @@ exports = Class(GC.Application, function () {
 			callback: bind(this, "setHorThumbSize"),
 			x: left,
 			y: 340,
-			title: "hor thumb",
+			titleText: "hor thumb",
 			options: ["auto", 60, 100]
 		});
 		//A button to change the horizontal increment
@@ -145,7 +147,7 @@ exports = Class(GC.Application, function () {
 			callback: bind(this, "setHorIncrement"),
 			x: left,
 			y: 375,
-			title: "hor increment",
+			titleText: "hor increment",
 			options: [false, 1, 3, 5]
 		});
 		//A button to change the horizontal range
@@ -154,7 +156,7 @@ exports = Class(GC.Application, function () {
 			callback: bind(this, "setHorRange"),
 			x: left,
 			y: 410,
-			title: "hor range",
+			titleText: "hor range",
 			options: [[0, 100], [-50, 50], [-200, -100]]
 		});
 		//A button to activate/deactivate the horizontal slider
@@ -163,7 +165,7 @@ exports = Class(GC.Application, function () {
 			callback: bind(this, "setHorActive"),
 			x: left,
 			y: 445,
-			title: "hor active",
+			titleText: "hor active",
 			options: [true, false]
 		});
 
@@ -174,7 +176,7 @@ exports = Class(GC.Application, function () {
 			callback: bind(this, "setVerValue"),
 			x: left,
 			y: 270,
-			title: "ver value",
+			titleText: "ver value",
 			options: [0, 50, 100]
 		});
 		//A button to set the padding of the vertical slider
@@ -183,7 +185,7 @@ exports = Class(GC.Application, function () {
 			callback: bind(this, "setVerPadding"),
 			x: left,
 			y: 305,
-			title: "ver padding",
+			titleText: "ver padding",
 			options: [0, 4, [20, 4]]
 		});
 		//A button to activate/deactivate the vertical slider
@@ -192,7 +194,7 @@ exports = Class(GC.Application, function () {
 			callback: bind(this, "setVerThumbSize"),
 			x: left,
 			y: 340,
-			title: "ver thumb",
+			titleText: "ver thumb",
 			options: ["auto", 60, 100]
 		});
 		//A button to change the vertical increment
@@ -201,7 +203,7 @@ exports = Class(GC.Application, function () {
 			callback: bind(this, "setVerIncrement"),
 			x: left,
 			y: 375,
-			title: "ver increment",
+			titleText: "ver increment",
 			options: [false, 1, 3, 5]
 		});
 		//A button to change the horizontal range
@@ -210,7 +212,7 @@ exports = Class(GC.Application, function () {
 			callback: bind(this, "setVerRange"),
 			x: left,
 			y: 410,
-			title: "ver range",
+			titleText: "ver range",
 			options: [[0, 100], [-50, 50], [100, 200]]
 		});
 		//A button to activate/deactivate the vertical slider
@@ -219,7 +221,7 @@ exports = Class(GC.Application, function () {
 			callback: bind(this, "setVerActive"),
 			x: left,
 			y: 445,
-			title: "ver active",
+			titleText: "ver active",
 			options: [true, false]
 		});
 	};
@@ -290,41 +292,56 @@ function optionValue (s) {
 	return (s.length > 10) ? (s.substr(0, 10) + "...") : s;
 }
 
+//## Class: SliderViewSetting
 //A button to modify settings of the TextView
-var SliderViewSetting = Class(View, function (supr) {
+var SliderViewSetting = Class(ButtonView, function (supr) {
 	this.init = function (opts) {
-		opts.width = 135;
-		opts.height = 30;
+		opts = merge(
+			opts,
+			{
+				width: 135,
+				height: 34,
+				images: {
+					up: "resources/images/blue1.png",
+					down: "resources/images/blue2.png"
+				},
+				scaleMethod: "9slice",
+				sourceSlices: {
+					horizontal: {left: 80, center: 116, right: 80},
+					vertical: {top: 10, middle: 80, bottom: 10}
+				},
+				destSlices: {
+					horizontal: {left: 40, right: 40},
+					vertical: {top: 4, bottom: 4}
+				},
+				text: {
+					color: "#000044",
+					size: 11,
+					autoFontSize: false,
+					autoSize: false
+				},
+				on: {
+					up: bind(this, "onClick")
+				},
+				title: opts.titleText + "=" + optionValue(opts.options[0])
+			}
+		);
 
 		supr(this, "init", [opts]);
 
+		this._titleText = opts.titleText;
 		this._textViewOpts = opts.textViewOpts;
 		this._callback = opts.callback;
 		this._optionIndex = 0;
 		this._options = opts.options;
-		this._title = opts.title;
-
-		this._text = new TextView({
-			superview: this,
-			backgroundColor: "#404040",
-			width: opts.width,
-			height: opts.height,
-			color: "#FFFFFF",
-			size: 11,
-			horizontalAlign: "center",
-			verticalALign: "center",
-			wrap: false,
-			autoSize: false,
-			autoFontSize: false,
-			text: opts.title + "=" + optionValue(this._options[0]),
-			clip: true
-		});
 	};
 
-	this.onInputSelect = function () {
+	this.onClick = function () {
 		//Step through the available options
 		this._optionIndex = (this._optionIndex + 1) % this._options.length;
-		this._text.setText(this._title + "=" + optionValue(this._options[this._optionIndex]));
+		this._text.setText(this._titleText + "=" + optionValue(this._options[this._optionIndex]));
 		this._callback(this._options[this._optionIndex]);
 	};
 });
+//The output of this demo should look like this:
+//<img src="./doc/screenshot.png" alt="scrollview screenshot" class="screenshot">

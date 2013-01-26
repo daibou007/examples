@@ -22,7 +22,7 @@
 		"landscape"
 	],
 	"description": "",
-	"group": "",
+	"group": "examples",
 	"doc": "",
 	"preload": {
 		"autoHide": true,

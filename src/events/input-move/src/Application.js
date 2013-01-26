@@ -5,19 +5,20 @@
 //Import the `ui.View` class.
 import ui.View as View;
 
-//Class: Application
-//Create an application, set the default settings.
+//## Class: Application
+//Create an application.
 exports = Class(GC.Application, function () {
 
 	//Create a circular buffer and the index in the buffer.
 	this.initUI = function () {
-		// A circular buffer
+		this.style.backgroundColor = "#FFFFFF";
+		//A circular buffer
 		this._trail = [];
-		// The index in the buffer
+		//The index in the buffer
 		this._index = 0;
 
 		//This function is called when the user drags. The second parameter contains the drag coordinates.
-		this.view.on('InputMove', function (evt, pt) {
+		this.view.on("InputMove", function (evt, pt) {
 			var opts = {superview: GC.app.view, x: pt.x - 3, y: pt.y - 3};
 
 			if (GC.app._trail.length < 64) {
@@ -38,27 +39,27 @@ exports = Class(GC.Application, function () {
 //Create a view which fades out over a time of 500 ms.
 var TrailBox = Class(View, function (supr) {
 	this.init = function (opts) {
-		supr(this, "init", [merge(opts, {width: 6, height: 6, backgroundColor: "#00FF00"})]);
-		// Set the start time.
+		supr(this, "init", [merge(opts, {width: 6, height: 6, backgroundColor: "#008800"})]);
+		//Set the start time.
 		this._dt = 0;
 	};
 
-	// Reset the view.
+	//Reset the view.
 	this.reset = function (opts) {
-		// Set the start time
+		//Set the start time
 		this._dt = 0;
-		// Because opts contains a superview this view is added to the superview!
+		//Because opts contains a superview this view is added to the superview!
 		this.updateOpts(opts);
 	};
 
-	// This function is called 500ms and then removed from its superview
+	//This function is called 500ms and then removed from its superview
 	this.tick = function (dt) {
 		this._dt += dt;
 		if (this._dt > 500) {
 			//Remove this view from the superview
 			this.removeFromSuperview();
 		} else {
-			// Fade out...
+			//Fade out...
 			this.updateOpts({opacity: 1 - this._dt / 500});
 		}
 	};

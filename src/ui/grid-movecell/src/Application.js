@@ -1,9 +1,12 @@
 //# Grid, Move Cell <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/ui/grid-movecell/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 
 import device;
+
 import ui.TextView as TextView;
 import ui.View as View;
+
 import ui.widget.GridView as GridView;
+import ui.widget.ButtonView as ButtonView;
 
 //## Class: Application
 exports = Class(GC.Application, function () {
@@ -66,7 +69,7 @@ exports = Class(GC.Application, function () {
 		var left = device.width / 2 - 140;
 
 		//A button to change the horizontal margin of the GridView
-		new TextViewSetting({
+		new GridViewSetting({
 			superview: this.view,
 			target: this._gridView,
 			x: left,
@@ -76,7 +79,7 @@ exports = Class(GC.Application, function () {
 			options: [0, 10, [5, 15], [10, 0]]
 		});
 		//A button to change the vertical margin of the GridView
-		new TextViewSetting({
+		new GridViewSetting({
 			superview: this.view,
 			target: this._gridView,
 			x: left,
@@ -86,7 +89,7 @@ exports = Class(GC.Application, function () {
 			options: [0, 10, [5, 15], [10, 0]]
 		});
 		//A button to change the number of columns
-		new TextViewSetting({
+		new GridViewSetting({
 			superview: this.view,
 			target: this._gridView,
 			x: left,
@@ -96,7 +99,7 @@ exports = Class(GC.Application, function () {
 			options: [5, 4]
 		});
 		//A button to change the colspan
-		new TextViewSetting({
+		new GridViewSetting({
 			superview: this.view,
 			target: this._gridView,
 			x: left,
@@ -106,7 +109,7 @@ exports = Class(GC.Application, function () {
 			options: [1, 2, 3]
 		});
 		//A button to move the cell
-		new TextViewSetting({
+		new GridViewSetting({
 			superview: this.view,
 			target: this._gridView,
 			x: left,
@@ -119,7 +122,7 @@ exports = Class(GC.Application, function () {
 		left = device.width / 2 + 5;
 
 		//A button to change the horizontal gutter of the GridView
-		new TextViewSetting({
+		new GridViewSetting({
 			superview: this.view,
 			target: this._gridView,
 			x: left,
@@ -129,7 +132,7 @@ exports = Class(GC.Application, function () {
 			options: [0, 10]
 		});
 		//A button to change the vertical gutter of the GridView
-		new TextViewSetting({
+		new GridViewSetting({
 			superview: this.view,
 			target: this._gridView,
 			x: left,
@@ -139,7 +142,7 @@ exports = Class(GC.Application, function () {
 			options: [0, 10]
 		});
 		//A button to change the number of rows
-		new TextViewSetting({
+		new GridViewSetting({
 			superview: this.view,
 			target: this._gridView,
 			x: left,
@@ -149,7 +152,7 @@ exports = Class(GC.Application, function () {
 			options: [4, 3]
 		});
 		//A button to change the number of rows
-		new TextViewSetting({
+		new GridViewSetting({
 			superview: this.view,
 			target: this._gridView,
 			x: left,
@@ -189,12 +192,40 @@ var DemoCellView = Class(View, function (supr) {
 	};
 });
 
-//## Class: TextViewSetting
+//## Class: GridViewSetting
 //A button to modify settings of a View
-var TextViewSetting = Class(View, function (supr) {
+var GridViewSetting = Class(ButtonView, function (supr) {
 	this.init = function (opts) {
-		opts.width = 135;
-		opts.height = 30;
+		opts = merge(
+			opts,
+			{
+				width: 135,
+				height: 34,
+				images: {
+					up: "resources/images/blue1.png",
+					down: "resources/images/blue2.png"
+				},
+				scaleMethod: "9slice",
+				sourceSlices: {
+					horizontal: {left: 80, center: 116, right: 80},
+					vertical: {top: 10, middle: 80, bottom: 10}
+				},
+				destSlices: {
+					horizontal: {left: 40, right: 40},
+					vertical: {top: 4, bottom: 4}
+				},
+				text: {
+					color: "#000044",
+					size: 11,
+					autoFontSize: false,
+					autoSize: false
+				},
+				on: {
+					up: bind(this, "onClick")
+				},
+				title: opts.property + (opts.property ? "=" : "") + optionValue(opts.options[0])
+			}
+		);
 
 		supr(this, "init", [opts]);
 
@@ -204,28 +235,12 @@ var TextViewSetting = Class(View, function (supr) {
 		this._optionIndex = 0;
 		this._property = opts.property;
 		this._setter = opts.setter;
-
-		this._text = new TextView({
-			superview: this,
-			backgroundColor: "#404040",
-			width: opts.width,
-			height: opts.height,
-			color: "#FFFFFF",
-			size: 11,
-			horizontalAlign: "center",
-			verticalALign: "center",
-			wrap: false,
-			autoSize: false,
-			autoFontSize: false,
-			text: opts.property + "=" + optionValue(this._options[0]),
-			clip: true
-		});
 	};
 
-	this.onInputSelect = function () {
+	this.onClick = function () {
 		//Step through the available options
 		this._optionIndex = (this._optionIndex + 1) % this._options.length;
-		this._text.setText(this._property + "=" + optionValue(this._options[this._optionIndex]));
+		this._text.setText(this._property + (this._property ? "=" : "") + optionValue(this._options[this._optionIndex]));
 		this._setter(this._options[this._optionIndex]);
 	};
 });

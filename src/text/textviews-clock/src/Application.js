@@ -8,20 +8,21 @@ import ui.TextView as TextView;
 
 exports = Class(GC.Application, function () {
 	this.initUI = function () {
+		this.style.backgroundColor = "#FFFFFF";
+
 		//Create the header bar.
 		var title = new TextView({
 			superview: this.view,
 			autoFontSize: true,
-			x: 0,
+			x: 50,
 			y: 20,
 			height: device.height * .10,
-			width: this.view.style.width,
-			size: (device.height * .1)  | 0,
-			zIndex: 1,
+			width: this.view.style.width - 100,
+			size: (device.height * .05)  | 0,
 			text: "Text View Clock",
-			color: '#888888',
-			backgroundColor: 'white',
-			outlineColor: 'black',
+			color: "#888888",
+			backgroundColor: "D8D8D8",
+			outlineColor: "#000000",
 			verticalPadding: 5,
 			horizontalPadding: 20
 		});
@@ -30,17 +31,16 @@ exports = Class(GC.Application, function () {
 		var dateTextView = new TextView({
 			superview: this.view,
 			autoFontSize: true,
-			x: 0,
+			x: 50,
 			y: title.style.y + title.style.height + device.height * .05,
 			height: device.height * .25,
-			width: this.view.style.width,
+			width: this.view.style.width - 100,
 			size: (device.height * .07) | 0,
-			zIndex: 1,
 			wrap: true,
 			text: "Date\n",
-			color: '#FF8888',
-			backgroundColor: '#DDDDDD',
-			outlineColor: 'black',
+			color: "#FF8888",
+			backgroundColor: "#DDDDDD",
+			outlineColor: "#000000",
 			verticalPadding: 5,
 			horizontalPadding: 20
 		});
@@ -49,18 +49,18 @@ exports = Class(GC.Application, function () {
 		var timeTextView = new TextView({
 			superview: this.view,
 			autoFontSize: true,
-			x: 0,
+			x: 50,
 			y: dateTextView.style.y + dateTextView.style.height + 40,
 			height: device.height * .3,
-			width: this.view.style.width,
+			width: this.view.style.width - 100,
 			size: (device.height * .06) | 0,
-			zIndex: 1,
 			wrap: true,
 			text: "Time\n",
-			color: '#4488FF',
-			outlineColor: 'white',
+			color: "#4488FF",
+			outlineColor: "#000000",
 			verticalPadding: 5,
-			horizontalPadding: 20
+			horizontalPadding: 20,
+			backgroundColor: "#D0D0D0"
 		});
 
 		// Check what the date / time it is every half second, and
@@ -75,4 +75,4 @@ exports = Class(GC.Application, function () {
 });
 
 //Place this in the `Application.js` file of your project and you should see something like the following screenshot.
-//<img src="./doc/screenshot1.png" alt="many textviews screenshot" class="screenshot">
+//<img src="./doc/screenshot.png" alt="many textviews screenshot" class="screenshot">

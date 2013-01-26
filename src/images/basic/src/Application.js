@@ -15,7 +15,7 @@ exports = Class(GC.Application, function() {
 			x: 0,
 			y: 0,
 			scale: 0.75,
-			layout: 'box',
+			layout: "box",
 			image: "resources/images/icon.png"
 		});
 	};

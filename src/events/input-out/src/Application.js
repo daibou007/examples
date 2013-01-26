@@ -8,42 +8,43 @@
 import ui.View as View;
 
 //## Class: Application
-//Create an application with its default settings.
+//Create an application.
 exports = Class(GC.Application, function () {
 
 	this.initUI = function () {
-		var clickbox = new ClickBox({
+		this.style.backgroundColor = "#FFFFFF";
+		var clickBox = new ClickBox({
 			superview: this.view,
-			x: 10,
-			y: 10,
-			width: 100,
-			height: 100,
-			backgroundColor: '#ff0000'
+			x: this.style.width / 4,
+			y: this.style.height / 4,
+			width: this.style.width / 2,
+			height: this.style.height / 2,
+			backgroundColor: "#008800"
 		});
 
-		this.view.on('InputSelect', bind(this, function () {
-			// Restore the background of the view.
-			clickbox.updateOpts({backgroundColor: "#FF0000"});
+		this.view.on("InputSelect", bind(this, function () {
+			//Restore the background of the view.
+			clickBox.updateOpts({backgroundColor: "#FF0000"});
 		}));
 	};
 
 	this.launchUI = function () {};
 });
 
-//## Class: ClickBox
+//## Class: clickBox
 //Create a view based on the view class which changes color when clicked.
 var ClickBox = Class(View, function (supr) {
 	this.init = function (opts) {
-		supr(this, 'init', [opts]);
+		supr(this, "init", [opts]);
 
-		this.on('InputStart', function () {
-			// Change the color when the view is clicked.
-			this.style.backgroundColor = '#0000ff';
+		this.on("InputStart", function () {
+			//Change the color when the view is clicked.
+			this.style.backgroundColor = "#0000FF";
 		});
 
-		this.on('InputOut', function () {
-			// Change the view when dragged outside the view.
-			this.style.backgroundColor = '#aa0000';
+		this.on("InputOut", function () {
+			//Change the view when dragged outside the view.
+			this.style.backgroundColor = "#00AA00";
 		});
 	};
 });

@@ -20,54 +20,56 @@ import ui.View as View;
 
 import util.ajax as ajax;
 
-var COLOR1 = 'rgb(59,89,152)';
-var COLOR2 = 'rgb(109,132,180)';
-var COLOR3 = 'rgb(205,216,234)';
-var COLOR4 = 'rgb(255,255,255)';
-var COLOR5 = 'rgb(175,189,212)';
-var COLOR6 = 'rgb(18,20,54)';
+var COLOR1 = "rgb(59,89,152)";
+var COLOR2 = "rgb(109,132,180)";
+var COLOR3 = "rgb(205,216,234)";
+var COLOR4 = "rgb(255,255,255)";
+var COLOR5 = "rgb(175,189,212)";
+var COLOR6 = "rgb(18,20,54)";
+
+var startSearch = "learning";
 
 var InfoDataSource = Class(GCDataSource, function (supr) {
 	this.init = function (opts) {
 		opts = merge(
 			opts,
 			{
-				key: 'id',
+				key: "id",
 				reverse: true,
 				//Sort by oldest last
 				sorter: function (data) { return data.created_time; }
 			}
 		);
 
-		supr(this, 'init', [opts]);
+		supr(this, "init", [opts]);
 
-		this._searchFor = 'game';
+		this._searchFor = startSearch;
 
 		this.load();
 	};
 
 	this.load = function () {
 		this.clear();
-		this.emit('Clear');
+		this.emit("Clear");
 
 		//Search Facebook
 		ajax.get(
 			{
-				url: 'http://graph.facebook.com/search',
-				headers: {'Content-Type': 'text/plain'},
+				url: "http://graph.facebook.com/search",
+				headers: {"Content-Type": "text/plain"},
 				//This data will be added as query parameters
-				data: {q: this._searchFor, type: 'post'},
+				data: {q: this._searchFor, type: "post"},
 				//Parse the result as JSON
-				type: 'json'
+				type: "json"
 			},
 			//call `onData` when the search results are loaded
-			bind(this, 'onData')
+			bind(this, "onData")
 		);
 	};
 
 	//Customize the sort function, add indices to the items after sorting
 	this.sort = function () {
-		supr(this, 'sort');
+		supr(this, "sort");
 
 		var i = this._byIndex.length;
 		while (i) this._byIndex[--i].index = i;
@@ -75,8 +77,8 @@ var InfoDataSource = Class(GCDataSource, function (supr) {
 
 	//Prepend zeros to a string
 	this._leadingZero = function (s, length) {
-		s += '';
-		while (s.length < length) s = '0' + s;
+		s += "";
+		while (s.length < length) s = "0" + s;
 		return s;
 	};
 
@@ -88,8 +90,8 @@ var InfoDataSource = Class(GCDataSource, function (supr) {
 				var item = response.data[i];
 				var date = new Date(item.created_time);
 
-				item.posted = this._leadingZero(date.getHours(), 2) + ':' + this._leadingZero(date.getMinutes(), 2) + ' - ' +
-					(date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+				item.posted = this._leadingZero(date.getHours(), 2) + ":" + this._leadingZero(date.getMinutes(), 2) + " - " +
+					(date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
 			}
 
 			//Add the list to the data source
@@ -97,10 +99,10 @@ var InfoDataSource = Class(GCDataSource, function (supr) {
 			//Sort the list
 			this.sort();
 			//Left the view know that the data is ready
-			this.emit('Loaded');
+			this.emit("Loaded");
 		} else {
 			//Something went wrong, publis the `Error` event so that a message can be displayed
-			this.emit('Error');
+			this.emit("Error");
 		}
 	};
 
@@ -126,9 +128,9 @@ exports = Class(GC.Application, function () {
 
 		//Set up the datasource.
 		this._infoData = new InfoDataSource();
-		this._infoData.on('Clear', bind(this, 'onClear'));
-		this._infoData.on('Loaded', bind(this, 'onLoaded'));
-		this._infoData.on('Error', bind(this, 'onError'));
+		this._infoData.on("Clear", bind(this, "onClear"));
+		this._infoData.on("Loaded", bind(this, "onLoaded"));
+		this._infoData.on("Error", bind(this, "onError"));
 
 		this._title = new TextView({
 			superview: this,
@@ -137,7 +139,7 @@ exports = Class(GC.Application, function () {
 			width: device.width,
 			height: 50,
 			size: 30,
-			text: 'Search Facebook',
+			text: "Search Facebook",
 			color: COLOR4,
 			backgroundColor: COLOR1
 		});
@@ -149,7 +151,7 @@ exports = Class(GC.Application, function () {
 			width: device.width,
 			height: device.height - 100,
 			size: 18,
-			text: 'Searching for: game',
+			text: "Searching for: " + startSearch,
 			color: COLOR6
 		});
 
@@ -162,10 +164,10 @@ exports = Class(GC.Application, function () {
 			height: device.height - 100,
 			//Use the dataSource:
 			dataSource: this._infoData,
-			selectable: 'multi',
+			selectable: "multi",
 			maxSelections: 10,
 			scrollX: false,
-			getCell: bind(this, 'getCell'),
+			getCell: bind(this, "getCell"),
 			visible: false
 		});
 
@@ -176,12 +178,12 @@ exports = Class(GC.Application, function () {
 			width: device.width / 2,
 			height: 50,
 			size: 20,
-			text: 'search for:',
-			horizontalAlign: 'right',
+			text: "search for:",
+			horizontalAlign: "right",
 			color: COLOR1,
 			backgroundColor: COLOR5
 		});
-		this._searchLabel.onInputSelect = bind(this, 'onSelectSeach');
+		this._searchLabel.onInputSelect = bind(this, "onSelectSeach");
 		this._search = new TextPromptView({
 			superview: this,
 			x: device.width / 2,
@@ -189,15 +191,15 @@ exports = Class(GC.Application, function () {
 			width: device.width / 2,
 			height: 50,
 			size: 20,
-			text: 'game',
-			horizontalAlign: 'left',
+			text: startSearch,
+			horizontalAlign: "left",
 			padding: [0, 0, 0, 6],
 			color: COLOR1,
 			backgroundColor: COLOR5,
-			value: 'game',
-			prompt: 'Enter a search term:'
+			value: startSearch,
+			prompt: "Enter a search term:"
 		});
-		this._search.on('Change', bind(this, 'onChangeSearch'));
+		this._search.on("Change", bind(this, "onChangeSearch"));
 	};
 
 	//This callback is called when the search label is clicked
@@ -208,13 +210,13 @@ exports = Class(GC.Application, function () {
 	//When there's a new text entered in the prompt dialog then this callback is called
 	//and Facebook is searched again
 	this.onChangeSearch = function (value) {
-		this._loadingLabel.setText('Searching for: ' + value);
+		this._loadingLabel.setText("Searching for: " + value);
 		this._infoData.setSearchFor(value);
 	};
 
 	//Something in the request went wrong
 	this.onError = function () {
-		this._loadingLabel.setText('Failed to load data');
+		this._loadingLabel.setText("Failed to load data");
 	};
 
 	//This function is called when a new search starts, the list is hidden and the searching message is shown
@@ -241,7 +243,7 @@ var InfoCell = Class(Cell, function (supr) {
 		opts.width = device.width;
 		opts.height = 75;
 
-		supr(this, 'init', [opts]);
+		supr(this, "init", [opts]);
 
 		//The TextView showing who posted the message
 		this._from = new TextView({
@@ -251,7 +253,7 @@ var InfoCell = Class(Cell, function (supr) {
 			width: device.width - 20,
 			height: 20,
 			size: 13,
-			horizontalAlign: 'left',
+			horizontalAlign: "left",
 			color: COLOR2
 		});
 		//The time and date when the message was posted
@@ -262,7 +264,7 @@ var InfoCell = Class(Cell, function (supr) {
 			width: device.width - 20,
 			height: 20,
 			size: 13,
-			horizontalAlign: 'right',
+			horizontalAlign: "right",
 			color: COLOR2
 		});
 		//The message
@@ -273,8 +275,8 @@ var InfoCell = Class(Cell, function (supr) {
 			width: device.width - 20,
 			height: 47,
 			size: 13,
-			horizontalAlign: 'left',
-			verticalAlign: 'top',
+			horizontalAlign: "left",
+			verticalAlign: "top",
 			wrap: true,
 			autoFontSize: false,
 			autoSize: false,
@@ -287,12 +289,12 @@ var InfoCell = Class(Cell, function (supr) {
 		if (s.length > length) {
 			var i = Math.max(0, length - 10);
 			while (i < length - 1) {
-				if (s[i] === ' ') {
+				if (s[i] === " ") {
 					break;
 				}
 				i++;
 			}
-			s = s.substr(0, i) + '...';
+			s = s.substr(0, i) + "...";
 		}
 		return s;
 	};
@@ -304,11 +306,11 @@ var InfoCell = Class(Cell, function (supr) {
 		this.style.backgroundColor = ((data.index & 1) === 0) ? COLOR3 : COLOR4;
 
 		//Show the first 40 characters of the name
-		this._from.setText(this._toLength(data.from.name || '', 40));
+		this._from.setText(this._toLength(data.from.name || "", 40));
 		//Show the time and date
 		this._posted.setText(data.posted);
 		//Show the first 100 characters of the message
-		this._message.setText(this._toLength(data.message || '', 100));
+		this._message.setText(this._toLength(data.message || "", 100));
 	};
 
 	//Called when a cell is put on screen.
