@@ -35,4 +35,5 @@ exports = Class(GC.Application, function () {
 	};
 });
 
+//The output of this demo should look like this:
 //<img src="./doc/screenshot.png" alt="scrollview screenshot" class="screenshot">

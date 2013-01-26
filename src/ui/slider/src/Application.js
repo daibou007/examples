@@ -343,3 +343,5 @@ var SliderViewSetting = Class(ButtonView, function (supr) {
 		this._callback(this._options[this._optionIndex]);
 	};
 });
+//The output of this demo should look like this:
+//<img src="./doc/screenshot.png" alt="scrollview screenshot" class="screenshot">
