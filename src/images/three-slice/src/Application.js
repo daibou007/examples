@@ -26,10 +26,10 @@ exports = Class(GC.Application, function () {
 				scaleMethod: "3slice",
 				debug: true,
 				sourceSlices: {
-					horizontal: {left: 50, center: 100, right: 50}
+					horizontal: {left: 16, center: 32, right: 16}
 				},
 				destSlices: {
-					horizontal: {left: 10 + i * 20, right: 10 + i * 20}
+					horizontal: {left: 16 + i * 16, right: 16 + i * 16}
 				}
 			});
 
@@ -43,10 +43,10 @@ exports = Class(GC.Application, function () {
 				scaleMethod: "3slice",
 				debug: true,
 				sourceSlices: {
-					vertical: {top: 50, middle: 100, bottom: 50}
+					vertical: {top: 16, middle: 32, bottom: 16}
 				},
 				destSlices: {
-					vertical: {top: 10 + i * 20, bottom: 10 + i * 20}
+					vertical: {top: 16 + i * 16, bottom: 16 + i * 16}
 				}
 			});
 		}

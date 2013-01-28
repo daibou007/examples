@@ -15,7 +15,7 @@ exports = Class(GC.Application, function () {
 		this.style.backgroundColor = "#FFFFFF";
 
 		var y = device.height / 2 - 165;
-		for (var i = 0; i < 1; i++) {
+		for (var i = 0; i < 3; i++) {
 			new ui.ImageScaleView({
 				superview: this.view,
 				x: device.width / 2 - 50,
@@ -24,16 +24,14 @@ exports = Class(GC.Application, function () {
 				height: 100,
 				image: "resources/images/window.png",
 				scaleMethod: "9slice",
-				//debug: true,
+				debug: true,
 				sourceSlices: {
-					horizontal: {left: 32, center: 0, right: 32},
-					vertical: {top: 32, middle: 0, bottom: 32}
+					horizontal: {left: 16, center: 32, right: 16},
+					vertical: {top: 16, middle: 32, bottom: 16}
 				},
 				destSlices: {
-					horizontal: {left: 25, right: 25},
-					vertical: {top: 25, bottom: 25}
-					//horizontal: {left: 16 + i * 8, right: 16 + i * 8},
-					//vertical: {top: 16 + i * 8, bottom: 16 + i * 8}
+					horizontal: {left: 16 + i * 8, right: 16 + i * 8},
+					vertical: {top: 16 + i * 8, bottom: 16 + i * 8}
 				}
 			});
 		}
