@@ -29,7 +29,7 @@ exports = Class(GC.Application, function () {
 					horizontal: {left: 50, right: 100}
 				},
 				destSlices: {
-					horizontal: {left: 10 + i * 20}
+					horizontal: {left: 20 + i * 20}
 				}
 			});
 
@@ -46,7 +46,7 @@ exports = Class(GC.Application, function () {
 					vertical: {top: 50, bottom: 100}
 				},
 				destSlices: {
-					vertical: {top: 10 + i * 20}
+					vertical: {top: 20 + i * 20}
 				}
 			});
 		}
