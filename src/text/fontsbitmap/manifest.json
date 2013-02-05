@@ -1,0 +1,40 @@
+{
+	"appID": "0f5cadd2c4a14c41aa02bdc387d24bdf",
+	"shortName": "textFontsBitmap",
+	"title": "Fonts: Bitmap Fonts",
+	"icons": {
+		"128": "resources/images/icon.png"
+	},
+	"studio": {
+		"name": "Example Studio Name",
+		"domain": "studio.example.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"android": {
+		"versionCode": 1,
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": "",
+		"entryPoint": "runtimeNative.launchClient",
+		"tapjoyDaily": {}
+	},
+	"ios": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": ""
+	},
+	"group": "examples",
+	"description": "Use bitmap fonts.",
+	"doc": "http://doc.gameclosure.com/example/text-fontsbitmap/",
+	"preload": {
+		"img": "resources/images/splash.png",
+		"autoHide": true
+	},
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"sdkVersion": "dev-0.1.0"
+}
