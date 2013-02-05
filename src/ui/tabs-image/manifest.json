@@ -1,0 +1,32 @@
+{
+	"appID": "09d9dee51be442359fe56d0a544ec12e",
+	"shortName": "uiTabsImage",
+	"title": "Tabs: Image tabs",
+	"icons": {
+		"renderGloss": true
+	},
+	"studio": {
+		"name": "GameClosure",
+		"domain": "studio.example.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"description": "Tabs styled with images",
+	"doc": "http://doc.gameclosure.com/example/ui-tabs-image/",
+	"group": "examples",
+	"android": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": "",
+		"entryPoint": "runtimeNative.launchClient",
+		"tapjoyDaily": {}
+	},
+	"ios": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": ""
+	},
+	"sdkVersion": "dev-0.1.0"
+}

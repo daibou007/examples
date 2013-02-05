@@ -1,0 +1,32 @@
+{
+	"appID": "cdbed27d282b49aebdf60ae1d64fba99",
+	"shortName": "uiTabsBasic",
+	"title": "Tabs: Basic",
+	"icons": {
+		"renderGloss": true
+	},
+	"studio": {
+		"name": "GameClosure",
+		"domain": "studio.example.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"description": "Shows different options for the tab pane",
+	"doc": "http://doc.gameclosure.com/example/ui-tabs-basic/",
+	"android": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": "",
+		"entryPoint": "runtimeNative.launchClient",
+		"tapjoyDaily": {}
+	},
+	"ios": {
+		"tapjoyId": "",
+		"tapjoyKey": "",
+		"flurryKey": ""
+	},
+	"group": "examples",
+	"sdkVersion": "dev-0.1.0"
+}
