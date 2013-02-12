@@ -1,4 +1,4 @@
-//# Subscribe to an Event Once <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/events/once/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//# Subscribe to an Event Once <a title="View raw file" href="https://raw.github.com/gameclosure/examples/master/src/events/once/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 
 //Import device module and TextView class.
 import device;

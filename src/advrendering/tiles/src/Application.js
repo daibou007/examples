@@ -1,4 +1,4 @@
-//# Advanced Rendering: Tiles <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/advrendering/titles/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//# Advanced Rendering: Tiles <a title="View raw file" href="https://raw.github.com/gameclosure/examples/master/src/advrendering/tiles/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 
 //Import the `device` module and `ui.View` class
 import device as device;

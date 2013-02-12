@@ -1,4 +1,4 @@
-//# Rotate Views <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/views/rotate/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//# Rotate Views <a title="View raw file" href="https://raw.github.com/gameclosure/examples/master/src/views/rotate/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //Create two views and rotate them around different centers.
 
 import device;

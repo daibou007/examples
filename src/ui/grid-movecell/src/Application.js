@@ -1,4 +1,4 @@
-//# Grid, Move Cell <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/ui/grid-movecell/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//# Grid, Move Cell <a title="View raw file" href="https://raw.github.com/gameclosure/examples/master/src/ui/grid-movecell/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 
 import device;
 

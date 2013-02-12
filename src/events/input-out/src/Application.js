@@ -1,4 +1,4 @@
-//# Detect an input out event <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/events/input-out/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//# Detect an input out event <a title="View raw file" href="https://raw.github.com/gameclosure/examples/master/src/events/input-out/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This demo shows how to detect if there's a click on the view but released outside the view.
 //This construction is mainly used for buttons, a button click is only registered when a user
 //touches the button and the touch up event is also triggered inside the same button.
