@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="../../include/docco.css">
     <link rel="stylesheet" href="../../include/bootstrap.min.css">
     <link rel="stylesheet" href="../../include/style.css">
+    <script src="../../include/codemirror//codemirror.js"></script>
+    <link rel="stylesheet" href="../../include/codemirror/codemirror.css">
+    <script src="../../include/codemirror/mode/javascript/javascript.js"></script>
     <script>var ADDON_SOCIAL = false;</script>
     <script src="./runtime.js"></script>
   </head>
@@ -181,7 +184,7 @@
       </div>
       <div class="modal-body" id="demo-modal-body">
         <canvas width="320" height="480" id="cnv"></canvas>
-        <!--<textarea id="code-editor"></textarea>-->
+        <textarea id="code-editor"></textarea>
       </div>
       <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
@@ -275,6 +278,16 @@
 
     <script type="text/jsio">
       function launchDemo () {
+        if (!window.demoEditor) {
+          var editorTextArea = document.getElementById('code-editor');
+          window.demoEditor = CodeMirror.fromTextArea(editorTextArea, {
+            value: "function() {}",
+            mode: "javascript",
+            lineNumbers: true,
+            theme: "monokai"
+          });
+        }
+
         if (window.example) {
           /* get rid of the last one -- doesn't work yet */
           window.example.engine.hide();
