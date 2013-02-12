@@ -276,16 +276,16 @@
     <script type="text/jsio">
       function launchDemo () {
         if (window.example) {
-          /* get rid of the last one -- doesn't work yet */
+          /* get rid of the last one -- doesn't work yet
           window.example.engine.hide();
           window.example.engine.pause();
           delete window.example;
+          */
+        } else {
+          jsio("import .src.Application as Example;");
+          window.example = new Example();
+		      GC.buildEngine({view: window.example, canvas: 'cnv'});
         }
-
-        jsio("import .src.Application as Example;");
-        window.example = new Example();
-		    GC.buildEngine({view: window.example, canvas: 'cnv'});
-        console.log("LAUNCHDEMO");
       }
 
       $('#launchDemo').click(launchDemo);
