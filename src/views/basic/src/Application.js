@@ -1,4 +1,4 @@
-//# A Basic View <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/views/basic/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//# A Basic View <a title="View raw file" href="https://raw.github.com/gameclosure/examples/master/src/views/basic/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This file demonstrates how to create a simple view.
 
 import device;

@@ -1,4 +1,4 @@
-//# Add and Remove Views <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/views/addremove/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//# Add and Remove Views <a title="View raw file" href="https://raw.github.com/gameclosure/examples/master/src/views/addremove/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This file demonstrates how to move a subview from one superview to another superview.
 
 import device;

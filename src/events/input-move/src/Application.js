@@ -1,4 +1,4 @@
-//# Create a trail with move events <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/events/input-move/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//# Create a trail with move events <a title="View raw file" href="https://raw.github.com/gameclosure/examples/master/src/events/input-move/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This demo shows how to create a trail behind the mouse when clicking and dragging.
 //Click on the view and then drag.
 

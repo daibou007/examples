@@ -1,4 +1,4 @@
-//# 6-Slice Image Scaling <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/images/six-slice/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//# 6-Slice Image Scaling <a title="View raw file" href="https://raw.github.com/gameclosure/examples/master/src/images/six-slice/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //Given the following image:
 //<img src="./doc/window.png" alt="button image" class="screenshot" style="display:block;width:200px;">
 
