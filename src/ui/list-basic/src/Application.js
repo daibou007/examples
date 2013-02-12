@@ -1,4 +1,4 @@
-//# A Basic List <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/ui/listbasic/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//# A Basic List <a title="View raw file" href="https://raw.github.com/gameclosure/examples/master/src/ui/list-basic/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //Displaying a list of items requires the coordinated use of three classes: `ui.widget.ListView`,
 //`ui.widget.CellView`, and `GCDataSource`. There are components that handle some of these for you,
 //but to understand how they work together, we’ll display a list of arbitrary data that we can

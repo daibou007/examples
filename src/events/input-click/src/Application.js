@@ -1,4 +1,4 @@
-//# Handling click events <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/events/input-click/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//# Handling click events <a title="View raw file" href="https://raw.github.com/gameclosure/examples/master/src/events/input-click/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This file demonstrates how to handle click events, when the view is clicked the color changes.
 
 //Import the `ui.View` class.

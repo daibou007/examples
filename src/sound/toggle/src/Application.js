@@ -1,4 +1,4 @@
-//# Toggle a sound <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/sound/toggle/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//# Toggle a sound <a title="View raw file" href="https://raw.github.com/gameclosure/examples/master/src/sound/toggle/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 
 //Given the following audio files in your project directory:
 //<pre>

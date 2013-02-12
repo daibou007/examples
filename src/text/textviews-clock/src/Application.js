@@ -1,4 +1,4 @@
-//# Text View Clock <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/text/textviews-clock/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//# Text View Clock <a title="View raw file" href="https://raw.github.com/gameclosure/examples/master/src/text/textviews-clock/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //Here we will create a completely working clock using Text Views!
 //Different positioning and scaling options are presented in this example
 //as well as how to update text views dynamically after creation.

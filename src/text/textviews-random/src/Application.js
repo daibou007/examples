@@ -1,4 +1,4 @@
-//# Many Random TextView <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/text/textviews-random/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//# Many Random TextView <a title="View raw file" href="https://raw.github.com/gameclosure/examples/master/src/text/textviews-random/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //Here we'll create a header using some of the `TextView` positional options, then add many, many random letters scattered around the screen, each its own `TextView`.
 
 import device;

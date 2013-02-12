@@ -1,4 +1,4 @@
-//# Detect an input out event <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/events/input-out/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//# Detect an input out event <a title="View raw file" href="https://raw.github.com/gameclosure/examples/master/src/events/input-handling/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This demo shows how to detect some of the more commonly used input events on views.
 //These events include "InputStart", "InputOver", "InputMove", "InputOut", and "InputSelect"
 //Try experimenting with clicking on and off of the red view and by moving input on and off

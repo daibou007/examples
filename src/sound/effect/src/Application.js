@@ -1,4 +1,4 @@
-//# Playing effects <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/sound/effect/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//# Playing effects <a title="View raw file" href="https://raw.github.com/gameclosure/examples/master/src/sound/effect/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This example shows how to play different sound effects.
 //You can click on one of the views to play an effect
 

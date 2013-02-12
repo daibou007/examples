@@ -1,4 +1,4 @@
-//# Using a sprite sheet <a title="View raw file" href="https://raw.github.com/gameclosure/addon-examples/master/src/images/spritesheet/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//# Using a sprite sheet <a title="View raw file" href="https://raw.github.com/gameclosure/examples/master/src/images/spritesheet/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This file demonstrates how to set the source location of the image within an image map.
 
 //This example demonstrates how to set the source location of the image within an image map.
