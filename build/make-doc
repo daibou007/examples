@@ -52,7 +52,7 @@ function convert_source {
 				cp -R "$example_path/" $OUT_ROOT/$out_path
 				cd "$OUT_ROOT/$out_path"
 				ln -s $PROJECT_ROOT/sdk ./sdk
-				basil compile "gc.API" init --no-compress --eval --appendImport --out runtime.js
+				basil compile "gc.API" init --no-compress --eval --appendImport --out runtime.js > /dev/null
 				cd "$PROJECT_ROOT"
 
 
