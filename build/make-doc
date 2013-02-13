@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 
+#usage:
+# ./build/make-doc ~/src/devkit/src/basil.js
+
+if [ -z "$1" ]; then
+		echo "You must pass the path to basil.js as the second param to run this script!"
+		echo "On the server, you probably want to do:"
+		echo "./build/make-doc ~/src/devkit-priv/src/basil.js"
+		exit 1
+fi
+
+BASIL_JS="$1"
 PROJECT_ROOT=$(cd -P $(dirname "$0") && cd .. && pwd)
 TEMPLATE="$PROJECT_ROOT/build/template.html"
 SRC_ROOT="$PROJECT_ROOT/src"
@@ -48,10 +59,18 @@ function convert_source {
 						cp -a "$example_path/doc" "$OUT_ROOT/$out_path/"
 				fi
 
-				cp ./build/init.js $OUT_ROOT/$out_path
-				cp -R "$example_path/" $OUT_ROOT/$out_path
+				if [ -d "$example_path/src" ]; then
+						cp -a "$example_path/src" "$OUT_ROOT/$out_path/"
+				fi
+
+				if [ -d "$example_path/resources" ]; then
+						cp -a "$example_path/resources" "$OUT_ROOT/$out_path/"
+				fi
+
+				cp ./build/init.js "$OUT_ROOT/$out_path"
+				
 				cd "$OUT_ROOT/$out_path"
-				ln -s $PROJECT_ROOT/sdk ./sdk
+				ln -s "$PROJECT_ROOT/sdk" ./sdk
 				basil compile "gc.API" init --no-compress --eval --appendImport --out runtime.js
 				cd "$PROJECT_ROOT"
 
