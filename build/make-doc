@@ -32,7 +32,7 @@ function convert_source {
 				out_path=$(echo "${out_path%-src-Application}" | tr '[:upper:]' '[:lower:]')
 				
 				#generate annotated html with docco
-				if docco --template "$TEMPLATE" --output "$OUT_ROOT/$out_path" "$SRC_ROOT/$rel_path" &>/dev/null; then
+				if docco --template "$TEMPLATE" --output "$OUT_ROOT/$out_path" "$SRC_ROOT/$rel_path" &> /dev/null; then
 						#rename Application.html to index.html, all classes should be in single file
 						mv "$OUT_ROOT/$out_path/Application.html" "$OUT_ROOT/$out_path/index.html"
 						echo "  * $OUT_ROOT/$out_path"
@@ -48,11 +48,11 @@ function convert_source {
 						cp -a "$example_path/doc" "$OUT_ROOT/$out_path/"
 				fi
 
-				cp ../embed/init.js $OUT_ROOT/$out_path
+				cp ./build/init.js $OUT_ROOT/$out_path
 				cp -R "$example_path/" $OUT_ROOT/$out_path
 				cd "$OUT_ROOT/$out_path"
 				ln -s $PROJECT_ROOT/sdk ./sdk
-				basil compile "gc.API" init --no-compress --eval --appendImport --out runtime.js > /dev/null
+				basil compile "gc.API" init --no-compress --eval --appendImport --out runtime.js
 				cd "$PROJECT_ROOT"
 
 

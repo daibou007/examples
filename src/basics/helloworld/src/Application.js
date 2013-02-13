@@ -18,7 +18,7 @@ exports = Class(GC.Application, function () {
 			layout: "box",
 			//The text to display on screen
 			text: "Hello, world!",
-			color: "white"
+			color: "blue"
 		});
 	};
 
