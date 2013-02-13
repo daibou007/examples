@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="/include/docco.css">
     <link rel="stylesheet" href="/include/bootstrap.min.css">
     <link rel="stylesheet" href="/include/style.css">
+    <script>var ADDON_SOCIAL = false;</script>
+    <script src="./runtime.js"></script>
   </head>
   <body>
     <div class="navbar navbar-fixed-top">
@@ -180,8 +182,41 @@
       </div><!--/.nav-collapse -->
     </div><!--/navbar-->
     
+    <!-- Modal -->
+    <div id="modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="Example Demo" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Example</h3>
+      </div>
+      <div class="modal-body" id="demo-modal-body">
+        <canvas width="320" height="480" id="demo-canvas"></canvas>
+        <!--<textarea id="code-editor"></textarea>-->
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <!--<button class="btn btn-primary">Save changes</button>-->
+      </div>
+    </div>
+
     <div class="container-fluid">
       <div id="background"></div>
+      <% var demoName = path.basename(path.join(destination(), '..')); %>
+      <% var blacklist = [
+        'animation-trail', 
+        'basics-scalescreen', 
+        'events-input-handling',
+        'events-input-move',
+        'images-spritesheet',
+        'sound-volume',
+        'text-textviews-random',
+        'ui-button-toggle',
+        'ui-scrollview-basic',
+        'ui-spriteview-basic'
+        ];
+      %>
+      <% if (blacklist.indexOf(demoName) == -1) { %>
+        <a href="#modal" id="launchDemo" role="button" class="btn" data-toggle="modal">Launch Demo!</a>
+      <% } %>
       <% if (sources.length > 1) { %>
         <div id="jump_to">
           Jump To &hellip;
@@ -262,5 +297,20 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="/include/bootstrap.min.js"></script>
     <script src="/include/init.js"></script>
+
+    <script type="text/jsio">
+      function launchDemo () {
+        if (window.example) {
+          example.engine.isRunning()? example.engine.pause() : example.engine.resume();
+        } else {
+          jsio("import .src.Application as Example;");
+          window.example = new Example();
+		      GC.buildEngine({view: window.example, canvas: 'demo-canvas'});
+        }
+      }
+
+      $('#launchDemo').click(launchDemo);
+
+    </script>
   </body>
 </html>
