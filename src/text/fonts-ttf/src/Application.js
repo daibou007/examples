@@ -37,4 +37,4 @@ var TTFView = Class(View, function () {
 });
 
 //The output should look like this screenshot:
-//<img src="./imgscreenshot.png" alt="a book screenshot" class="screenshot">
+//<img src="./screenshot.png" alt="a book screenshot" class="screenshot">
