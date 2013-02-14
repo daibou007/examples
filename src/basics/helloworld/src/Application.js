@@ -1,5 +1,5 @@
 //# Hello, World! <a title="View raw file" href="https://raw.github.com/gameclosure/examples/master/src/basics/helloworld/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
-//For a more detailed walk-through, take a look at the [Hello, World! Guide](../guide/hello-world.html).
+//For a more detailed walk-through, take a look at the [Hello, World! Guide](http://doc.gameclosure.com/guide/hello-world.html).
 
 //Import the [TextView](../../api/ui-text.html#class-ui.textview) class to use locally.
 import ui.TextView as TextView;
