@@ -23,10 +23,6 @@ exports = Class(GC.Application, function () {
 		preload: []
 	};
 
-	this.initUI = function () {
-		this.view.render = bind(this, "render");
-	};
-
 	//The customFont1 is created with the font editor,
 	//the files are located in "resources/fonts/fonts.json"
 	this.render = function(ctx) {

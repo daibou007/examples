@@ -34,7 +34,8 @@
 		"autoHide": true
 	},
 	"resources": {},
+	"fonts": "resources/fonts/fonts.json",
 	"targets": {},
 	"groups": {},
-	"sdkVersion": "dev-0.1.0"
+	"sdkVersion": "release-0.1.1"
 }
