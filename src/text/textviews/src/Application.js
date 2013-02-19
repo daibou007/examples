@@ -190,7 +190,7 @@ exports = Class(GC.Application, function () {
 		//A button to change the stroke color
 		new TextViewSetting({
 			superview: this.view,
-			target: textView,
+			target: this._textView,
 			textViewOpts: this._textViewOpts,
 			x: left,
 			y: 325,
@@ -200,7 +200,7 @@ exports = Class(GC.Application, function () {
 		//A button to change the stroke width
 		new TextViewSetting({
 			superview: this.view,
-			target: textView,
+			target: this._textView,
 			textViewOpts: this._textViewOpts,
 			x: left,
 			y: 360,
@@ -210,7 +210,7 @@ exports = Class(GC.Application, function () {
 		//A button to change the shadow color
 		new TextViewSetting({
 			superview: this.view,
-			target: textView,
+			target: this._textView,
 			textViewOpts: this._textViewOpts,
 			x: left,
 			y: 395,
