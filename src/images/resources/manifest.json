@@ -38,7 +38,6 @@
     "icon": "resources/icons/icon512.png",
     "splash": {
         "autoHide": true,
-        "scaleMethod": "cover",
         "universal": "resources/splash/universal.png"
     }
 }
