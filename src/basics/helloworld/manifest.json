@@ -1,47 +1,44 @@
 {
-	"appID": "00000000000000000000000000000000",
-	"shortName": "helloWorld",
-	"title": "Hello, World!",
-	"icons": {
-		"28": "preload/icons/icon28.png",
-		"38": "preload/icons/icon38.png",
-		"48": "preload/icons/icon48.png",
-		"56": "preload/icons/icon56.png",
-		"57": "preload/icons/icon57.png",
-		"72": "preload/icons/icon72.png",
-		"114": "preload/icons/icon114.png",
-		"144": "preload/icons/icon144.png",
-		"512": "preload/icons/icon512.png"
-	},
-	"studio": {
-		"name": "Example Studio Name",
-		"domain": "studio.example.com",
-		"stagingDomain": "staging.example.com"
-	},
-	"supportedOrientations": [
-		"portrait"
-	],
-	"android": {
-		"versionCode": 1,
-		"tapjoyId": "",
-		"tapjoyKey": "",
-		"flurryKey": "",
-		"tapjoyDaily": {}
-	},
-	"ios": {
-		"tapjoyId": "",
-		"tapjoyKey": "",
-		"flurryKey": ""
-	},
-	"description": "The default application.",
-	"group": "examples",
-	"doc": "http://doc.gameclosure.com/example/basics-helloworld/",
-	"preload": {
-		"img": "resources/images/splash.png",
-		"autoHide": true
-	},
-	"resources": {},
-	"targets": {},
-	"groups": {},
-	"sdkVersion": "dev-0.1.0"
+    "appID": "00000000000000000000000000000000",
+    "shortName": "helloWorld",
+    "title": "Hello, World!",
+    "studio": {
+        "name": "Example Studio Name",
+        "domain": "studio.example.com",
+        "stagingDomain": "staging.example.com"
+    },
+    "supportedOrientations": [
+        "portrait"
+    ],
+    "android": {
+        "versionCode": 1,
+        "icons": {
+            "36": "resources/icons/android36.png",
+            "48": "resources/icons/android48.png",
+            "72": "resources/icons/android72.png",
+            "96": "resources/icons/android96.png"
+        }
+    },
+    "ios": {
+        "icons": {
+            "57": "resources/icons/ios57.png",
+            "72": "resources/icons/ios72.png",
+            "114": "resources/icons/ios114.png",
+            "144": "resources/icons/ios144.png",
+            "renderGloss": true
+        }
+    },
+    "description": "The default application.",
+    "group": "examples",
+    "doc": "http://doc.gameclosure.com/example/basics-helloworld/",
+    "resources": {},
+    "targets": {},
+    "groups": {},
+    "sdkVersion": "dev-0.1.0",
+    "icon": "resources/icons/icon512.png",
+    "splash": {
+        "autoHide": true,
+        "scaleMethod": "cover",
+        "universal": "resources/splash/universal.png"
+    }
 }
